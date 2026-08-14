@@ -1,0 +1,57 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+ENV/
+
+# ---- 测试与缓存 ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- Qlib ----
+.qlib/
+qlib_data/
+*.bin
+*.pkl
+calendars/
+features/
+instruments/
+data/*.csv
+data/*.parquet
+
+# ---- 数据文件（原始行情/财务数据，体积大）----
+data/raw/
+data/processed/
+*.feather
+
+# ---- 报告/结果输出 ----
+reports/*.html
+reports/*.png
+reports/*.csv
+mlruns/
+artifacts/
+exp/
+output/
+
+# ---- IDE / 系统 ----
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- 密钥与凭证 ----
+.env
+*.token
+config/secrets*.yaml
