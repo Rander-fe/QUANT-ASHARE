@@ -1,0 +1,3 @@
+[submodule "vendor/quantmind"]
+	path = vendor/quantmind
+	url = https://github.com/Rander-fe/QUANTMIND.git
