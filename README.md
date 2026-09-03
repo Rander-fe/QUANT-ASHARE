@@ -222,7 +222,16 @@ Sharpe    = mean(日净收益) / std(日净收益) × √252
 
 模型选择顺序是：先看验证期预测能力，再看稳定性和增量性，最后看扣成本后的组合结果。测试集只能在模型、因子和组合参数全部冻结后使用一次。
 
-## 八、TopK/Buffer/Dropout低频调仓
+## 八、当前回测结果（严格区分口径）
+
+| 结果 | 标签/因子 | 区间 | 年化收益 | 基准年化 | 年化超额 | Sharpe | 最大回撤 |
+|---|---|---|---:|---:|---:|---:|---:|
+| 5日30因子 holdout | `label_ret_5` / 25+5=30 | 2024-07-01至2025-01-01 | 94.66% | 28.50% | 66.16% | 1.969 | -11.18% |
+| 锁定测试纠错复算 | `label_ret_20` / LGB | 383个交易日 | 21.70% | 12.11% | 9.59% | 1.461 | -13.73% |
+
+第一行是验证集内部 holdout，不是最终测试；第二行是已审计的 `open_limit_v2` 测试纠错复算，使用20日标签，不能冒充5日30因子最终测试。详细结果和审计文件见 [PROJECT_INTRO.md](PROJECT_INTRO.md) 第8.14.1.3节。
+
+## 九、TopK/Buffer/Dropout低频调仓
 
 LightGBM 输出分数后，组合模块在调仓日完成：
 
@@ -245,7 +254,7 @@ LightGBM 输出分数后，组合模块在调仓日完成：
 
 主要文件：`backtest/alpha_signal.py`、`backtest/engine.py`、`backtest/run_backtest.py`、`backtest/config.py`、`analysis/tune_portfolio.py`。
 
-## 九、额外分析
+## 十、额外分析
 
 ### 9.1 三模型对比
 
@@ -271,7 +280,7 @@ label_ret_20 → 未来20个交易日收益
 - 成交量参与率、滑点和冲击成本压力测试；
 - SHAP 等模型解释与外部 Alpha158 基线比较。
 
-## 十、快速运行
+## 十一、快速运行
 
 ```powershell
 python main.py list
@@ -303,7 +312,7 @@ python main.py qm_build_mining_memory
 python main.py qm_mine_one_factor
 ```
 
-## 十一、主要目录
+## 十二、主要目录
 
 ```text
 config/                 日期、路径、因子和策略配置
