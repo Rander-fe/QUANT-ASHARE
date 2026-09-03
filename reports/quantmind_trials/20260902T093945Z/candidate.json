@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T09:39:45.186247+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_RET_AUTOCORR_20",
+    "formula": "TS_CORR($pct_chg, DELAY($pct_chg,1), 20)",
+    "inputs": [
+      "pct_chg"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "短期收益自相关反映价格对信息冲击的调整效率。负自相关（高频反转）通常与散户噪声交易、流动性提供不足相关，是超额波动和脆弱的来源，在截面上预示弱势未来收益。"
+  },
+  "provider_request_id": "8ac2f51e-6157-44a7-8aef-af911e75924b",
+  "usage": {
+    "prompt_tokens": 4333,
+    "completion_tokens": 15315,
+    "total_tokens": 19648,
+    "prompt_tokens_details": {
+      "cached_tokens": 4224
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 15100
+    },
+    "prompt_cache_hit_tokens": 4224,
+    "prompt_cache_miss_tokens": 109
+  }
+}

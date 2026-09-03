@@ -1,0 +1,71 @@
+{
+  "status": "weekly_training_backtest_complete",
+  "candidate": "QM_DS_IND_RESID_MOM_20_WINSOR_Z_SIZE_NEUTRAL",
+  "signal_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260901T171507Z\\train_evaluation_5d\\factor_values.parquet",
+  "direction": "negative",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.1,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "cost_scenarios": [
+    {
+      "cost_bps": 10,
+      "annual_return": -0.0029134628232463378,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.024326464604734754,
+      "annual_volatility": 0.22060744006379535,
+      "sharpe": 0.0979753937464824,
+      "information_ratio": -0.1057921231759197,
+      "max_drawdown": -0.5088643660471945,
+      "final_nav": 0.9796016610323147,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.3660289923182958,
+      "annualized_one_way_turnover": 19.225158735855118,
+      "total_trading_cost": 24037693.398038566,
+      "blocked_buy_count": 157,
+      "blocked_sell_count": 12501,
+      "blocked_buy_rate_per_selection": 0.0013072875033306689
+    },
+    {
+      "cost_bps": 20,
+      "annual_return": -0.03989097125912533,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.061303973040613746,
+      "annual_volatility": 0.21909576450785573,
+      "sharpe": -0.07530920739733818,
+      "information_ratio": -0.32601855056912066,
+      "max_drawdown": -0.5451673478693555,
+      "final_nav": 0.7501038107255342,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.36214541050244853,
+      "annualized_one_way_turnover": 19.021179055446584,
+      "total_trading_cost": 41770567.81667703,
+      "blocked_buy_count": 157,
+      "blocked_sell_count": 12496,
+      "blocked_buy_rate_per_selection": 0.0013072875033306689
+    }
+  ],
+  "primary_cost_bps": 10,
+  "training_reference_gates": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "training_gates_passed": false,
+  "formal_sota_decision": "remain_experimental",
+  "warning": "Training backtest is not final proof. Validation was not reused and test was not accessed."
+}

@@ -1,0 +1,141 @@
+{
+  "status": "experimental_comparison_not_sota",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "label": "label_ret_20",
+  "direction": "negative",
+  "test_period_used": false,
+  "variants": {
+    "QM_DS_LIQUIDITY_AMPLIFICATION": "original",
+    "QM_DS_LIQUIDITY_AMPLIFICATION_WINSOR_Z": "daily cross-sectional 1%/99% winsorization followed by z-score",
+    "QM_DS_LIQUIDITY_AMPLIFICATION_RETVOL": "replace 20-day close-level std with 20-day close-return std",
+    "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL": "replace amount with Tushare turnover_rate and use 20-day return std"
+  },
+  "industry_warning": "industry is a current stock_basic snapshot backfilled historically; exposure is diagnostic only",
+  "summary": [
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION",
+      "days": 1762,
+      "ic_mean": -0.022518696295016013,
+      "ic_std": 0.05511662578042725,
+      "rank_ic_mean": -0.0758300372666943,
+      "rank_ic_std": 0.10059340916379157,
+      "size_rank_corr_mean": 0.2614937536564935,
+      "size_rank_corr_std": 0.09863928086426428,
+      "industry_eta2_mean": 0.15967821048016073,
+      "industry_eta2_std": 0.030377925366010687,
+      "aligned_ic_mean": 0.022518696295016013,
+      "aligned_rank_ic_mean": 0.0758300372666943,
+      "aligned_ic_ir": 0.4085644934928644,
+      "aligned_rank_ic_ir": 0.753827093614292,
+      "aligned_ic_correct_rate": 0.6901248581157775,
+      "aligned_rank_ic_correct_rate": 0.7888762769580022
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_WINSOR_Z",
+      "days": 1762,
+      "ic_mean": -0.039565131517475746,
+      "ic_std": 0.07545433576489481,
+      "rank_ic_mean": -0.07583272491456956,
+      "rank_ic_std": 0.10059221654216054,
+      "size_rank_corr_mean": 0.2614869215956326,
+      "size_rank_corr_std": 0.09864037798369489,
+      "industry_eta2_mean": 0.15967228676807715,
+      "industry_eta2_std": 0.030378656872014586,
+      "aligned_ic_mean": 0.039565131517475746,
+      "aligned_rank_ic_mean": 0.07583272491456956,
+      "aligned_ic_ir": 0.5243586218922552,
+      "aligned_rank_ic_ir": 0.753862749239513,
+      "aligned_ic_correct_rate": 0.717366628830874,
+      "aligned_rank_ic_correct_rate": 0.7888762769580022
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_RETVOL",
+      "days": 1761,
+      "ic_mean": -0.023946321021482333,
+      "ic_std": 0.08150336152677148,
+      "rank_ic_mean": -0.08073105800588426,
+      "rank_ic_std": 0.14529276782256217,
+      "size_rank_corr_mean": 0.6223807546366127,
+      "size_rank_corr_std": 0.08872983890167255,
+      "industry_eta2_mean": 0.19186534391107843,
+      "industry_eta2_std": 0.03479528513499024,
+      "aligned_ic_mean": 0.023946321021482333,
+      "aligned_rank_ic_mean": 0.08073105800588426,
+      "aligned_ic_ir": 0.29380777151892884,
+      "aligned_rank_ic_ir": 0.5556440228633852,
+      "aligned_ic_correct_rate": 0.6604202157864849,
+      "aligned_rank_ic_correct_rate": 0.7268597387847814
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL",
+      "days": 1761,
+      "ic_mean": -0.0754335802398775,
+      "ic_std": 0.09530970045653962,
+      "rank_ic_mean": -0.09116292844813884,
+      "rank_ic_std": 0.12033295725555603,
+      "size_rank_corr_mean": -0.3524137708719126,
+      "size_rank_corr_std": 0.09422140318718726,
+      "industry_eta2_mean": 0.15445841640184677,
+      "industry_eta2_std": 0.04107565313148143,
+      "aligned_ic_mean": 0.0754335802398775,
+      "aligned_rank_ic_mean": 0.09116292844813884,
+      "aligned_ic_ir": 0.7914575313797628,
+      "aligned_rank_ic_ir": 0.7575890306969885,
+      "aligned_ic_correct_rate": 0.7978421351504826,
+      "aligned_rank_ic_correct_rate": 0.7802385008517888
+    }
+  ],
+  "quality": [
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION",
+      "rows": 6851692,
+      "missing_rate": 0.058961348525298565,
+      "infinity_count": 0,
+      "p01": 57812.47960196252,
+      "median": 1003304.0384199818,
+      "p99": 26110889.296459846,
+      "max": 27817463405.498795,
+      "skew": 55.7829268897004,
+      "kurtosis": 4198.961547093583
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_WINSOR_Z",
+      "rows": 6851692,
+      "missing_rate": 0.058961348525298565,
+      "infinity_count": 0,
+      "p01": -0.648391656062453,
+      "median": -0.316674982565328,
+      "p99": 5.7348047173657095,
+      "max": 7.837157399534207,
+      "skew": 4.118972134985272,
+      "kurtosis": 20.181696653749313
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_RETVOL",
+      "rows": 6851692,
+      "missing_rate": 0.10605672292333047,
+      "infinity_count": 0,
+      "p01": 215137.09973788165,
+      "median": 3058402.163882809,
+      "p99": 78984986.67223948,
+      "max": 196088835043.2632,
+      "skew": 769.9978790828517,
+      "kurtosis": 702736.2895454724
+    },
+    {
+      "factor": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL",
+      "rows": 6851692,
+      "missing_rate": 0.10609379405846031,
+      "infinity_count": 0,
+      "p01": 6.330092110236111,
+      "median": 60.80705693390037,
+      "p99": 684.5200077636977,
+      "max": 4800.102960898693,
+      "skew": 4.806865080092695,
+      "kurtosis": 40.278203938127994
+    }
+  ]
+}

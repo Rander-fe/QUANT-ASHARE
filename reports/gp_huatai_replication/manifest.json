@@ -1,0 +1,47 @@
+{
+  "protocol_version": 1,
+  "experiment": "huatai_gp_six_factor_replication",
+  "created_at_utc": "2026-08-29T07:05:35.124289+00:00",
+  "git_commit": "36a85d184149ec4c888d94dbce03e1b2d20658be",
+  "python": "3.9.25 (main, Nov  3 2025, 22:44:01) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "config": {
+    "discovery_source": "HTSC 2019-06-10",
+    "label": "label_ret_20",
+    "train_period": [
+      "2016-01-01",
+      "2023-04-30"
+    ],
+    "valid_period": [
+      "2023-05-01",
+      "2025-01-01"
+    ],
+    "neutralization": [
+      "industry",
+      "log_mv",
+      "ret20",
+      "turn20",
+      "vol20"
+    ],
+    "test_data_used": false
+  },
+  "features": [
+    "GP_HT_ALPHA1",
+    "GP_HT_ALPHA2",
+    "GP_HT_ALPHA3",
+    "GP_HT_ALPHA4",
+    "GP_HT_ALPHA5",
+    "GP_HT_ALPHA6"
+  ],
+  "feature_count": 6,
+  "inputs": [
+    {
+      "path": "C:\\QUANT-ASHARE\\data\\processed\\basic_cleaned_with_extra_by_date.parquet",
+      "exists": true,
+      "size": 2781366309,
+      "mtime_ns": 1787389595439246100,
+      "edge_sha256": "7d82d4bd2c53559356f013fc229a294868da4b73987b5a40baf7b11bc6bc78a9"
+    }
+  ],
+  "test_data_used": false
+}

@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T07:44:02.908231+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IDIOVOL_60D",
+    "formula": "TS_STD($IND_RESID_RET_1D,60)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 60,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "特质波动率反映套利限制下被高估的风险，高异质波动股票未来收益偏低；60日窗口比20日更慢，作为周频调仓下的低换手慢变量能稳健捕捉该负向溢价。"
+  },
+  "provider_request_id": "6882f7a5-efe0-4287-9e3e-87646a1d7a6c",
+  "usage": {
+    "prompt_tokens": 4251,
+    "completion_tokens": 912,
+    "total_tokens": 5163,
+    "prompt_tokens_details": {
+      "cached_tokens": 4224
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 735
+    },
+    "prompt_cache_hit_tokens": 4224,
+    "prompt_cache_miss_tokens": 27
+  }
+}

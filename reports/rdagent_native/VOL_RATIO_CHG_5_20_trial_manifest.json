@@ -1,0 +1,41 @@
+{
+  "status": "experimental_trial_complete",
+  "formal_sota_write": false,
+  "active_core25_modified": false,
+  "engine": {
+    "image": "quantmind-rdagent:local",
+    "rdagent_version": "0.8.0+local",
+    "qlib_version": "0.9.7",
+    "llm": "deepseek/deepseek-v4-flash",
+    "entry": "FactorRDLoop",
+    "joint_engine_ready": "QuantRDLoop",
+    "note": "The first bandit action of a fresh QuantRDLoop is the factor leg; FactorRDLoop was used so this smoke trial deterministically generated a factor."
+  },
+  "candidate": {
+    "factor_name": "VOL_RATIO_CHG_5_20",
+    "formula": "DELTA(SAFE_DIV(TS_MEAN($volume, 5), TS_MEAN($volume, 20)), 5)",
+    "description": "5日/20日成交量比率的5日变化，捕捉短期流动性相对长期水平的边际变化",
+    "status": "experimental"
+  },
+  "self_evolution_feedback": {
+    "first_implementation_passed": false,
+    "failure": "Implementation expected volume but official Qlib HDF5 uses $volume.",
+    "optimized_implementation": "Accepts both volume and $volume.",
+    "debug_rows": 48700,
+    "debug_non_null": 40184,
+    "optimized_implementation_passed": true
+  },
+  "full_run": {
+    "source_rows": 7584444,
+    "evaluation_period": ["2016-01-01", "2020-09-01"],
+    "evaluation_rows": 3798500,
+    "valid_pairs": 3263697,
+    "missing_or_nonfinite_rate": 0.1407932078452021,
+    "ic_5d": -0.01815171997613436,
+    "rank_ic_5d": -0.01649001546225503,
+    "rank_ic_ir": -0.10019938800828296,
+    "positive_rank_ic_day_rate": 0.40393208221626453
+  },
+  "decision": "retain_experimental_only",
+  "reason": "Absolute 5-day RankIC is above 0.01, but sign and yearly stability are weak; core25 redundancy, incremental IC, weekly 20bps and frozen validation checks have not been passed."
+}

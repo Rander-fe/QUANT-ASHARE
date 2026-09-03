@@ -1,0 +1,97 @@
+{
+  "model": "lgb",
+  "label": "label_ret_20",
+  "chosen_preset": "low_turnover_equal",
+  "tune_period": [
+    "2023-05-04",
+    "2024-03-29"
+  ],
+  "holdout_period": [
+    "2024-04-01",
+    "2024-12-31"
+  ],
+  "config": {
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 5,
+    "rebalance_days": 20,
+    "initial_cash": 100000000.0,
+    "buy_cost": 0.0005,
+    "sell_cost": 0.0015,
+    "min_commission": 5.0,
+    "lot_size": 100,
+    "winsor_quantile": 0.01,
+    "max_industry_weight": 0.2,
+    "use_mean_variance_optimizer": false,
+    "max_stock_weight": 0.04,
+    "covariance_lookback": 120,
+    "covariance_min_observations": 40,
+    "alpha_scale": 0.025,
+    "risk_aversion": 0.5,
+    "turnover_penalty": 0.003,
+    "target_annual_volatility": 0.35,
+    "volatility_lookback": 60,
+    "minimum_exposure": 0.6,
+    "max_rebalance_turnover": 0.15,
+    "drawdown_tiers": [
+      [
+        -0.2,
+        0.9
+      ],
+      [
+        -0.3,
+        0.75
+      ],
+      [
+        -0.4,
+        0.6
+      ]
+    ],
+    "benchmark": "SH000300"
+  },
+  "tune_metrics": {
+    "preset": "low_turnover_equal",
+    "selection_score": 0.03207001312680731,
+    "annual_return": -0.040687816364372686,
+    "benchmark_annual_return": -0.13817858602096722,
+    "annual_excess_return": 0.09749076965659453,
+    "annual_volatility": 0.17275238384753344,
+    "sharpe": -0.15395659135996365,
+    "information_ratio": 0.6861535771045993,
+    "max_drawdown": -0.22899790899600014,
+    "average_daily_turnover": 0.01193467639573391,
+    "average_exposure": 0.9986486486486486,
+    "max_rebalance_turnover": 0.14999997764430206,
+    "total_cost": 243179.30722688363,
+    "trading_days": 222
+  },
+  "holdout_metrics": {
+    "annual_return": 0.04072275695229166,
+    "benchmark_annual_return": 0.13219602048121226,
+    "annual_excess_return": -0.0914732635289206,
+    "annual_volatility": 0.2856073458271057,
+    "sharpe": 0.28205633681164566,
+    "information_ratio": -0.2914445927569938,
+    "max_drawdown": -0.19819304152013328,
+    "average_daily_turnover": 0.012769016970226341,
+    "average_exposure": 0.9975237149191163,
+    "max_rebalance_turnover": 0.14999998577765408,
+    "total_cost": 212468.70901667175,
+    "trading_days": 184
+  },
+  "full_valid_metrics": {
+    "annual_return": 0.032276375816848946,
+    "benchmark_annual_return": -0.014785866190094699,
+    "annual_excess_return": 0.047062242006943644,
+    "annual_volatility": 0.1695698430093943,
+    "sharpe": 0.27213440936070077,
+    "information_ratio": 0.26503215030608035,
+    "max_drawdown": -0.22899790899600014,
+    "average_daily_turnover": 0.009850978756323781,
+    "average_exposure": 0.9992610837438424,
+    "max_rebalance_turnover": 0.14999998026313413,
+    "total_cost": 386325.3323014982,
+    "trading_days": 406
+  },
+  "test_set_accessed": false
+}

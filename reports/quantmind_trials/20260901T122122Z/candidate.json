@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T12:21:22.917522+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_TURNOVER_CV",
+    "formula": "SAFE_DIV(TS_STD($turnover_rate,20), TS_MEAN($turnover_rate,20))",
+    "inputs": [
+      "turnover_rate"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "换手率的变异系数衡量了交易活跃度的稳定性。较高的变异系数意味着交投不稳定，可能反映投资者情绪波动剧烈，往往导致未来收益偏低或不确定性增加。"
+  },
+  "provider_request_id": "4d2d57de-2049-45de-b8d5-e7753fb1a198",
+  "usage": {
+    "prompt_tokens": 500,
+    "completion_tokens": 1251,
+    "total_tokens": 1751,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1090
+    },
+    "prompt_cache_hit_tokens": 384,
+    "prompt_cache_miss_tokens": 116
+  }
+}

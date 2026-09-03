@@ -1,0 +1,53 @@
+{
+  "status": "weekly_training_backtest_complete",
+  "candidate": "QM_LOCAL_ROE_LEVEL_WINSOR_Z_SIZE_NEUTRAL",
+  "signal_file": "/workspace/reports/quantmind_trials/local_roe_level_5d/train_evaluation_5d/factor_values.parquet",
+  "direction": "positive",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.1,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "cost_scenarios": [
+    {
+      "cost_bps": 20,
+      "annual_return": -0.0009668974695747901,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.022379899251063207,
+      "annual_volatility": 0.2179502683870532,
+      "sharpe": 0.1053543163972326,
+      "information_ratio": -0.1122652666051144,
+      "max_drawdown": -0.413939681153197,
+      "final_nav": 0.9931903151743672,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.08110519460077067,
+      "annualized_one_way_turnover": 4.259936434615311,
+      "total_trading_cost": 12344825.439487949,
+      "blocked_buy_count": 180,
+      "blocked_sell_count": 1405,
+      "blocked_buy_rate_per_selection": 0.0014040561622464898
+    }
+  ],
+  "primary_cost_bps": 20,
+  "training_reference_gates": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "training_gates_passed": false,
+  "formal_sota_decision": "remain_experimental",
+  "warning": "Training backtest is not final proof. Validation was not reused and test was not accessed."
+}

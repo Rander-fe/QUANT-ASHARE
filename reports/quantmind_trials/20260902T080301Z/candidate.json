@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:03:01.682025+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_AMIHUD_20",
+    "formula": "TS_MEAN(SAFE_DIV(ABS($pct_chg), $amount), 20)",
+    "inputs": [
+      "pct_chg",
+      "amount"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "Amihud (2002) 非流动性因子：股票的单位成交额引起的价格冲击越大，交易成本越高，投资者要求更高的预期收益作为补偿。该测度使用历史20日均值以降低日度噪声，属于慢变量，适合周频调仓。"
+  },
+  "provider_request_id": "573e31d2-d213-4088-b898-4362457d3f8b",
+  "usage": {
+    "prompt_tokens": 3151,
+    "completion_tokens": 8610,
+    "total_tokens": 11761,
+    "prompt_tokens_details": {
+      "cached_tokens": 3072
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8397
+    },
+    "prompt_cache_hit_tokens": 3072,
+    "prompt_cache_miss_tokens": 79
+  }
+}

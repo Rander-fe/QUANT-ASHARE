@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T05:33:00.690383+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/local_rev5_5d/candidate.json",
+  "candidate": {
+    "factor_name": "QM_LOCAL_REV5",
+    "formula": "TS_PCT_CHANGE($close,5)",
+    "inputs": [
+      "close"
+    ],
+    "lookback": 5,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "A股短期过度反应与交易拥挤可能在未来一周均值回归；仅表达5日价格反转概念。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

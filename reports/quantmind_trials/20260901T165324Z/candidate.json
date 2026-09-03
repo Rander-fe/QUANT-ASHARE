@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T16:53:24.663604+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_VOL_20",
+    "formula": "TS_STD($IND_RESID_RET_1D,20)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "特质波动率反映个股无法由行业和市场解释的风险，较高的特质波动率往往对应较低的未来收益（异质波动率之谜）。"
+  },
+  "provider_request_id": "f7ab847f-99e6-4f95-bd3f-85cea260c486",
+  "usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 2295,
+    "total_tokens": 3117,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2143
+    },
+    "prompt_cache_hit_tokens": 256,
+    "prompt_cache_miss_tokens": 566
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "rejected_frequency_semantics",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T15:56:27.643119+00:00",
+  "candidate_count": 1,
+  "local_semantic_check": {
+    "reason": "netprofit_yoy是低频PIT财务字段，TS_SLOPE窗口4在日频面板中表示4个交易日而不是4个季度，与经济解释不一致",
+    "full_data_evaluation_skipped": true
+  },
+  "candidate": {
+    "factor_name": "QM_DS_NP_YOY_SLOPE",
+    "formula": "TS_SLOPE($netprofit_yoy, 4)",
+    "inputs": [
+      "netprofit_yoy"
+    ],
+    "lookback": 4,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "净利润同比增长率的上升趋势表明公司盈利加速，反映公司盈利能力增强，通常与未来业绩正相关。"
+  },
+  "provider_request_id": "cc7b6cc1-20b1-4323-a71e-46ab4ba55ade",
+  "usage": {
+    "prompt_tokens": 628,
+    "completion_tokens": 2644,
+    "total_tokens": 3272,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2515
+    },
+    "prompt_cache_hit_tokens": 256,
+    "prompt_cache_miss_tokens": 372
+  }
+}

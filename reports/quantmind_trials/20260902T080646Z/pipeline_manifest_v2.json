@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T08:09:15.764459+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T080646Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_FLOAT_SHARE",
+    "formula": "SAFE_DIV($circ_mv, $total_mv)",
+    "inputs": [
+      "circ_mv",
+      "total_mv"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "低流通比例对应稀缺的二级市场供给与较差的流动性和套利能力，投资者会要求更高风险溢价；而高流通比例则因供给充足、流动性好而要求较低预期回报。该变量反映公司股本结构和自由流通盘差异，属于换手极低的慢变量，适合周频调仓。"
+  },
+  "train_decision": "rejected_weak_incremental_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

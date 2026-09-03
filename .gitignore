@@ -53,5 +53,6 @@ Thumbs.db
 
 # ---- 密钥与凭证 ----
 .env
+.env.deepseek
 *.token
 config/secrets*.yaml

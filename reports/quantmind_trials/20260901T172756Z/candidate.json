@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T17:27:56.412162+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_WIN_RATE",
+    "formula": "TS_MEAN(WHERE($IND_RESID_RET_1D > 0, 1, 0), 20)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "个股在剔除市场与行业影响后的残差持续为正，反映其自身基本面或资金面的相对强势，该正向持续性可能预示未来收益延续。"
+  },
+  "provider_request_id": "0ccf265d-1185-4446-80e1-c328a8cc8d5c",
+  "usage": {
+    "prompt_tokens": 3589,
+    "completion_tokens": 2441,
+    "total_tokens": 6030,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2254
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 2693
+  }
+}

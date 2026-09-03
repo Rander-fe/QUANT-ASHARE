@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T07:53:31.197998+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T075057Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_IDIOVOL_120D",
+    "formula": "TS_STD($IND_RESID_RET_1D,120)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 120,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "异质波动率长期水平越高，套利风险与错误定价程度越高，预期收益越低；120日窗口更稳定，换手低，适合周频。"
+  },
+  "train_decision": "rejected_excessive_missing_rate",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

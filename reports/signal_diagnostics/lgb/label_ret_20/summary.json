@@ -1,0 +1,15 @@
+{
+  "model": "lgb",
+  "label": "label_ret_20",
+  "segment": "valid",
+  "days": 389,
+  "raw_rank_ic_mean": 0.09628297829141348,
+  "neutralized_rank_ic_mean": 0.09030536939076228,
+  "raw_topk_forward_return_mean": 0.03286892548203468,
+  "selected_topk_forward_return_mean": 0.012347941286861897,
+  "raw_topk_tradable_return_mean": 0.030433401465415955,
+  "selected_topk_tradable_return_mean": 0.011617626063525677,
+  "label_tradable_return_corr_mean": 0.9871863546001358,
+  "selection_overlap_mean": 0.36683804627249356,
+  "neutralization_ic_positive_ratio": 0.8534704370179949
+}

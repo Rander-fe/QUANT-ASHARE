@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "name": "中国政府网最新政策",
+      "kind": "json_list",
+      "document_type": "policy",
+      "url": "https://www.gov.cn/zhengce/zuixin/ZUIXINZHENGCE.json",
+      "enabled": true,
+      "timeout": 30,
+      "field_map": {
+        "title": "TITLE",
+        "content": "SUB_TITLE",
+        "url": "URL",
+        "published_at": "DOCRELPUBTIME"
+      }
+    },
+    {
+      "name": "人社部政策法规",
+      "kind": "rss",
+      "document_type": "policy",
+      "url": "http://www.mohrss.gov.cn/gkml/xxgk/rss.xml",
+      "enabled": false,
+      "timeout": 20
+    },
+    {
+      "name": "人社部政策解读",
+      "kind": "rss",
+      "document_type": "policy",
+      "url": "http://www.mohrss.gov.cn/gkml/zcjd/rss.xml",
+      "enabled": false,
+      "timeout": 20
+    },
+    {
+      "name": "Tushare上市公司公告",
+      "kind": "tushare",
+      "api_name": "anns_d",
+      "document_type": "announcement",
+      "enabled": false
+    },
+    {
+      "name": "Tushare国家政策库",
+      "kind": "tushare",
+      "api_name": "npr",
+      "document_type": "policy",
+      "enabled": false
+    },
+    {
+      "name": "财联社7x24（需要自建RSSHub）",
+      "kind": "rss",
+      "document_type": "news",
+      "url": "http://127.0.0.1:1200/cls/telegraph",
+      "enabled": false,
+      "timeout": 20
+    },
+    {
+      "name": "同花顺7x24（需要自建RSSHub）",
+      "kind": "rss",
+      "document_type": "news",
+      "url": "http://127.0.0.1:1200/10jqka/realtimenews",
+      "enabled": false,
+      "timeout": 20
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "pipeline_version": 1,
+  "candidate_file": "reports/quantmind_trials/20260901T122122Z/candidate.json",
+  "train_evaluation": "reports/quantmind_trials/20260901T122122Z/train_evaluation/report.json",
+  "preliminary_decision": "rejected_duplicate_core25",
+  "weekly_backtest": "not_eligible",
+  "validation_rows_read": 0,
+  "test_rows_read": 0
+}

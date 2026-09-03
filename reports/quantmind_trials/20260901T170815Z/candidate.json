@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T17:08:15.835382+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_MEAN_60",
+    "formula": "TS_MEAN($IND_RESID_RET_1D,60)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 60,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "行业残差反映了剔除市场和行业共同因子后公司特有的信息。长期的残差均值反映公司层面的持续性优势或劣势，可预测未来相对行业的表现。相比20日动量，60日均值降低了短期噪声和换手，属于慢变量。"
+  },
+  "provider_request_id": "797963c0-f876-4e12-95b1-eb1e24dc9e4f",
+  "usage": {
+    "prompt_tokens": 887,
+    "completion_tokens": 1472,
+    "total_tokens": 2359,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1240
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 119
+  }
+}

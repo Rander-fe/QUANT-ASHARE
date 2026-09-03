@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:10:36.433063+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_PROFIT_CONVERSION",
+    "formula": "SAFE_DIV($netprofit_margin, $grossprofit_margin)",
+    "inputs": [
+      "netprofit_margin",
+      "grossprofit_margin"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "毛利率代表产品初始盈利空间；净利率进一步反映费用、税金等消耗后的最终利润留存。净利率/毛利率越高，说明企业在成本费用与运营损耗方面控制越有效，剩余盈利能力和质量越强，通常对应更可持续的回报，故预期未来收益为正。"
+  },
+  "provider_request_id": "9b4543f0-436b-4456-a9d3-b9605b613e7c",
+  "usage": {
+    "prompt_tokens": 3170,
+    "completion_tokens": 6701,
+    "total_tokens": 9871,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6511
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 1890
+  }
+}

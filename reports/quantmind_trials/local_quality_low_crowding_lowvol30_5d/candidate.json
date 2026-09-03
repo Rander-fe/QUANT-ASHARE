@@ -1,0 +1,15 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "factorengine_local_parameter_search",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30",
+    "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-30*TS_STD(TS_PCT_CHANGE($close,1),20)",
+    "inputs": ["roe", "turnover_rate", "close"],
+    "lookback": 21,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "质量与低拥挤逻辑中提高低波动惩罚强度，以改善周频组合风险收益比。"
+  }
+}

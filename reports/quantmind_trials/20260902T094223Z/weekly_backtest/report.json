@@ -1,0 +1,53 @@
+{
+  "status": "weekly_training_backtest_complete",
+  "candidate": "QM_DS_TURNOVER_SLOPE_20_WINSOR_Z_SIZE_NEUTRAL",
+  "signal_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T094223Z\\train_evaluation_5d\\factor_values.parquet",
+  "direction": "negative",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.1,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "cost_scenarios": [
+    {
+      "cost_bps": 10,
+      "annual_return": -0.0606024381460053,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.08201543992749372,
+      "annual_volatility": 0.2671864485288453,
+      "sharpe": -0.0990078799799786,
+      "information_ratio": -0.3261870085163545,
+      "max_drawdown": -0.6128919026297092,
+      "final_nav": 0.6430165557615983,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.46368486928911296,
+      "annualized_one_way_turnover": 24.354396516616713,
+      "total_trading_cost": 27297584.727516655,
+      "blocked_buy_count": 265,
+      "blocked_sell_count": 5702,
+      "blocked_buy_rate_per_selection": 0.0020691324479008067
+    }
+  ],
+  "primary_cost_bps": 10,
+  "training_reference_gates": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "training_gates_passed": false,
+  "formal_sota_decision": "remain_experimental",
+  "warning": "Training backtest is not final proof. Validation was not reused and test was not accessed."
+}

@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T05:26:48.727646+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/20260902T052354Z/candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_CF_NP_GROWTH_GAP",
+    "formula": "$ocf_yoy - $netprofit_yoy",
+    "inputs": [
+      "ocf_yoy",
+      "netprofit_yoy"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "经营现金流增速高于净利润增速往往意味着利润增长的现金含量更高、盈利质量改善，预期未来表现更稳健；反之若利润增长缺乏现金流支撑，则盈利质量可能偏低。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

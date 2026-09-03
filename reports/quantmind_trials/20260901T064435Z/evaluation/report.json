@@ -1,0 +1,185 @@
+{
+  "status": "experimental_only_not_sota",
+  "factor_name": "QM_DS_LIQUIDITY_AMPLIFICATION",
+  "formula": "TS_MEAN($amount,5) / (TS_STD($close,20) * SAFE_DIV(TS_MEAN($amount,20),TS_MEAN($amount,5)))",
+  "declared_direction": "negative",
+  "protocol": {
+    "period": [
+      "2016-01-01",
+      "2023-04-30"
+    ],
+    "label": "label_ret_20",
+    "daily_cross_section_min_n": 30,
+    "validation_or_test_used": false
+  },
+  "quality": {
+    "rows": 6851692,
+    "missing_count": 403985,
+    "missing_rate": 0.058961348525298565,
+    "infinity_count": 0
+  },
+  "extreme_values": {
+    "count": 6447707,
+    "mean": 7876045.959878658,
+    "std": 189056395.8784793,
+    "skew": 55.782926889700235,
+    "kurtosis": 4198.961547093568,
+    "median": 1003304.0384199818,
+    "mad": 697216.9090133603,
+    "outside_median_10mad_rate": 0.05342767591641494,
+    "quantiles": {
+      "0.0": 14.807078149182871,
+      "0.0001": 3990.2405415626495,
+      "0.001": 16720.6456655585,
+      "0.01": 57812.47960196252,
+      "0.05": 136514.4156715132,
+      "0.5": 1003304.0384199818,
+      "0.95": 8348427.452826391,
+      "0.99": 26110889.296459846,
+      "0.999": 1751449785.9143457,
+      "0.9999": 9088882499.802662,
+      "1.0": 27817463405.498795
+    }
+  },
+  "daily_performance": {
+    "ic": {
+      "days": 1762,
+      "mean": -0.022518696295016013,
+      "std": 0.05511662578042725,
+      "ir": -0.4085644934928644,
+      "positive_rate": 0.3098751418842225,
+      "t_stat": -17.1499782418086,
+      "direction_aligned_mean": 0.022518696295016013,
+      "direction_aligned_positive_rate": 0.6901248581157775
+    },
+    "rank_ic": {
+      "days": 1762,
+      "mean": -0.0758300372666943,
+      "std": 0.10059340916379157,
+      "ir": -0.753827093614292,
+      "positive_rate": 0.21112372304199772,
+      "t_stat": -31.642784577404093,
+      "direction_aligned_mean": 0.0758300372666943,
+      "direction_aligned_positive_rate": 0.7888762769580022
+    }
+  },
+  "yearly_stability": [
+    {
+      "year": 2016,
+      "calendar_trading_days": 244,
+      "valid_ic_days": 225,
+      "valid_rank_ic_days": 225,
+      "ic_mean": -0.012818805901451603,
+      "ic_ir": -0.37019576970011436,
+      "ic_positive_rate": 0.28444444444444444,
+      "rank_ic_mean": -0.07279203735721551,
+      "rank_ic_ir": -0.7856501198165777,
+      "rank_ic_positive_rate": 0.19555555555555557,
+      "aligned_ic_mean": 0.012818805901451603,
+      "aligned_rank_ic_mean": 0.07279203735721551
+    },
+    {
+      "year": 2017,
+      "calendar_trading_days": 244,
+      "valid_ic_days": 244,
+      "valid_rank_ic_days": 244,
+      "ic_mean": 0.0010287997716945606,
+      "ic_ir": 0.015471556302508965,
+      "ic_positive_rate": 0.4959016393442623,
+      "rank_ic_mean": -0.03620627052001521,
+      "rank_ic_ir": -0.28055844760860493,
+      "rank_ic_positive_rate": 0.3729508196721312,
+      "aligned_ic_mean": -0.0010287997716945606,
+      "aligned_rank_ic_mean": 0.03620627052001521
+    },
+    {
+      "year": 2018,
+      "calendar_trading_days": 243,
+      "valid_ic_days": 243,
+      "valid_rank_ic_days": 243,
+      "ic_mean": -0.03631269272121948,
+      "ic_ir": -0.5085557969871427,
+      "ic_positive_rate": 0.2962962962962963,
+      "rank_ic_mean": -0.10983292796748248,
+      "rank_ic_ir": -1.105299899499973,
+      "rank_ic_positive_rate": 0.09053497942386832,
+      "aligned_ic_mean": 0.03631269272121948,
+      "aligned_rank_ic_mean": 0.10983292796748248
+    },
+    {
+      "year": 2019,
+      "calendar_trading_days": 244,
+      "valid_ic_days": 244,
+      "valid_rank_ic_days": 244,
+      "ic_mean": -0.026835898554388473,
+      "ic_ir": -0.8042903051698285,
+      "ic_positive_rate": 0.21311475409836064,
+      "rank_ic_mean": -0.08180463411816273,
+      "rank_ic_ir": -1.1141674258670586,
+      "rank_ic_positive_rate": 0.1680327868852459,
+      "aligned_ic_mean": 0.026835898554388473,
+      "aligned_rank_ic_mean": 0.08180463411816273
+    },
+    {
+      "year": 2020,
+      "calendar_trading_days": 243,
+      "valid_ic_days": 243,
+      "valid_rank_ic_days": 243,
+      "ic_mean": -0.017530669769918412,
+      "ic_ir": -0.3199577761260465,
+      "ic_positive_rate": 0.35802469135802467,
+      "rank_ic_mean": -0.054634644871347206,
+      "rank_ic_ir": -0.5448782709729997,
+      "rank_ic_positive_rate": 0.29218106995884774,
+      "aligned_ic_mean": 0.017530669769918412,
+      "aligned_rank_ic_mean": 0.054634644871347206
+    },
+    {
+      "year": 2021,
+      "calendar_trading_days": 243,
+      "valid_ic_days": 243,
+      "valid_rank_ic_days": 243,
+      "ic_mean": -0.022525123060348113,
+      "ic_ir": -0.5858022208070685,
+      "ic_positive_rate": 0.2839506172839506,
+      "rank_ic_mean": -0.0689559525221527,
+      "rank_ic_ir": -0.801251542517668,
+      "rank_ic_positive_rate": 0.2551440329218107,
+      "aligned_ic_mean": 0.022525123060348113,
+      "aligned_rank_ic_mean": 0.0689559525221527
+    },
+    {
+      "year": 2022,
+      "calendar_trading_days": 242,
+      "valid_ic_days": 242,
+      "valid_rank_ic_days": 242,
+      "ic_mean": -0.04818725870491896,
+      "ic_ir": -0.9840078892551454,
+      "ic_positive_rate": 0.16942148760330578,
+      "rank_ic_mean": -0.11137411777093278,
+      "rank_ic_ir": -1.4880024956177313,
+      "rank_ic_positive_rate": 0.0743801652892562,
+      "aligned_ic_mean": 0.04818725870491896,
+      "aligned_rank_ic_mean": 0.11137411777093278
+    },
+    {
+      "year": 2023,
+      "calendar_trading_days": 78,
+      "valid_ic_days": 78,
+      "valid_rank_ic_days": 78,
+      "ic_mean": -0.0035630877617026423,
+      "ic_ir": -0.04717747300556451,
+      "ic_positive_rate": 0.5128205128205128,
+      "rank_ic_mean": -0.06109235081464082,
+      "rank_ic_ir": -0.4441940776971944,
+      "rank_ic_positive_rate": 0.2948717948717949,
+      "aligned_ic_mean": 0.0035630877617026423,
+      "aligned_rank_ic_mean": 0.06109235081464082
+    }
+  ],
+  "notes": [
+    "Raw IC is reported; direction-aligned metrics multiply the declared negative-direction factor by -1.",
+    "The formula uses absolute close-price volatility, so it may contain price-level and amount-size exposure.",
+    "No winsorization, neutralization, or standardization was applied in this diagnostic run."
+  ]
+}

@@ -1,0 +1,1010 @@
+{
+  "protocol": {
+    "label": "label_ret_20",
+    "selection_period": [
+      "2016-01-01",
+      "2023-04-30"
+    ],
+    "test_period_used": false,
+    "industry_warning": "industry为当前stock_basic快照回填历史，只作诊断，不作为通过条件",
+    "official_factor_file_overwritten": false
+  },
+  "quality": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "rows": 6483208,
+      "missing_rate": 0.004001876848621855,
+      "infinite_count": 0,
+      "min": -3.0,
+      "q001": -3.0,
+      "q01": -3.0,
+      "median": 0.0,
+      "q99": 0.0,
+      "q999": -0.0,
+      "max": -0.0,
+      "expected_min": -3.0,
+      "expected_max": 0.0,
+      "range_violation_count": 0
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "rows": 6483208,
+      "missing_rate": 0.005551109882638348,
+      "infinite_count": 0,
+      "min": -5.0,
+      "q001": -5.0,
+      "q01": -5.0,
+      "median": 0.0,
+      "q99": -0.0,
+      "q999": -0.0,
+      "max": -0.0,
+      "expected_min": -5.0,
+      "expected_max": 0.0,
+      "range_violation_count": 0
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "rows": 6483208,
+      "missing_rate": 0.016379082701033193,
+      "infinite_count": 0,
+      "min": -0.0,
+      "q001": 0.0,
+      "q01": 0.0,
+      "median": 0.08887706696987152,
+      "q99": 0.3081882452964786,
+      "q999": 0.4239155197143548,
+      "max": 0.821868896484375,
+      "expected_min": 0.0,
+      "expected_max": 1.0,
+      "range_violation_count": 0
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "rows": 6483208,
+      "missing_rate": 0.047213354869996456,
+      "infinite_count": 0,
+      "min": -0.0,
+      "q001": 0.0,
+      "q01": 0.03396124392747879,
+      "median": 0.18045350909233093,
+      "q99": 0.4565264880657196,
+      "q999": 0.5806781053543091,
+      "max": 0.8902667760848999,
+      "expected_min": 0.0,
+      "expected_max": 1.0,
+      "range_violation_count": 0
+    }
+  ],
+  "old_new_comparison": [
+    {
+      "old_factor": "CONSEC_UP3",
+      "new_factor": "CONSEC_UP3_V2",
+      "paired_rows": 6457263,
+      "pearson": 0.3825550758461394,
+      "spearman": 0.4486354752327221,
+      "mean_abs_change": 0.7816048264503479
+    },
+    {
+      "old_factor": "CONSEC_UP5",
+      "new_factor": "CONSEC_UP5_V2",
+      "paired_rows": 6447219,
+      "pearson": 0.29969770084210456,
+      "spearman": 0.3198598851679265,
+      "mean_abs_change": 0.8494470119476318
+    },
+    {
+      "old_factor": "MAX_DD20",
+      "new_factor": "MAX_DD20_V2",
+      "paired_rows": 6377019,
+      "pearson": 0.6882411936819963,
+      "spearman": 0.6848177428255572,
+      "mean_abs_change": 0.03218711167573929
+    },
+    {
+      "old_factor": "MAX_DD60",
+      "new_factor": "MAX_DD60_V2",
+      "paired_rows": 6177114,
+      "pearson": 0.6864657672515628,
+      "spearman": 0.6946839617537117,
+      "mean_abs_change": 0.04666370525956154
+    }
+  ],
+  "overall_ic": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "train_all",
+      "days": 1778,
+      "ic_mean": 0.007703550570496251,
+      "rank_ic_mean": 0.015730233764517477,
+      "rank_ic_std": 0.08524486070539386,
+      "rank_ic_positive_ratio": 0.5809898762654668
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "train_all",
+      "days": 1776,
+      "ic_mean": 0.008022847520986566,
+      "rank_ic_mean": 0.01585111359481622,
+      "rank_ic_std": 0.08489690851238367,
+      "rank_ic_positive_ratio": 0.579954954954955
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "train_all",
+      "days": 1762,
+      "ic_mean": -0.0028810767777487176,
+      "rank_ic_mean": -0.027140487603689232,
+      "rank_ic_std": 0.16520625194390523,
+      "rank_ic_positive_ratio": 0.38933030646992056
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "train_all",
+      "days": 1722,
+      "ic_mean": -0.007296409876496729,
+      "rank_ic_mean": -0.033974307512667765,
+      "rank_ic_std": 0.16268571989152067,
+      "rank_ic_positive_ratio": 0.37572590011614404
+    }
+  ],
+  "yearly_ic": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2016",
+      "days": 241,
+      "ic_mean": 0.01585109053679997,
+      "rank_ic_mean": 0.016598308040069055,
+      "rank_ic_std": 0.086315578625249,
+      "rank_ic_positive_ratio": 0.5767634854771784
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2017",
+      "days": 244,
+      "ic_mean": -0.006811226763881938,
+      "rank_ic_mean": 0.0030034410899719348,
+      "rank_ic_std": 0.07620647883272422,
+      "rank_ic_positive_ratio": 0.5409836065573771
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2018",
+      "days": 243,
+      "ic_mean": 0.007997617595820851,
+      "rank_ic_mean": 0.017648645014538476,
+      "rank_ic_std": 0.08447526497521826,
+      "rank_ic_positive_ratio": 0.6337448559670782
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2019",
+      "days": 244,
+      "ic_mean": 0.017314601521760162,
+      "rank_ic_mean": 0.02743369833231179,
+      "rank_ic_std": 0.06278323362503732,
+      "rank_ic_positive_ratio": 0.6557377049180327
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2020",
+      "days": 243,
+      "ic_mean": 0.0018232818959012362,
+      "rank_ic_mean": 0.013977591889863953,
+      "rank_ic_std": 0.07766192559103703,
+      "rank_ic_positive_ratio": 0.5679012345679012
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2021",
+      "days": 243,
+      "ic_mean": 0.0011372459782590853,
+      "rank_ic_mean": 0.009654379400051502,
+      "rank_ic_std": 0.08467383627482025,
+      "rank_ic_positive_ratio": 0.5185185185185185
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2022",
+      "days": 242,
+      "ic_mean": 0.018996809611784654,
+      "rank_ic_mean": 0.02403823506563434,
+      "rank_ic_std": 0.1109935214048711,
+      "rank_ic_positive_ratio": 0.5950413223140496
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "2023",
+      "days": 78,
+      "ic_mean": 0.0006912740871018394,
+      "rank_ic_mean": 0.008885368317338263,
+      "rank_ic_std": 0.09941895121623498,
+      "rank_ic_positive_ratio": 0.5128205128205128
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2016",
+      "days": 239,
+      "ic_mean": 0.015052763762511152,
+      "rank_ic_mean": 0.016225600675553516,
+      "rank_ic_std": 0.08657384876291808,
+      "rank_ic_positive_ratio": 0.5732217573221757
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2017",
+      "days": 244,
+      "ic_mean": -0.0070559696827673666,
+      "rank_ic_mean": 0.003048565688730703,
+      "rank_ic_std": 0.07589816745935736,
+      "rank_ic_positive_ratio": 0.5409836065573771
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2018",
+      "days": 243,
+      "ic_mean": 0.009879009005048754,
+      "rank_ic_mean": 0.017389685011763543,
+      "rank_ic_std": 0.08467177320766062,
+      "rank_ic_positive_ratio": 0.6378600823045267
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2019",
+      "days": 244,
+      "ic_mean": 0.018466709133047696,
+      "rank_ic_mean": 0.02806891453748494,
+      "rank_ic_std": 0.061285097317699176,
+      "rank_ic_positive_ratio": 0.6475409836065574
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2020",
+      "days": 243,
+      "ic_mean": 0.0023415947991448608,
+      "rank_ic_mean": 0.014499149924669665,
+      "rank_ic_std": 0.07730502998838266,
+      "rank_ic_positive_ratio": 0.5720164609053497
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2021",
+      "days": 243,
+      "ic_mean": 0.0004456061081373606,
+      "rank_ic_mean": 0.009661448839030478,
+      "rank_ic_std": 0.08403078480219436,
+      "rank_ic_positive_ratio": 0.522633744855967
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2022",
+      "days": 242,
+      "ic_mean": 0.020012850721737634,
+      "rank_ic_mean": 0.024528394909705993,
+      "rank_ic_std": 0.11033397583200895,
+      "rank_ic_positive_ratio": 0.5867768595041323
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "2023",
+      "days": 78,
+      "ic_mean": -0.0006955468101712648,
+      "rank_ic_mean": 0.00831286515580997,
+      "rank_ic_std": 0.09959221287883023,
+      "rank_ic_positive_ratio": 0.5128205128205128
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2016",
+      "days": 225,
+      "ic_mean": -0.02692355277765341,
+      "rank_ic_mean": -0.04024303820971377,
+      "rank_ic_std": 0.21818696998698198,
+      "rank_ic_positive_ratio": 0.38222222222222224
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2017",
+      "days": 244,
+      "ic_mean": -0.011764526417096043,
+      "rank_ic_mean": -0.04253107766659601,
+      "rank_ic_std": 0.19803599342447145,
+      "rank_ic_positive_ratio": 0.38114754098360654
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2018",
+      "days": 243,
+      "ic_mean": 0.04141642185767458,
+      "rank_ic_mean": 0.011796231051406628,
+      "rank_ic_std": 0.19262367193731095,
+      "rank_ic_positive_ratio": 0.40329218106995884
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2019",
+      "days": 244,
+      "ic_mean": 0.005288627155354576,
+      "rank_ic_mean": -0.00980929451298855,
+      "rank_ic_std": 0.14705316634815946,
+      "rank_ic_positive_ratio": 0.4180327868852459
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2020",
+      "days": 243,
+      "ic_mean": -0.016519550733886935,
+      "rank_ic_mean": -0.04144215983834137,
+      "rank_ic_std": 0.12651581409507756,
+      "rank_ic_positive_ratio": 0.35390946502057613
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2021",
+      "days": 243,
+      "ic_mean": -0.019561826342038027,
+      "rank_ic_mean": -0.05409722469022839,
+      "rank_ic_std": 0.12483902438938799,
+      "rank_ic_positive_ratio": 0.3292181069958848
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2022",
+      "days": 242,
+      "ic_mean": 0.0165495363417271,
+      "rank_ic_mean": -0.0001443068350385286,
+      "rank_ic_std": 0.13079201625739706,
+      "rank_ic_positive_ratio": 0.5082644628099173
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "2023",
+      "days": 78,
+      "ic_mean": -0.03512746364383877,
+      "rank_ic_mean": -0.07193969486751592,
+      "rank_ic_std": 0.10003459412114189,
+      "rank_ic_positive_ratio": 0.23076923076923078
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2016",
+      "days": 185,
+      "ic_mean": -0.058254943348292,
+      "rank_ic_mean": -0.06659095280375539,
+      "rank_ic_std": 0.148962600047722,
+      "rank_ic_positive_ratio": 0.3621621621621622
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2017",
+      "days": 244,
+      "ic_mean": -0.016702291924159857,
+      "rank_ic_mean": -0.057507694059671245,
+      "rank_ic_std": 0.2019006098415879,
+      "rank_ic_positive_ratio": 0.3770491803278688
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2018",
+      "days": 243,
+      "ic_mean": 0.04114584441401588,
+      "rank_ic_mean": -0.0022573241741835007,
+      "rank_ic_std": 0.19559222071139282,
+      "rank_ic_positive_ratio": 0.3374485596707819
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2019",
+      "days": 244,
+      "ic_mean": -0.010258873928994963,
+      "rank_ic_mean": -0.03536304951787776,
+      "rank_ic_std": 0.1636417284713531,
+      "rank_ic_positive_ratio": 0.36475409836065575
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2020",
+      "days": 243,
+      "ic_mean": -0.031219886599636804,
+      "rank_ic_mean": -0.05712481970324729,
+      "rank_ic_std": 0.10335622070314872,
+      "rank_ic_positive_ratio": 0.25102880658436216
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2021",
+      "days": 243,
+      "ic_mean": 0.0191359959992142,
+      "rank_ic_mean": 0.001408336358343699,
+      "rank_ic_std": 0.14176907477559075,
+      "rank_ic_positive_ratio": 0.5102880658436214
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2022",
+      "days": 242,
+      "ic_mean": 0.013328254690472151,
+      "rank_ic_mean": -0.005661508674056282,
+      "rank_ic_std": 0.15716724358157938,
+      "rank_ic_positive_ratio": 0.4834710743801653
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "2023",
+      "days": 78,
+      "ic_mean": -0.07046437476308971,
+      "rank_ic_mean": -0.10341345524278726,
+      "rank_ic_std": 0.10268048917188576,
+      "rank_ic_positive_ratio": 0.19230769230769232
+    }
+  ],
+  "pool_ic": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "exchange:SH",
+      "days": 1778,
+      "ic_mean": 0.005940852388005591,
+      "rank_ic_mean": 0.013304996141941075,
+      "rank_ic_std": 0.09009349084856437,
+      "rank_ic_positive_ratio": 0.562992125984252
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "exchange:SZ",
+      "days": 1778,
+      "ic_mean": 0.009525608113381654,
+      "rank_ic_mean": 0.018172983344879615,
+      "rank_ic_std": 0.08668953965234112,
+      "rank_ic_positive_ratio": 0.594488188976378
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "size:small",
+      "days": 1778,
+      "ic_mean": 0.013550090210064852,
+      "rank_ic_mean": 0.022718817922874234,
+      "rank_ic_std": 0.08727891578597999,
+      "rank_ic_positive_ratio": 0.6051743532058492
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "size:mid",
+      "days": 1778,
+      "ic_mean": 0.01301778895623779,
+      "rank_ic_mean": 0.021999926921799865,
+      "rank_ic_std": 0.08446535225344656,
+      "rank_ic_positive_ratio": 0.6181102362204725
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "size:large",
+      "days": 1778,
+      "ic_mean": 0.004217749533578986,
+      "rank_ic_mean": 0.011763070904620532,
+      "rank_ic_std": 0.09769254391888403,
+      "rank_ic_positive_ratio": 0.5444319460067492
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "exchange:SH",
+      "days": 1776,
+      "ic_mean": 0.006067639633505103,
+      "rank_ic_mean": 0.013498182067069969,
+      "rank_ic_std": 0.08972940854465315,
+      "rank_ic_positive_ratio": 0.5630630630630631
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "exchange:SZ",
+      "days": 1776,
+      "ic_mean": 0.009943498677311332,
+      "rank_ic_mean": 0.018246093812253932,
+      "rank_ic_std": 0.08638395907511016,
+      "rank_ic_positive_ratio": 0.5934684684684685
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "size:small",
+      "days": 1776,
+      "ic_mean": 0.014726774152201407,
+      "rank_ic_mean": 0.022982180869057317,
+      "rank_ic_std": 0.08703831040929344,
+      "rank_ic_positive_ratio": 0.6036036036036037
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "size:mid",
+      "days": 1776,
+      "ic_mean": 0.013449406897422706,
+      "rank_ic_mean": 0.021973398982994632,
+      "rank_ic_std": 0.08435894394268434,
+      "rank_ic_positive_ratio": 0.6171171171171171
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "size:large",
+      "days": 1776,
+      "ic_mean": 0.004041544545870901,
+      "rank_ic_mean": 0.011876856765094408,
+      "rank_ic_std": 0.09749708646291358,
+      "rank_ic_positive_ratio": 0.5467342342342343
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "exchange:SH",
+      "days": 1762,
+      "ic_mean": -0.006579761119685935,
+      "rank_ic_mean": -0.029601433623099818,
+      "rank_ic_std": 0.17380635164693356,
+      "rank_ic_positive_ratio": 0.3961407491486947
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "exchange:SZ",
+      "days": 1762,
+      "ic_mean": -0.0008945072848311994,
+      "rank_ic_mean": -0.02406829158614196,
+      "rank_ic_std": 0.15855054277587996,
+      "rank_ic_positive_ratio": 0.3978433598183882
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "size:small",
+      "days": 1762,
+      "ic_mean": 0.0054376652382639385,
+      "rank_ic_mean": -0.01656824372322383,
+      "rank_ic_std": 0.1477507588751845,
+      "rank_ic_positive_ratio": 0.41430192962542567
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "size:mid",
+      "days": 1762,
+      "ic_mean": -0.011903335297258542,
+      "rank_ic_mean": -0.03706660423619393,
+      "rank_ic_std": 0.14960530923862603,
+      "rank_ic_positive_ratio": 0.3717366628830874
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "size:large",
+      "days": 1762,
+      "ic_mean": -0.014126200610863927,
+      "rank_ic_mean": -0.03551186865928807,
+      "rank_ic_std": 0.17508020288944798,
+      "rank_ic_positive_ratio": 0.38081725312145287
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "exchange:SH",
+      "days": 1722,
+      "ic_mean": -0.009681481207906538,
+      "rank_ic_mean": -0.03747054693875512,
+      "rank_ic_std": 0.17639859224782492,
+      "rank_ic_positive_ratio": 0.3786295005807201
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "exchange:SZ",
+      "days": 1722,
+      "ic_mean": -0.006866708077064928,
+      "rank_ic_mean": -0.03119148942114405,
+      "rank_ic_std": 0.15160348615062388,
+      "rank_ic_positive_ratio": 0.3861788617886179
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "size:small",
+      "days": 1722,
+      "ic_mean": -0.0004647277104606189,
+      "rank_ic_mean": -0.028680020499330248,
+      "rank_ic_std": 0.14342795165144537,
+      "rank_ic_positive_ratio": 0.3623693379790941
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "size:mid",
+      "days": 1722,
+      "ic_mean": -0.016303566815799902,
+      "rank_ic_mean": -0.043841269939731406,
+      "rank_ic_std": 0.15095485881381757,
+      "rank_ic_positive_ratio": 0.3443670150987224
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "size:large",
+      "days": 1722,
+      "ic_mean": -0.021337750996383898,
+      "rank_ic_mean": -0.04316611733027028,
+      "rank_ic_std": 0.17652680149223215,
+      "rank_ic_positive_ratio": 0.37340301974448314
+    }
+  ],
+  "industry_diagnostic": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:专用机械",
+      "days": 1776,
+      "ic_mean": 0.018213575522007017,
+      "rank_ic_mean": 0.024310059990434552,
+      "rank_ic_std": 0.1276295595767877,
+      "rank_ic_positive_ratio": 0.5777027027027027
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:元器件",
+      "days": 1775,
+      "ic_mean": 0.017292444183849752,
+      "rank_ic_mean": 0.020823815198741026,
+      "rank_ic_std": 0.1193188182392671,
+      "rank_ic_positive_ratio": 0.5740845070422536
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:化学制药",
+      "days": 1774,
+      "ic_mean": 0.006778848751985751,
+      "rank_ic_mean": 0.014376580389232818,
+      "rank_ic_std": 0.136097060899956,
+      "rank_ic_positive_ratio": 0.5293122886133033
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:化工原料",
+      "days": 1777,
+      "ic_mean": 0.01275106619938204,
+      "rank_ic_mean": 0.016854591309845936,
+      "rank_ic_std": 0.12239845868233368,
+      "rank_ic_positive_ratio": 0.5537422622397299
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:医疗保健",
+      "days": 1772,
+      "ic_mean": 0.007618679762641002,
+      "rank_ic_mean": 0.013608903896692495,
+      "rank_ic_std": 0.1501262452527972,
+      "rank_ic_positive_ratio": 0.536117381489842
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:建筑工程",
+      "days": 1769,
+      "ic_mean": 0.017717665086269225,
+      "rank_ic_mean": 0.022254430704605078,
+      "rank_ic_std": 0.15520137137508586,
+      "rank_ic_positive_ratio": 0.5494629734313171
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:汽车配件",
+      "days": 1773,
+      "ic_mean": 0.014754560619084648,
+      "rank_ic_mean": 0.022762936964115403,
+      "rank_ic_std": 0.12339800447968945,
+      "rank_ic_positive_ratio": 0.571912013536379
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:电气设备",
+      "days": 1777,
+      "ic_mean": 0.013512437472949636,
+      "rank_ic_mean": 0.019341550899712453,
+      "rank_ic_std": 0.11363661102817092,
+      "rank_ic_positive_ratio": 0.566122678671919
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:软件服务",
+      "days": 1774,
+      "ic_mean": 0.022163420351603055,
+      "rank_ic_mean": 0.03038171247475136,
+      "rank_ic_std": 0.11626406293920383,
+      "rank_ic_positive_ratio": 0.6054114994363021
+    },
+    {
+      "factor": "CONSEC_UP3_V2",
+      "segment": "industry:通信设备",
+      "days": 1768,
+      "ic_mean": 0.011176952882908773,
+      "rank_ic_mean": 0.019444220962638804,
+      "rank_ic_std": 0.14877888082694873,
+      "rank_ic_positive_ratio": 0.5509049773755657
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:专用机械",
+      "days": 1775,
+      "ic_mean": 0.019517756360429486,
+      "rank_ic_mean": 0.02460863896796026,
+      "rank_ic_std": 0.12752842190914224,
+      "rank_ic_positive_ratio": 0.5780281690140845
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:元器件",
+      "days": 1774,
+      "ic_mean": 0.01824125735592638,
+      "rank_ic_mean": 0.020888586548665492,
+      "rank_ic_std": 0.11910368288225673,
+      "rank_ic_positive_ratio": 0.5738444193912063
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:化学制药",
+      "days": 1773,
+      "ic_mean": 0.00692166013581531,
+      "rank_ic_mean": 0.014665309855292939,
+      "rank_ic_std": 0.13627468044796157,
+      "rank_ic_positive_ratio": 0.530174844895657
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:化工原料",
+      "days": 1776,
+      "ic_mean": 0.012795016174320438,
+      "rank_ic_mean": 0.016812180797070395,
+      "rank_ic_std": 0.1222105085321363,
+      "rank_ic_positive_ratio": 0.5489864864864865
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:医疗保健",
+      "days": 1770,
+      "ic_mean": 0.00737252662405728,
+      "rank_ic_mean": 0.013688861022652009,
+      "rank_ic_std": 0.14947293775801607,
+      "rank_ic_positive_ratio": 0.5361581920903955
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:建筑工程",
+      "days": 1768,
+      "ic_mean": 0.0195976533928252,
+      "rank_ic_mean": 0.022358629713419603,
+      "rank_ic_std": 0.15511869746731052,
+      "rank_ic_positive_ratio": 0.5531674208144797
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:汽车配件",
+      "days": 1772,
+      "ic_mean": 0.015682427312212532,
+      "rank_ic_mean": 0.022901894684918215,
+      "rank_ic_std": 0.12349559635708227,
+      "rank_ic_positive_ratio": 0.5750564334085779
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:电气设备",
+      "days": 1776,
+      "ic_mean": 0.013585726597586785,
+      "rank_ic_mean": 0.019272098578585126,
+      "rank_ic_std": 0.11340888843854681,
+      "rank_ic_positive_ratio": 0.5692567567567568
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:软件服务",
+      "days": 1773,
+      "ic_mean": 0.021844865658939214,
+      "rank_ic_mean": 0.030311014351044045,
+      "rank_ic_std": 0.11605370382972417,
+      "rank_ic_positive_ratio": 0.6023688663282571
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "segment": "industry:通信设备",
+      "days": 1767,
+      "ic_mean": 0.010090565416683968,
+      "rank_ic_mean": 0.01998612046610138,
+      "rank_ic_std": 0.14720111082775744,
+      "rank_ic_positive_ratio": 0.5483870967741935
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:专用机械",
+      "days": 1762,
+      "ic_mean": 0.0047975520388627265,
+      "rank_ic_mean": -0.02055055983696061,
+      "rank_ic_std": 0.1920364825416733,
+      "rank_ic_positive_ratio": 0.4568671963677639
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:元器件",
+      "days": 1762,
+      "ic_mean": 0.002775083742480621,
+      "rank_ic_mean": -0.005786186290105885,
+      "rank_ic_std": 0.17610479960066686,
+      "rank_ic_positive_ratio": 0.48637911464245176
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:化学制药",
+      "days": 1762,
+      "ic_mean": -0.023143538346655983,
+      "rank_ic_mean": -0.03379551379946918,
+      "rank_ic_std": 0.19576180719909328,
+      "rank_ic_positive_ratio": 0.40749148694665155
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:化工原料",
+      "days": 1762,
+      "ic_mean": -0.006811883010814453,
+      "rank_ic_mean": -0.020309744130731236,
+      "rank_ic_std": 0.17252668790938283,
+      "rank_ic_positive_ratio": 0.4284903518728717
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:医疗保健",
+      "days": 1762,
+      "ic_mean": 0.0020171777150337967,
+      "rank_ic_mean": -0.014335563249430507,
+      "rank_ic_std": 0.19376166376205264,
+      "rank_ic_positive_ratio": 0.45800227014755956
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:建筑工程",
+      "days": 1762,
+      "ic_mean": 0.009205578237303976,
+      "rank_ic_mean": -0.02484267271296423,
+      "rank_ic_std": 0.21723255843036376,
+      "rank_ic_positive_ratio": 0.4307604994324631
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:汽车配件",
+      "days": 1762,
+      "ic_mean": -0.019485764362428954,
+      "rank_ic_mean": -0.035707697271824074,
+      "rank_ic_std": 0.19711725682116002,
+      "rank_ic_positive_ratio": 0.41430192962542567
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:电气设备",
+      "days": 1762,
+      "ic_mean": -0.009971564505414759,
+      "rank_ic_mean": -0.021356931789515976,
+      "rank_ic_std": 0.19962072389643168,
+      "rank_ic_positive_ratio": 0.4625425652667423
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:软件服务",
+      "days": 1762,
+      "ic_mean": 0.0020814835090735544,
+      "rank_ic_mean": -0.01256219984370698,
+      "rank_ic_std": 0.16874669767334546,
+      "rank_ic_positive_ratio": 0.47616345062429055
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "segment": "industry:通信设备",
+      "days": 1762,
+      "ic_mean": 0.005601580250596505,
+      "rank_ic_mean": 0.002576783567435332,
+      "rank_ic_std": 0.20081149238554796,
+      "rank_ic_positive_ratio": 0.4784335981838819
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:专用机械",
+      "days": 1722,
+      "ic_mean": 0.0006722470614086838,
+      "rank_ic_mean": -0.025845488734816693,
+      "rank_ic_std": 0.18272250785611333,
+      "rank_ic_positive_ratio": 0.43205574912891986
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:元器件",
+      "days": 1722,
+      "ic_mean": -0.005532197620457812,
+      "rank_ic_mean": -0.014960338500042676,
+      "rank_ic_std": 0.1691650490409951,
+      "rank_ic_positive_ratio": 0.44773519163763065
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:化学制药",
+      "days": 1722,
+      "ic_mean": -0.02034325476213163,
+      "rank_ic_mean": -0.03126185579530561,
+      "rank_ic_std": 0.18961484008629653,
+      "rank_ic_positive_ratio": 0.44889663182346107
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:化工原料",
+      "days": 1722,
+      "ic_mean": 0.0009303944883317303,
+      "rank_ic_mean": -0.019210444705088498,
+      "rank_ic_std": 0.15623610110923045,
+      "rank_ic_positive_ratio": 0.4413472706155633
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:医疗保健",
+      "days": 1722,
+      "ic_mean": -0.013340210307472277,
+      "rank_ic_mean": -0.031749358387049675,
+      "rank_ic_std": 0.19638865240259382,
+      "rank_ic_positive_ratio": 0.3989547038327526
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:建筑工程",
+      "days": 1722,
+      "ic_mean": 0.0006452044222048676,
+      "rank_ic_mean": -0.026830143527665606,
+      "rank_ic_std": 0.20656792082961903,
+      "rank_ic_positive_ratio": 0.41927990708478513
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:汽车配件",
+      "days": 1722,
+      "ic_mean": -0.01338825206366967,
+      "rank_ic_mean": -0.04122172870067168,
+      "rank_ic_std": 0.19760396482323775,
+      "rank_ic_positive_ratio": 0.38501742160278746
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:电气设备",
+      "days": 1722,
+      "ic_mean": -0.019074942664718087,
+      "rank_ic_mean": -0.030674480835414478,
+      "rank_ic_std": 0.18800900393881279,
+      "rank_ic_positive_ratio": 0.42857142857142855
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:软件服务",
+      "days": 1722,
+      "ic_mean": 0.0031084083632527478,
+      "rank_ic_mean": -0.01417691442858345,
+      "rank_ic_std": 0.15190256010023503,
+      "rank_ic_positive_ratio": 0.44889663182346107
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "segment": "industry:通信设备",
+      "days": 1722,
+      "ic_mean": 0.016390655197857557,
+      "rank_ic_mean": 0.0054474874764644625,
+      "rank_ic_std": 0.19114145898179127,
+      "rank_ic_positive_ratio": 0.5058072009291521
+    }
+  ],
+  "decisions": [
+    {
+      "factor": "CONSEC_UP3_V2",
+      "technical_pass": true,
+      "research_pass": null,
+      "note": "技术检查通过；是否正式替换需人工查看年度/股票池稳定性，不使用测试期选择。"
+    },
+    {
+      "factor": "CONSEC_UP5_V2",
+      "technical_pass": true,
+      "research_pass": null,
+      "note": "技术检查通过；是否正式替换需人工查看年度/股票池稳定性，不使用测试期选择。"
+    },
+    {
+      "factor": "MAX_DD20_V2",
+      "technical_pass": true,
+      "research_pass": null,
+      "note": "技术检查通过；是否正式替换需人工查看年度/股票池稳定性，不使用测试期选择。"
+    },
+    {
+      "factor": "MAX_DD60_V2",
+      "technical_pass": true,
+      "research_pass": null,
+      "note": "技术检查通过；是否正式替换需人工查看年度/股票池稳定性，不使用测试期选择。"
+    }
+  ]
+}

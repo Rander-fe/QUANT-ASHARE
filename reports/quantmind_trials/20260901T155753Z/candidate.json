@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T15:57:53.815953+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_QUICK_CURRENT_RATIO",
+    "formula": "SAFE_DIV($quick_ratio, $current_ratio)",
+    "inputs": [
+      "quick_ratio",
+      "current_ratio"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "速动比率与流动比率的比值越高，表明流动资产中可快速变现的资产占比越大，企业短期偿还流动负债的保障程度越强，流动性风险越低，因此预期与股票未来收益正相关。"
+  },
+  "provider_request_id": "c768788a-91b4-43b4-8fa9-03c83fd62ab2",
+  "usage": {
+    "prompt_tokens": 688,
+    "completion_tokens": 2651,
+    "total_tokens": 3339,
+    "prompt_tokens_details": {
+      "cached_tokens": 512
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2473
+    },
+    "prompt_cache_hit_tokens": 512,
+    "prompt_cache_miss_tokens": 176
+  }
+}

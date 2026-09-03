@@ -1,0 +1,68 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-09-02T10:24:53.227407+00:00",
+  "feature_count": 30,
+  "human_count": 25,
+  "qm_count": 5,
+  "label": "label_ret_5",
+  "tuning": {
+    "best_trial": 26,
+    "best_score": 0.0840849010876699,
+    "tune_rank_ic": 0.08311467823659943,
+    "tune_turnover_proxy": 0.6583441052427254,
+    "best_iteration": 300,
+    "params": {
+      "objective": "regression",
+      "metric": "mse",
+      "learning_rate": 0.016043530019165513,
+      "colsample_bytree": 0.6480357261732892,
+      "subsample": 0.8163855255755431,
+      "subsample_freq": 4,
+      "lambda_l1": 324.500541252481,
+      "lambda_l2": 0.2236447715025025,
+      "max_depth": 7,
+      "num_leaves": 42,
+      "min_data_in_leaf": 3666,
+      "num_threads": 8,
+      "verbosity": -1,
+      "seed": 42,
+      "min_sum_hessian_in_leaf": 8.957625226858278,
+      "min_gain_to_split": 1.1705282433824746e-05
+    },
+    "train_period": [
+      "2016-01-01",
+      "2023-04-30"
+    ],
+    "tune_period": [
+      "2023-05-01",
+      "2024-06-28"
+    ],
+    "holdout_period": [
+      "2024-07-01",
+      "2025-01-01"
+    ],
+    "holdout_ic": 0.08200099961239879,
+    "holdout_rank_ic": 0.09260066549876114,
+    "holdout_rank_ic_ir": 1.1502721101409314,
+    "test_data_used": false
+  },
+  "weekly_10bps_holdout": {
+    "annual_return": 0.9411459191659113,
+    "benchmark_annual_return": 0.28497273504791454,
+    "annual_excess_return": 0.6561731841179967,
+    "annual_volatility": 0.3763343337503146,
+    "sharpe": 1.9483338690268563,
+    "information_ratio": 2.13172617028096,
+    "max_drawdown": -0.11792532208308604,
+    "final_nav": 1.3859351695085194,
+    "rebalance_count": 26,
+    "average_weekly_one_way_turnover": 0.560109873046443,
+    "annualized_one_way_turnover": 28.45719516284348,
+    "total_trading_cost": 3453283.7968577775,
+    "blocked_buy_count": 178,
+    "blocked_sell_count": 15,
+    "blocked_buy_rate_per_selection": 0.013805941208407663
+  },
+  "test_data_used": false,
+  "warning": "This is a validation experiment, not the final locked test result."
+}

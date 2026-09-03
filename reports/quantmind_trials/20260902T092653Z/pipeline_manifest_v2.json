@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T09:33:50.236406+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T092653Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_NOISE_AMPLIFY_20",
+    "formula": "TS_CORR(ABS($IND_RESID_RET_1D), $turnover_rate, 20)",
+    "inputs": [
+      "IND_RESID_RET_1D",
+      "turnover_rate"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "活跃换手伴随特质收益波动的时期代表噪声交易者主导，错误定价随后会回归，高噪声放大因子的股票未来收益较低。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

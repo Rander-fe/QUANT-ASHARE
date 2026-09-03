@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T08:13:03.519016+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T081036Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_PROFIT_CONVERSION",
+    "formula": "SAFE_DIV($netprofit_margin, $grossprofit_margin)",
+    "inputs": [
+      "netprofit_margin",
+      "grossprofit_margin"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "毛利率代表产品初始盈利空间；净利率进一步反映费用、税金等消耗后的最终利润留存。净利率/毛利率越高，说明企业在成本费用与运营损耗方面控制越有效，剩余盈利能力和质量越强，通常对应更可持续的回报，故预期未来收益为正。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

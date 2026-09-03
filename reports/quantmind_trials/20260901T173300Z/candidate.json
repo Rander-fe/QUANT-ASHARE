@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T17:33:00.869207+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_ASSETS_TURN_DELTA",
+    "formula": "FIN_DELTA_REPORT($assets_turn,1)",
+    "inputs": [
+      "assets_turn"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "总资产周转率衡量公司利用全部资产创造收入的效率。其环比提升表明公司在提升运营效率或资产使用效率，往往与盈利改善或竞争优势增强相关，预期未来收益为正。"
+  },
+  "provider_request_id": "000c9bf1-cdcf-4861-890a-140afb39de74",
+  "usage": {
+    "prompt_tokens": 3640,
+    "completion_tokens": 2696,
+    "total_tokens": 6336,
+    "prompt_tokens_details": {
+      "cached_tokens": 3584
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2549
+    },
+    "prompt_cache_hit_tokens": 3584,
+    "prompt_cache_miss_tokens": 56
+  }
+}

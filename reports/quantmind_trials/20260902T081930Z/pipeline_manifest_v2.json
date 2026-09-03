@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T08:21:56.945539+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T081930Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_PROFIT_GROWTH_OVER_SALES",
+    "formula": "$op_yoy - $tr_yoy",
+    "inputs": [
+      "op_yoy",
+      "tr_yoy"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "当营业利润增速高于收入增速时，表明企业在收入扩张中实现了更高的利润转化效率，盈利质量提升，未来有望获得超额收益；反之则反映成本或费用约束侵蚀利润，盈利质量较弱。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

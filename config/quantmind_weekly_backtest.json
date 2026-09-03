@@ -1,0 +1,36 @@
+{
+  "protocol_version": "quantmind_weekly_factor_v3",
+  "research_period": ["2016-01-01", "2023-04-30"],
+  "validation_reuse_allowed": false,
+  "test_access_allowed": false,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.10,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "execution": {
+    "reject_buy_when_open_at_limit_up": true,
+    "reject_sell_when_open_at_limit_down": true,
+    "reject_when_suspended_or_open_invalid": true
+  },
+  "one_way_cost_bps": [10],
+  "primary_cost_bps": 10,
+  "cost_policy": "10bps is the sole admission and reporting scenario (user decision 2026-09-02)",
+  "admission_change_log": {
+    "from": {"primary_cost_bps": 20, "reason": "20bps was the historical only admission gate with 0/19 historical passes"},
+    "to": {"primary_cost_bps": 10, "reason": "user approved 10bps as the sole weekly cost scenario; sharpe/excess/drawdown thresholds unchanged"},
+    "date_utc": "2026-09-02"
+  },
+  "admission_reference": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  }
+}

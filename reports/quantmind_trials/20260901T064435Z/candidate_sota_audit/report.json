@@ -1,0 +1,123 @@
+{
+  "status": "candidate_sota_admission_audit",
+  "formal_sota_modified": false,
+  "candidate": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL_WINSOR_Z_SIZE_NEUTRAL",
+  "raw_candidate": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL",
+  "direction": "negative",
+  "data_boundary": {
+    "train": [
+      "2016-01-01",
+      "2023-04-30"
+    ],
+    "validation_one_shot": [
+      "2023-05-01",
+      "2025-01-01"
+    ],
+    "test_start": "2025-01-02",
+    "test_rows_read": 0
+  },
+  "preprocessing": [
+    "daily 1/99 percentile winsorization",
+    "daily z-score",
+    "OLS neutralization against log(circ_mv)",
+    "residual z-score"
+  ],
+  "missing_analysis": {
+    "total_rows": 8482542,
+    "missing_count": 370482,
+    "missing_rate": 0.043675822648446654,
+    "insufficient_listing_history_lt_21": 105944,
+    "turnover_input_missing_or_nonpositive": 150991,
+    "return_volatility_missing_or_zero": 102465,
+    "overlap_or_other": 11082
+  },
+  "missing_policy": "No zero imputation. Missing candidate remains NaN; stocks require 21 observations, positive turnover_rate, valid return volatility, and positive circ_mv.",
+  "train_ic": {
+    "ic": {
+      "raw_mean": -0.08029150632467966,
+      "aligned_mean": 0.08029150632467966,
+      "aligned_ir": 0.8883786023892571,
+      "aligned_correct_rate": 0.8233957978421351,
+      "days": 1761
+    },
+    "rank_ic": {
+      "raw_mean": -0.09324367869168536,
+      "aligned_mean": 0.09324367869168536,
+      "aligned_ir": 0.871741176541839,
+      "aligned_correct_rate": 0.797274275979557,
+      "days": 1761
+    }
+  },
+  "validation_ic_one_shot": {
+    "ic": {
+      "raw_mean": -0.07211080229091238,
+      "aligned_mean": 0.07211080229091238,
+      "aligned_ir": 0.7326391001629939,
+      "aligned_correct_rate": 0.7832512315270936,
+      "days": 406
+    },
+    "rank_ic": {
+      "raw_mean": -0.08758525752837698,
+      "aligned_mean": 0.08758525752837698,
+      "aligned_ir": 0.6981900118924661,
+      "aligned_correct_rate": 0.7463054187192119,
+      "days": 406
+    }
+  },
+  "sota58": {
+    "count": 58,
+    "highest_abs_rank_correlation": {
+      "sota_factor": "LN_TURNOVER",
+      "days": 1761,
+      "candidate_sota_rank_corr_mean": 0.5571778999676061,
+      "candidate_sota_abs_rank_corr_mean": 0.5571778999676061,
+      "candidate_partial_rank_ic_raw": -0.037572231895280285,
+      "candidate_partial_rank_ic_aligned": 0.037572231895280285
+    },
+    "max_abs_corr_threshold": 0.7,
+    "all_individual_results": "sota58_correlation_incremental_ic.csv"
+  },
+  "tradability_and_cost": {
+    "train": {
+      "one_way_turnover": 0.16737723405070665,
+      "long_limit_up_rate": 0.0020333774723385423,
+      "long_lock_up_rate": 0.0006445766567063842,
+      "short_limit_down_rate": 0.007058204410207813,
+      "short_lock_down_rate": 0.000308264938273146,
+      "long_suspended_rate": 0.0,
+      "short_suspended_rate": 0.0,
+      "annualized_one_way_turnover_252": 42.17906298077808,
+      "estimated_annual_cost": {
+        "10_bps": 0.04217906298077807,
+        "20_bps": 0.08435812596155615,
+        "30_bps": 0.12653718894233423
+      }
+    },
+    "validation": {
+      "one_way_turnover": 0.15961989349082875,
+      "long_limit_up_rate": 0.0021097919202006333,
+      "long_lock_up_rate": 0.0003992280570825746,
+      "short_limit_down_rate": 0.007175880303733575,
+      "short_lock_down_rate": 0.0003688202107242949,
+      "long_suspended_rate": 0.0,
+      "short_suspended_rate": 0.0,
+      "annualized_one_way_turnover_252": 40.224213159688844,
+      "estimated_annual_cost": {
+        "10_bps": 0.04022421315968885,
+        "20_bps": 0.0804484263193777,
+        "30_bps": 0.12067263947906653
+      }
+    }
+  },
+  "industry_exposure": {
+    "train": {
+      "eta_squared_mean": 0.14942800383659208,
+      "diagnostic_only": true
+    },
+    "validation": {
+      "eta_squared_mean": 0.14339776625298595,
+      "diagnostic_only": true
+    }
+  },
+  "industry_warning": "Current industry is a present-day snapshot backfilled historically; diagnostic only and excluded from admission logic."
+}

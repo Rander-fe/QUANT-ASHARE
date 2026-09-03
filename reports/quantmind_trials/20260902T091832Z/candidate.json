@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T09:18:32.907766+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_LIQUIDITY_TREND_20_60",
+    "formula": "SAFE_DIV(TS_MEAN($amount,20), TS_MEAN($amount,60)) - 1",
+    "inputs": [
+      "amount"
+    ],
+    "lookback": 60,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "近端成交额较中期基线的扩张捕捉流动性/关注度的边际上升。在中国散户主导的市场中，成交活跃度的异常提升常由投机或派发引起，形成拥挤交易，随后收益倾向于回落；缓慢的20/60日窗口提供了低换手的负向风险溢价信号。"
+  },
+  "provider_request_id": "f9d02945-dbd1-44e1-9090-4f5aadf93145",
+  "usage": {
+    "prompt_tokens": 4059,
+    "completion_tokens": 9467,
+    "total_tokens": 13526,
+    "prompt_tokens_details": {
+      "cached_tokens": 3968
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 9232
+    },
+    "prompt_cache_hit_tokens": 3968,
+    "prompt_cache_miss_tokens": 91
+  }
+}

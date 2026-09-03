@@ -1,0 +1,44 @@
+{
+  "status": "quick_screen_complete",
+  "candidate": {
+    "factor_name": "QM_DS_NOISE_AMPLIFY_20",
+    "formula": "TS_CORR(ABS($IND_RESID_RET_1D), $turnover_rate, 20)",
+    "inputs": [
+      "IND_RESID_RET_1D",
+      "turnover_rate"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "活跃换手伴随特质收益波动的时期代表噪声交易者主导，错误定价随后会回归，高噪声放大因子的股票未来收益较低。"
+  },
+  "score_column": "QM_DS_NOISE_AMPLIFY_20_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2021-04-30",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 2156688,
+    "raw_missing_rate": 0.1255091139747613,
+    "infinity_count": 0,
+    "p01": -0.2246694145726935,
+    "median": 0.4947561334719247,
+    "p99": 0.9085140832469429,
+    "max": 0.9965568367411813
+  },
+  "performance": {
+    "ic": -0.0068266511952156175,
+    "rank_ic": -0.01629454717539323,
+    "ic_ir": -0.2088754093732924,
+    "rank_ic_ir": -0.442198573733871
+  },
+  "learned_direction_train_only": "negative",
+  "core25_highest_redundancy": null,
+  "admitted_registry_highest_redundancy": null,
+  "train_evaluation_gates": null,
+  "preliminary_decision": "quick_passed"
+}

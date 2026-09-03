@@ -1,0 +1,15 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "factorengine_local_island_financial_quality",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_LOCAL_ROE_LEVEL",
+    "formula": "$roe",
+    "inputs": ["roe"],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "公告后PIT可得的净资产收益率水平衡量股东资本盈利能力，属于低换手财务质量原子。"
+  }
+}

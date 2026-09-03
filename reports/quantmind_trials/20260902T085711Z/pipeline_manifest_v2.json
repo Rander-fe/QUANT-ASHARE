@@ -1,0 +1,32 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T09:08:40.782291+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T085711Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20",
+    "formula": "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+    "inputs": [
+      "close",
+      "vwap",
+      "volume"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "若股票在下跌时段（收盘价低于VWAP）释放的成交量占更高比例，说明抛售压力在弱势时段更集中，反映筹码派发和流动性承接不足，此类股票未来收益倾向为负。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

@@ -1,0 +1,35 @@
+{
+  "status": "ready",
+  "path": "data/processed/industry/industry_atoms_daily.parquet",
+  "rows": 10427948,
+  "date_range": [
+    "2016-01-04",
+    "2026-08-13"
+  ],
+  "industry_coverage": 0.9902130313653271,
+  "atoms": {
+    "IND_REL_RET_20": {
+      "missing_rate": 0.024119414481161585,
+      "infinity_count": 0,
+      "p01": -0.22269264478148562,
+      "median": -0.012453739870824376,
+      "p99": 0.3902526997906106
+    },
+    "IND_RESID_RET_1D": {
+      "missing_rate": 0.05076636362206639,
+      "infinity_count": 0,
+      "p01": -0.05933312081328192,
+      "median": -0.0010550846266512912,
+      "p99": 0.08216573793058206
+    },
+    "IND_RESID_MOM_20": {
+      "missing_rate": 0.06332866255182706,
+      "infinity_count": 0,
+      "p01": -0.2772567510087364,
+      "median": 0.0,
+      "p99": 0.28489397045542164
+    }
+  },
+  "selection_data_used": false,
+  "test_data_used_for_selection": false
+}

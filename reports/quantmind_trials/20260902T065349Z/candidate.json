@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T06:53:49.852425+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_LEVERAGE_CHG_1Q",
+    "formula": "FIN_DELTA_REPORT($debt_to_assets,1)",
+    "inputs": [
+      "debt_to_assets"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "资产负债率环比下降代表公司去杠杆或改善资本结构，降低财务风险与破产概率，促使权益风险溢价的下降并提升估值，因此预期未来收益为正；反之则相反。"
+  },
+  "provider_request_id": "d5180ee6-48d3-45ab-815e-8f76be2337bd",
+  "usage": {
+    "prompt_tokens": 4094,
+    "completion_tokens": 2851,
+    "total_tokens": 6945,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2693
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 3070
+  }
+}

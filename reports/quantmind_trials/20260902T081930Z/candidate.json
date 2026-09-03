@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:19:30.924406+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_PROFIT_GROWTH_OVER_SALES",
+    "formula": "$op_yoy - $tr_yoy",
+    "inputs": [
+      "op_yoy",
+      "tr_yoy"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "当营业利润增速高于收入增速时，表明企业在收入扩张中实现了更高的利润转化效率，盈利质量提升，未来有望获得超额收益；反之则反映成本或费用约束侵蚀利润，盈利质量较弱。"
+  },
+  "provider_request_id": "a3dd1331-3949-49a1-90ad-2fd8e34a9698",
+  "usage": {
+    "prompt_tokens": 3563,
+    "completion_tokens": 3319,
+    "total_tokens": 6882,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 3157
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3563
+  }
+}

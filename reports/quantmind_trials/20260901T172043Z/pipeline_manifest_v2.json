@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T07:23:46.477361+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260901T172043Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_IND_REL_RET_20",
+    "formula": "$IND_REL_RET_20",
+    "inputs": [
+      "IND_REL_RET_20"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "行业相对收益反映了个股在行业内的相对强弱，基于行为金融学中的动量效应，相对收益可能延续，因此可作为选股因子。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

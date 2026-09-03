@@ -1,0 +1,53 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_IND_REL_RET_20",
+    "formula": "$IND_REL_RET_20",
+    "inputs": [
+      "IND_REL_RET_20"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "行业相对收益反映了个股在行业内的相对强弱，基于行为金融学中的动量效应，相对收益可能延续，因此可作为选股因子。"
+  },
+  "score_column": "QM_DS_IND_REL_RET_20_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.036064861716606965,
+    "infinity_count": 0,
+    "p01": -0.21969017781398215,
+    "median": -0.011470210884699183,
+    "p99": 0.3637989578561208,
+    "max": 6.49734563860336
+  },
+  "performance": {
+    "ic": -0.03987000276672735,
+    "rank_ic": -0.05590791974018983,
+    "ic_ir": -0.4230579632738098,
+    "rank_ic_ir": -0.5827435291562023
+  },
+  "learned_direction_train_only": "negative",
+  "core25_highest_redundancy": {
+    "core_factor": "OBV_CHG_20",
+    "daily_rank_corr_mean": 0.5583597528938258,
+    "daily_abs_rank_corr_mean": 0.5583597528938258,
+    "partial_rank_ic": -0.042002219965433726
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "preliminary_decision": "eligible_for_weekly_backtest"
+}

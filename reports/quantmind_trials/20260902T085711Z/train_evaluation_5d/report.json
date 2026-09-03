@@ -1,0 +1,61 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20",
+    "formula": "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+    "inputs": [
+      "close",
+      "vwap",
+      "volume"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "若股票在下跌时段（收盘价低于VWAP）释放的成交量占更高比例，说明抛售压力在弱势时段更集中，反映筹码派发和流动性承接不足，此类股票未来收益倾向为负。"
+  },
+  "score_column": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.016379082701033193,
+    "infinity_count": 0,
+    "p01": 0.07734070314799785,
+    "median": 0.4937368229096413,
+    "p99": 0.8227694105110208,
+    "max": 1.0
+  },
+  "performance": {
+    "ic": 0.01695602318976142,
+    "rank_ic": 0.017945203610924273,
+    "ic_ir": 0.26345854419222,
+    "rank_ic_ir": 0.237428743158375
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": {
+    "core_factor": "OBV_CHG_20",
+    "daily_rank_corr_mean": -0.2479585205557816,
+    "daily_abs_rank_corr_mean": 0.2480502262306762,
+    "partial_rank_ic": 0.009228678440696218
+  },
+  "admitted_registry_highest_redundancy": {
+    "admitted_factor": "QM_DS_IDIOVOL_60D",
+    "daily_rank_corr_mean": 0.027000973729401995,
+    "daily_abs_rank_corr_mean": 0.08745928713856926,
+    "n_days": 1662
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "preliminary_decision": "eligible_for_weekly_backtest"
+}

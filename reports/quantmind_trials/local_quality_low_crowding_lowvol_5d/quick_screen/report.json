@@ -1,0 +1,45 @@
+{
+  "status": "quick_screen_complete",
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL",
+    "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-20*TS_STD(TS_PCT_CHANGE($close,1),20)",
+    "inputs": [
+      "roe",
+      "turnover_rate",
+      "close"
+    ],
+    "lookback": 21,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "在高ROE低拥挤组合上加入20日实现波动率惩罚，针对上一版本净夏普不足而控制组合风险。"
+  },
+  "score_column": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2021-04-30",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 2156688,
+    "raw_missing_rate": 0.04623849161306596,
+    "infinity_count": 0,
+    "p01": -5.977878574122469,
+    "median": 0.06090744850607188,
+    "p99": 2.3863433087551345,
+    "max": 4.737862564041644
+  },
+  "performance": {
+    "ic": 0.013584802164200445,
+    "rank_ic": 0.048091741923236155,
+    "ic_ir": 0.16629130292904398,
+    "rank_ic_ir": 0.5299265210517161
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": null,
+  "admitted_registry_highest_redundancy": null,
+  "train_evaluation_gates": null,
+  "preliminary_decision": "quick_passed"
+}

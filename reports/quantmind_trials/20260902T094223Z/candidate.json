@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T09:42:23.074101+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_TURNOVER_SLOPE_20",
+    "formula": "TS_SLOPE($turnover_rate,20)",
+    "inputs": [
+      "turnover_rate"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "换手率上行通常对应注意力驱动的买入和投机交易，短期将价格推高至基本面之上，形成拥挤；随后新增买盘不足导致价格回落。该因子捕捉换手率的变化方向而非水平，与核心低换手因子正交，低换手周度调仓成本可控。"
+  },
+  "provider_request_id": "d721d98f-6212-44b2-9585-56edff353fcc",
+  "usage": {
+    "prompt_tokens": 4289,
+    "completion_tokens": 14085,
+    "total_tokens": 18374,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 13892
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 2881
+  }
+}

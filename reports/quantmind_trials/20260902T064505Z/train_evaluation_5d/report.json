@@ -1,0 +1,53 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_ROIC_DELTA_1Q",
+    "formula": "FIN_DELTA_REPORT($roic,1)",
+    "inputs": [
+      "roic"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "ROIC上升意味着公司利用资本产生的回报提高，反映市场竞争力和再投资效率改善，通常预示着更优的未来业绩与估值提升。"
+  },
+  "score_column": "QM_DS_ROIC_DELTA_1Q_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.1012234992306278,
+    "infinity_count": 0,
+    "p01": -18.6286,
+    "median": 0.8748000000000002,
+    "p99": 11.8447,
+    "max": 597.2606000000001
+  },
+  "performance": {
+    "ic": 0.005863039287551176,
+    "rank_ic": 0.009443290577273883,
+    "ic_ir": 0.07855705625618371,
+    "rank_ic_ir": 0.10393834984543159
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": {
+    "core_factor": "EP",
+    "daily_rank_corr_mean": 0.1607616190719004,
+    "daily_abs_rank_corr_mean": 0.4188070167961995,
+    "partial_rank_ic": 0.001288297574877977
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "preliminary_decision": "rejected_weak_train_rank_ic"
+}

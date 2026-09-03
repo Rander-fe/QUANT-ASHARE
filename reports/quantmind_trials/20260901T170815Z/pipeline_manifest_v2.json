@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T07:11:30.895490+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260901T170815Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_MEAN_60",
+    "formula": "TS_MEAN($IND_RESID_RET_1D,60)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 60,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "行业残差反映了剔除市场和行业共同因子后公司特有的信息。长期的残差均值反映公司层面的持续性优势或劣势，可预测未来相对行业的表现。相比20日动量，60日均值降低了短期噪声和换手，属于慢变量。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

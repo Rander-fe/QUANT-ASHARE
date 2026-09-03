@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T06:58:03.711522+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T065349Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_LEVERAGE_CHG_1Q",
+    "formula": "FIN_DELTA_REPORT($debt_to_assets,1)",
+    "inputs": [
+      "debt_to_assets"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "资产负债率环比下降代表公司去杠杆或改善资本结构，降低财务风险与破产概率，促使权益风险溢价的下降并提升估值，因此预期未来收益为正；反之则相反。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

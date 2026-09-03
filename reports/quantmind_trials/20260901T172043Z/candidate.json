@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T17:20:43.877537+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_REL_RET_20",
+    "formula": "$IND_REL_RET_20",
+    "inputs": [
+      "IND_REL_RET_20"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "行业相对收益反映了个股在行业内的相对强弱，基于行为金融学中的动量效应，相对收益可能延续，因此可作为选股因子。"
+  },
+  "provider_request_id": "f37a890a-abb0-463c-bee1-399c566624cf",
+  "usage": {
+    "prompt_tokens": 947,
+    "completion_tokens": 1389,
+    "total_tokens": 2336,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1246
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 179
+  }
+}

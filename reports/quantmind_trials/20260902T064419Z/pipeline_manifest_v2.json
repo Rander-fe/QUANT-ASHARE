@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T07:33:26.071173+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T064419Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_GROSS_MARGIN_YOY_CHG",
+    "formula": "FIN_DELTA_REPORT($grossprofit_margin,4)",
+    "inputs": [
+      "grossprofit_margin"
+    ],
+    "lookback": 4,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "毛利率同比提升通常反映公司产品定价权增强、成本结构优化或竞争格局改善，可能预示着未来盈利和市场预期的正向修正，因此该因子方向为正。"
+  },
+  "train_decision": "rejected_excessive_missing_rate",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

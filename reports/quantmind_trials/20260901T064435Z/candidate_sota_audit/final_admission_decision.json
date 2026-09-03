@@ -1,0 +1,37 @@
+{
+  "decision": "research_admission_passed_formal_sota_deferred",
+  "formal_sota_modified": false,
+  "candidate": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL_WINSOR_Z_SIZE_NEUTRAL",
+  "direction": "negative",
+  "passed_gates": {
+    "train_direction_aligned_ic": 0.080292,
+    "train_direction_aligned_rank_ic": 0.093244,
+    "validation_one_shot_direction_aligned_ic": 0.072111,
+    "validation_one_shot_direction_aligned_rank_ic": 0.087585,
+    "highest_sota58_abs_rank_correlation": 0.557178,
+    "redundancy_threshold": 0.70,
+    "incremental_rank_ic_after_controlling_ln_turnover": 0.037572,
+    "mean_daily_linear_correlation_with_log_circ_mv_after_neutralization": 0.0,
+    "test_rows_read": 0
+  },
+  "data_quality": {
+    "train_missing_rate": 0.055242,
+    "validation_missing_rate": 0.006172,
+    "combined_missing_rate": 0.043676,
+    "missing_policy": "Do not fill with zero. Require sufficient history, positive turnover_rate, valid return volatility, and positive circ_mv; otherwise keep NaN and exclude that stock-date.",
+    "superseded_missing_rate": 0.106094,
+    "superseded_reason": "The earlier variant-comparison implementation rebuilt rolling inputs after a truncated/merged panel. The admission audit recomputed chronologically from the continuous base table and is authoritative."
+  },
+  "defer_reasons": [
+    "Daily decile portfolio one-way turnover is 16.74 percent in train and 15.96 percent in validation",
+    "At an assumed 20 bps one-way cost, annual cost drag is approximately 8.44 percent in train and 8.04 percent in validation",
+    "Weekly or lower-frequency rebalance and net long-short return must be tested before formal admission",
+    "Industry exposure is diagnostic only because historical point-in-time industry membership is unavailable"
+  ],
+  "industry_diagnostic": {
+    "train_eta_squared": 0.149428,
+    "validation_eta_squared": 0.143398,
+    "used_for_admission": false
+  },
+  "next_required_test": "Compare daily, weekly, and 10-day rebalance schedules with limit-up/down execution constraints and net returns at 10/20/30 bps; do not access the test period."
+}

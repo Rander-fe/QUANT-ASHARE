@@ -1,0 +1,67 @@
+{
+  "segment": "valid",
+  "model": "lgb",
+  "label": "label_ret_20",
+  "annual_turnover_budget": 1.89,
+  "config": {
+    "execution_rule_version": "open_limit_v2",
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 5,
+    "rebalance_days": 5,
+    "rebalance_offset": 0,
+    "initial_cash": 100000000.0,
+    "buy_cost": 0.0005,
+    "sell_cost": 0.0015,
+    "min_commission": 5.0,
+    "lot_size": 100,
+    "winsor_quantile": 0.01,
+    "max_industry_weight": 0.2,
+    "use_mean_variance_optimizer": false,
+    "max_stock_weight": 0.04,
+    "covariance_lookback": 120,
+    "covariance_min_observations": 40,
+    "alpha_scale": 0.025,
+    "risk_aversion": 0.5,
+    "turnover_penalty": 0.003,
+    "target_annual_volatility": 0.35,
+    "volatility_lookback": 60,
+    "use_dynamic_exposure": false,
+    "minimum_exposure": 0.6,
+    "max_rebalance_turnover": 0.0375,
+    "drawdown_tiers": [
+      [
+        -0.2,
+        0.9
+      ],
+      [
+        -0.3,
+        0.75
+      ],
+      [
+        -0.4,
+        0.6
+      ]
+    ],
+    "benchmark": "SH000300"
+  },
+  "config_hash": "fcbc81e5d0fb00e5c362d06dd5f281bedd12a3a2987db2194713f2cb18435826",
+  "metrics": {
+    "annual_return": 0.13468250967715933,
+    "benchmark_annual_return": -0.009226425704200958,
+    "annual_excess_return": 0.1439089353813603,
+    "annual_volatility": 0.31441046204582324,
+    "sharpe": 0.5596033126609222,
+    "information_ratio": 0.6778082892606712,
+    "max_drawdown": -0.36813893694498256,
+    "average_daily_turnover": 0.007422847045883379,
+    "annualized_two_sided_turnover": 1.8753784799326183,
+    "initial_build_turnover": 0.9799565230139792,
+    "average_exposure": 1.0,
+    "average_actual_exposure": 0.978163171362087,
+    "max_rebalance_turnover": 0.03749999117422682,
+    "max_regular_rebalance_turnover": 0.03749999117422682,
+    "total_cost": 323964.3229908146,
+    "trading_days": 389
+  }
+}

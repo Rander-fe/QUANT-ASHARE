@@ -1,0 +1,62 @@
+{
+  "sota_id": "human_core_25_v1",
+  "display_name": "人工五分组优选25因子核心SOTA",
+  "collection_status": "official_active_human_sota",
+  "active_for_model_input": true,
+  "active_for_quantmind_seed": true,
+  "factor_count": 25,
+  "selection_origin": "训练期IC去弱与去冗余后的58因子，再经5日五分组收益和单调性筛选",
+  "selection_period": ["2016-01-01", "2023-04-30"],
+  "selection_used_test_data": false,
+  "selection_rules": {
+    "label": "label_ret_5",
+    "holding_days": 5,
+    "groups": 5,
+    "aligned_annual_return_strictly_greater_than": 0.0,
+    "absolute_monotonic_correlation_strictly_greater_than": 0.8
+  },
+  "reference_library": {
+    "sota_id": "human_final_sota_v1",
+    "role": "inactive_historical_archive_58",
+    "use_for_candidate_redundancy_warning": false,
+    "use_for_candidate_generation": false,
+    "use_for_candidate_admission": false,
+    "use_as_default_model_input": false
+  },
+  "immutability": {
+    "quantmind_may_modify_members": false,
+    "quantmind_may_generate_candidates": true,
+    "direct_candidate_admission": false
+  },
+  "replacements": {
+    "MAX_DD60": "MAX_DD60_V2",
+    "CONSEC_UP5": "same_name_formula_revision_2"
+  },
+  "factors": [
+    {"factor_name":"LOW_TURNOVER","category":"liquidity","data_file":"data/processed/factors.parquet","data_column":"LOW_TURNOVER"},
+    {"factor_name":"LN_TURNOVER","category":"liquidity","data_file":"data/processed/factors.parquet","data_column":"LN_TURNOVER"},
+    {"factor_name":"CORR20","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"CORR20"},
+    {"factor_name":"VOL_CV20","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"VOL_CV20"},
+    {"factor_name":"RET_AMT_CORR20","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"RET_AMT_CORR20"},
+    {"factor_name":"KLOW","category":"price_structure","data_file":"data/processed/factors.parquet","data_column":"KLOW"},
+    {"factor_name":"CONSEC_UP5","category":"momentum_reversal","data_file":"data/processed/factors.parquet","data_column":"CONSEC_UP5","formula_revision":2},
+    {"factor_name":"CORD60","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"CORD60"},
+    {"factor_name":"RET_VOL_CORR5","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"RET_VOL_CORR5"},
+    {"factor_name":"OBV_CHG_20","category":"technical_state","data_file":"data/processed/factors.parquet","data_column":"OBV_CHG_20"},
+    {"factor_name":"CORD5","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"CORD5"},
+    {"factor_name":"AMIHUD_20","category":"liquidity","data_file":"data/processed/factors.parquet","data_column":"AMIHUD_20"},
+    {"factor_name":"VOL_OF_VOL_20","category":"volatility_risk","data_file":"data/processed/factors.parquet","data_column":"VOL_OF_VOL_20"},
+    {"factor_name":"CORR60","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"CORR60"},
+    {"factor_name":"VOL_PRICE_DIVERGENCE","category":"liquidity","data_file":"data/processed/factors.parquet","data_column":"VOL_PRICE_DIVERGENCE"},
+    {"factor_name":"BP","category":"value","data_file":"data/processed/factors.parquet","data_column":"BP"},
+    {"factor_name":"EP","category":"value","data_file":"data/processed/factors.parquet","data_column":"EP"},
+    {"factor_name":"CNTD10","category":"trend_quality","data_file":"data/processed/factors.parquet","data_column":"CNTD10"},
+    {"factor_name":"IMAX60","category":"price_structure","data_file":"data/processed/factors.parquet","data_column":"IMAX60"},
+    {"factor_name":"WVMA30","category":"price_volume","data_file":"data/processed/factors.parquet","data_column":"WVMA30"},
+    {"factor_name":"MAX_DD60_V2","category":"volatility_risk","direction":"negative","status":"provisional","data_file":"data/processed/reversal_momentum_fixes_v2.parquet","data_column":"MAX_DD60_V2","formula_revision":2},
+    {"factor_name":"CNTD60","category":"trend_quality","data_file":"data/processed/factors.parquet","data_column":"CNTD60"},
+    {"factor_name":"Q_SALES_YOY","category":"financial_growth_change","data_file":"data/processed/factors.parquet","data_column":"Q_SALES_YOY"},
+    {"factor_name":"VSTD5","category":"volatility_risk","data_file":"data/processed/factors.parquet","data_column":"VSTD5"},
+    {"factor_name":"NEG_SKEW_20","category":"volatility_risk","data_file":"data/processed/factors.parquet","data_column":"NEG_SKEW_20"}
+  ]
+}

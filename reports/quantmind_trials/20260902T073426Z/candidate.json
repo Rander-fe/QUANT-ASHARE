@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T07:34:26.079895+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_SKEW_20",
+    "formula": "TS_SKEW($IND_RESID_RET_1D,20)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "特质收益偏度捕捉市场无法解释的收益分布不对称性。右偏（高正偏度）收益具有彩票型特征，投资者可能高估其极端正回报概率而溢价买入，导致随后收益走低；同时负偏或左尾风险也反映投资者对特质风险的补偿不足。"
+  },
+  "provider_request_id": "95f10f3e-b5a6-4458-bf24-5a5fdb0b488c",
+  "usage": {
+    "prompt_tokens": 4224,
+    "completion_tokens": 4572,
+    "total_tokens": 8796,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4305
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4224
+  }
+}

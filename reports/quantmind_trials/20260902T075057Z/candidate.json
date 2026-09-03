@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T07:50:57.458078+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IDIOVOL_120D",
+    "formula": "TS_STD($IND_RESID_RET_1D,120)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 120,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "异质波动率长期水平越高，套利风险与错误定价程度越高，预期收益越低；120日窗口更稳定，换手低，适合周频。"
+  },
+  "provider_request_id": "67d045a9-4353-44a7-8b66-cdaf024f816d",
+  "usage": {
+    "prompt_tokens": 4273,
+    "completion_tokens": 2156,
+    "total_tokens": 6429,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1999
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 3121
+  }
+}

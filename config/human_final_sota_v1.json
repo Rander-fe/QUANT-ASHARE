@@ -1,0 +1,643 @@
+{
+  "sota_id": "human_final_sota_v1",
+  "display_name": "人工优选58因子历史参考与查重库",
+  "collection_status": "reference_archive",
+  "active_for_model_input": false,
+  "active_for_quantmind_seed": false,
+  "active_human_sota_replacement": "human_core_25_v1",
+  "factor_count": 58,
+  "selection_origin": "IC/ICIR筛选 + 日频IC相关性去冗余",
+  "selection_parameters_legacy": {
+    "min_abs_ic": 0.01,
+    "min_icir": 0.05,
+    "redundancy_threshold": 0.7
+  },
+  "benchmark_sources": [
+    {
+      "benchmark_id": "qlib_alpha158",
+      "role": "baseline_reference",
+      "factor_count": 158,
+      "source_bundle": "qlib_alpha158",
+      "data_file": "data/processed/alpha158.parquet",
+      "formula_modified": false,
+      "automatic_sota_membership": false,
+      "comparison_policy": "分别评估Alpha158基准与人工58 SOTA；同名因子不得重复入模"
+    }
+  ],
+  "immutability": {
+    "quantmind_may_modify_members": false,
+    "quantmind_may_generate_candidates": true,
+    "generated_candidate_default_status": "experimental"
+  },
+  "quantmind_generation_policy": {
+    "min_factors_per_round": 1,
+    "max_factors_per_round": 5,
+    "default_status": "experimental",
+    "direct_sota_admission": false,
+    "simple_factors_first": true,
+    "may_modify_human_sota": false,
+    "may_modify_alpha158": false,
+    "required_metadata": [
+      "factor_name",
+      "description",
+      "formula",
+      "inputs",
+      "lookback",
+      "availability",
+      "direction",
+      "economic_rationale"
+    ]
+  },
+  "replacements": {
+    "OVERNIGHT_RET5": "GAP5",
+    "MAX_DD60": "MAX_DD60_V2",
+    "CONSEC_UP5": "same_name_formula_revision_2"
+  },
+  "factors": [
+    {
+      "factor_name": "LOW_TURNOVER",
+      "factor_id": "internal.LOW_TURNOVER",
+      "category": "liquidity",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LOW_TURNOVER"
+    },
+    {
+      "factor_name": "CONSEC_UP5",
+      "factor_id": "internal.CONSEC_UP5",
+      "category": "momentum_reversal",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CONSEC_UP5",
+      "formula_revision": 2,
+      "note": "使用已正式写入因子库的修正公式值"
+    },
+    {
+      "factor_name": "QTLD30",
+      "factor_id": "qlib.alpha158.QTLD30",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "QTLD30"
+    },
+    {
+      "factor_name": "RET_AMT_CORR20",
+      "factor_id": "internal.RET_AMT_CORR20",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "RET_AMT_CORR20"
+    },
+    {
+      "factor_name": "LOW0",
+      "factor_id": "qlib.alpha158.LOW0",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LOW0"
+    },
+    {
+      "factor_name": "VOL_CV20",
+      "factor_id": "internal.VOL_CV20",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VOL_CV20"
+    },
+    {
+      "factor_name": "LOW_DOWN_STD_60",
+      "factor_id": "internal.LOW_DOWN_STD_60",
+      "category": "volatility_risk",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LOW_DOWN_STD_60"
+    },
+    {
+      "factor_name": "REV5",
+      "factor_id": "internal.REV5",
+      "category": "momentum_reversal",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "REV5"
+    },
+    {
+      "factor_name": "VOL_OF_VOL_20",
+      "factor_id": "internal.VOL_OF_VOL_20",
+      "category": "volatility_risk",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VOL_OF_VOL_20"
+    },
+    {
+      "factor_name": "RET_VOL_CORR5",
+      "factor_id": "internal.RET_VOL_CORR5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "RET_VOL_CORR5"
+    },
+    {
+      "factor_name": "VSUMN60",
+      "factor_id": "qlib.alpha158.VSUMN60",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMN60"
+    },
+    {
+      "factor_name": "VOL_PRICE_DIVERGENCE",
+      "factor_id": "internal.VOL_PRICE_DIVERGENCE",
+      "category": "liquidity",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VOL_PRICE_DIVERGENCE"
+    },
+    {
+      "factor_name": "VSUMN20",
+      "factor_id": "qlib.alpha158.VSUMN20",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMN20"
+    },
+    {
+      "factor_name": "EP",
+      "factor_id": "internal.EP",
+      "category": "value",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "EP"
+    },
+    {
+      "factor_name": "NEG_SKEW_20",
+      "factor_id": "internal.NEG_SKEW_20",
+      "category": "volatility_risk",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "NEG_SKEW_20"
+    },
+    {
+      "factor_name": "BP",
+      "factor_id": "internal.BP",
+      "category": "value",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "BP"
+    },
+    {
+      "factor_name": "VWAP0",
+      "factor_id": "qlib.alpha158.VWAP0",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VWAP0"
+    },
+    {
+      "factor_name": "AMIHUD_20",
+      "factor_id": "internal.AMIHUD_20",
+      "category": "liquidity",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "AMIHUD_20"
+    },
+    {
+      "factor_name": "GAP10",
+      "factor_id": "internal.GAP10",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "GAP10"
+    },
+    {
+      "factor_name": "VSUMN5",
+      "factor_id": "qlib.alpha158.VSUMN5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMN5"
+    },
+    {
+      "factor_name": "LOW_ATR_14",
+      "factor_id": "internal.LOW_ATR_14",
+      "category": "volatility_risk",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LOW_ATR_14"
+    },
+    {
+      "factor_name": "IMIN5",
+      "factor_id": "qlib.alpha158.IMIN5",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "IMIN5"
+    },
+    {
+      "factor_name": "IMIN20",
+      "factor_id": "qlib.alpha158.IMIN20",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "IMIN20"
+    },
+    {
+      "factor_name": "IMIN10",
+      "factor_id": "qlib.alpha158.IMIN10",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "IMIN10"
+    },
+    {
+      "factor_name": "Q_SALES_YOY",
+      "factor_id": "internal.Q_SALES_YOY",
+      "category": "financial_growth_change",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "Q_SALES_YOY"
+    },
+    {
+      "factor_name": "ROE_WAA",
+      "factor_id": "internal.ROE_WAA",
+      "category": "financial_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "ROE_WAA"
+    },
+    {
+      "factor_name": "IMIN60",
+      "factor_id": "qlib.alpha158.IMIN60",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "IMIN60"
+    },
+    {
+      "factor_name": "LOWER_SHADOW20",
+      "factor_id": "internal.LOWER_SHADOW20",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LOWER_SHADOW20"
+    },
+    {
+      "factor_name": "KLOW2",
+      "factor_id": "qlib.alpha158.KLOW2",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "KLOW2"
+    },
+    {
+      "factor_name": "WVMA5",
+      "factor_id": "qlib.alpha158.WVMA5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "WVMA5"
+    },
+    {
+      "factor_name": "RESI5",
+      "factor_id": "qlib.alpha158.RESI5",
+      "category": "trend_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "RESI5"
+    },
+    {
+      "factor_name": "VSTD10",
+      "factor_id": "qlib.alpha158.VSTD10",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSTD10"
+    },
+    {
+      "factor_name": "CNTD60",
+      "factor_id": "qlib.alpha158.CNTD60",
+      "category": "trend_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CNTD60"
+    },
+    {
+      "factor_name": "MAX5",
+      "factor_id": "qlib.alpha158.MAX5",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "MAX5"
+    },
+    {
+      "factor_name": "WVMA30",
+      "factor_id": "qlib.alpha158.WVMA30",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "WVMA30"
+    },
+    {
+      "factor_name": "CNTD10",
+      "factor_id": "qlib.alpha158.CNTD10",
+      "category": "trend_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CNTD10"
+    },
+    {
+      "factor_name": "VSTD5",
+      "factor_id": "qlib.alpha158.VSTD5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSTD5"
+    },
+    {
+      "factor_name": "RESI10",
+      "factor_id": "qlib.alpha158.RESI10",
+      "category": "trend_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "RESI10"
+    },
+    {
+      "factor_name": "GAP5",
+      "factor_id": "internal.GAP5",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "GAP5",
+      "note": "替代弃用的OVERNIGHT_RET5；二者方向相反，保留标准定义GAP5"
+    },
+    {
+      "factor_name": "RESI20",
+      "factor_id": "qlib.alpha158.RESI20",
+      "category": "trend_quality",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "RESI20"
+    },
+    {
+      "factor_name": "KDJ_J",
+      "factor_id": "internal.KDJ_J",
+      "category": "technical_state",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "KDJ_J"
+    },
+    {
+      "factor_name": "IMAX60",
+      "factor_id": "qlib.alpha158.IMAX60",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "IMAX60"
+    },
+    {
+      "factor_name": "KSFT2",
+      "factor_id": "qlib.alpha158.KSFT2",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "KSFT2"
+    },
+    {
+      "factor_name": "VSUMD5",
+      "factor_id": "qlib.alpha158.VSUMD5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMD5"
+    },
+    {
+      "factor_name": "CORR60",
+      "factor_id": "qlib.alpha158.CORR60",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CORR60"
+    },
+    {
+      "factor_name": "MACD_HIST",
+      "factor_id": "internal.MACD_HIST",
+      "category": "technical_state",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "MACD_HIST"
+    },
+    {
+      "factor_name": "OBV_CHG_20",
+      "factor_id": "internal.OBV_CHG_20",
+      "category": "technical_state",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "OBV_CHG_20"
+    },
+    {
+      "factor_name": "KUP",
+      "factor_id": "qlib.alpha158.KUP",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "KUP"
+    },
+    {
+      "factor_name": "MOM_SKIP_1W",
+      "factor_id": "internal.MOM_SKIP_1W",
+      "category": "momentum_reversal",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "MOM_SKIP_1W"
+    },
+    {
+      "factor_name": "VSUMP10",
+      "factor_id": "qlib.alpha158.VSUMP10",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMP10"
+    },
+    {
+      "factor_name": "CORD5",
+      "factor_id": "qlib.alpha158.CORD5",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CORD5"
+    },
+    {
+      "factor_name": "MAX_DD60_V2",
+      "factor_id": "internal.MAX_DD60_V2",
+      "category": "volatility_risk",
+      "direction": "negative",
+      "member_status": "provisional",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/reversal_momentum_fixes_v2.parquet",
+      "data_column": "MAX_DD60_V2",
+      "formula_revision": 2,
+      "note": "替代旧MAX_DD60；集合是最终正式SOTA，但该成员按用户要求保留provisional标记"
+    },
+    {
+      "factor_name": "CORD60",
+      "factor_id": "qlib.alpha158.CORD60",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CORD60"
+    },
+    {
+      "factor_name": "VSUMD30",
+      "factor_id": "qlib.alpha158.VSUMD30",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "VSUMD30"
+    },
+    {
+      "factor_name": "KLOW",
+      "factor_id": "qlib.alpha158.KLOW",
+      "category": "price_structure",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "KLOW"
+    },
+    {
+      "factor_name": "CORR20",
+      "factor_id": "qlib.alpha158.CORR20",
+      "category": "price_volume",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "CORR20"
+    },
+    {
+      "factor_name": "STD5",
+      "factor_id": "qlib.alpha158.STD5",
+      "category": "volatility_risk",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "STD5"
+    },
+    {
+      "factor_name": "LN_TURNOVER",
+      "factor_id": "internal.LN_TURNOVER",
+      "category": "liquidity",
+      "direction": "learned",
+      "member_status": "active",
+      "collection_role": "official_sota_member",
+      "data_file": "data/processed/factors.parquet",
+      "data_column": "LN_TURNOVER"
+    }
+  ]
+}

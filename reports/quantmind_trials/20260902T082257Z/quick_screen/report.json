@@ -1,0 +1,44 @@
+{
+  "status": "quick_screen_complete",
+  "candidate": {
+    "factor_name": "QM_DS_SALES_GROWTH_MARGIN",
+    "formula": "$q_sales_yoy * $netprofit_margin",
+    "inputs": [
+      "q_sales_yoy",
+      "netprofit_margin"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "销售净利率反映企业将收入转化为利润的能力，营收同比增速则是增长的引擎；两者相乘可近似刻画增量收入对应的净利润增量，利润质量视角下，只有高增长伴随高净利率才代表可持续的价值创造，而低净利率下的扩张或亏损性增长往往侵蚀股东价值。"
+  },
+  "score_column": "QM_DS_SALES_GROWTH_MARGIN_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2021-04-30",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 2156688,
+    "raw_missing_rate": 0.024565908467056894,
+    "infinity_count": 0,
+    "p01": -2719.10791015625,
+    "median": 77.06779479980469,
+    "p99": 8533.583984375,
+    "max": 35301976.0
+  },
+  "performance": {
+    "ic": -0.006168903440463405,
+    "rank_ic": -0.0030146935402113996,
+    "ic_ir": -0.16087455218644212,
+    "rank_ic_ir": -0.04665040273904029
+  },
+  "learned_direction_train_only": "negative",
+  "core25_highest_redundancy": null,
+  "admitted_registry_highest_redundancy": null,
+  "train_evaluation_gates": null,
+  "preliminary_decision": "rejected_weak_train_rank_ic"
+}

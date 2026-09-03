@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T05:39:22.233830+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/local_roe_level_5d/candidate.json",
+  "candidate": {
+    "factor_name": "QM_LOCAL_ROE_LEVEL",
+    "formula": "$roe",
+    "inputs": [
+      "roe"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "公告后PIT可得的净资产收益率水平衡量股东资本盈利能力，属于低换手财务质量原子。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

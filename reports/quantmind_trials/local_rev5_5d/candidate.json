@@ -1,0 +1,15 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "local_parameter_search_after_rdagent_feedback",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_LOCAL_REV5",
+    "formula": "TS_PCT_CHANGE($close,5)",
+    "inputs": ["close"],
+    "lookback": 5,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "A股短期过度反应与交易拥挤可能在未来一周均值回归；仅表达5日价格反转概念。"
+  }
+}

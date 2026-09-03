@@ -1,0 +1,38 @@
+{
+  "status": "rejected_duplicate_core25",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T12:20:12.503384+00:00",
+  "candidate_count": 1,
+  "local_duplicate_check": {
+    "matched_core_factor": "CORR20",
+    "reason": "同为20日价格水平与成交量水平相关性，仅缺少LOG1P成交量变换，属于简单变换",
+    "full_data_evaluation_skipped": true
+  },
+  "candidate": {
+    "factor_name": "QM_DS_VOLUME_PRICE_CORR",
+    "formula": "TS_CORR($close,$volume,20)",
+    "inputs": [
+      "close",
+      "volume"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "量价齐升通常表明上涨有成交量支撑，趋势更可持续；量价背离则暗示动能减弱。该因子捕捉价格与成交量的同步性。"
+  },
+  "provider_request_id": "a2c439f8-e002-46f2-a4cc-e28239c683ab",
+  "usage": {
+    "prompt_tokens": 481,
+    "completion_tokens": 469,
+    "total_tokens": 950,
+    "prompt_tokens_details": {
+      "cached_tokens": 384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 332
+    },
+    "prompt_cache_hit_tokens": 384,
+    "prompt_cache_miss_tokens": 97
+  }
+}

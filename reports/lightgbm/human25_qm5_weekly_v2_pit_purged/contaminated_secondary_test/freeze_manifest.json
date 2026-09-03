@@ -1,0 +1,92 @@
+{
+  "frozen_at_utc": "2026-09-02T12:50:06.425176+00:00",
+  "classification": "contaminated_secondary_test",
+  "reason": "same test interval was previously evaluated by another model/label",
+  "prior_global_test_audit": {
+    "evaluated_at_utc": "2026-08-24T06:45:15.769392+00:00",
+    "label": "label_ret_20",
+    "model": "lgb",
+    "config_hash": "0c750daac56062f9c938caa450b9466912fd4d6c85fe4dc2ded4da8faf0e221f",
+    "summary": "C:\\QUANT-ASHARE\\reports\\portfolio\\test\\lgb\\label_ret_20\\summary.json"
+  },
+  "features": {
+    "dataset_id": "human25_qm5_v2_pit_purged",
+    "factors": [
+      "LOW_TURNOVER",
+      "LN_TURNOVER",
+      "CORR20",
+      "VOL_CV20",
+      "RET_AMT_CORR20",
+      "KLOW",
+      "CONSEC_UP5",
+      "CORD60",
+      "RET_VOL_CORR5",
+      "OBV_CHG_20",
+      "CORD5",
+      "AMIHUD_20",
+      "VOL_OF_VOL_20",
+      "CORR60",
+      "VOL_PRICE_DIVERGENCE",
+      "BP",
+      "EP",
+      "CNTD10",
+      "IMAX60",
+      "WVMA30",
+      "MAX_DD60_V2",
+      "CNTD60",
+      "Q_SALES_YOY",
+      "VSTD5",
+      "NEG_SKEW_20",
+      "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL_WINSOR_Z_SIZE_NEUTRAL",
+      "QM_DS_IDIOVOL_60D_WINSOR_Z_SIZE_NEUTRAL",
+      "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30_WINSOR_Z_SIZE_NEUTRAL",
+      "QM_DS_IND_RESID_VOL_20_WINSOR_Z_SIZE_NEUTRAL",
+      "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL_WINSOR_Z_SIZE_NEUTRAL"
+    ],
+    "human_factor_count": 25,
+    "qm_factor_count": 5,
+    "criteria": {
+      "label": "label_ret_5",
+      "test_data_used": false
+    },
+    "qm_warning": "QM5 includes one duplicate-window and one near-threshold experimental factor by user instruction."
+  },
+  "params": {
+    "objective": "regression",
+    "metric": "mse",
+    "learning_rate": 0.02650117424617107,
+    "colsample_bytree": 0.8515698523885809,
+    "subsample": 0.9749509270863245,
+    "subsample_freq": 3,
+    "lambda_l1": 471.09563302155703,
+    "lambda_l2": 4.5111632814001235,
+    "max_depth": 9,
+    "num_leaves": 89,
+    "min_data_in_leaf": 1337,
+    "num_threads": 8,
+    "verbosity": -1,
+    "seed": 42,
+    "min_sum_hessian_in_leaf": 0.0018404494003894396,
+    "min_gain_to_split": 0.0002801365182257235
+  },
+  "num_boost_round": 156,
+  "portfolio": {
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 10,
+    "rebalance_rule": "calendar_week_end",
+    "execution": "next_trading_day_open",
+    "buy_cost_bps": 10,
+    "sell_cost_bps": 10,
+    "hard_turnover_cap": "disabled"
+  },
+  "hashes": {
+    "data\\processed\\human25_qm5_ret5_v2_pit.json": "74d6cadcb198c048454b39cf4f1f2c07c2690720ab9b8a7a37e51a0ff8b9775d",
+    "reports\\lightgbm\\human25_qm5_weekly_v2_pit_purged\\report.json": "d964f5d4908f12aac94cba4d23e12ea7c5acf53bce7d052d2221e4a22553867f",
+    "backtest\\engine.py": "028c223711ee55fa84280c016416ebc843ef534b75f7287be7b4b3f8f843a3ad",
+    "backtest\\alpha_signal.py": "2991c9639a8db11996e66449f069a316f3b6333f6f76ea7814ad5cbac15b66dc",
+    "backtest\\config.py": "9610e3db9e0f9ac4826d42bdf701d59cfcd95c3fdc8a4606bcc25b062d798073",
+    "scripts\\run_lgbm_human25_qm5_weekly.py": "bed4409d7fd942ce29bb4fd4fdf60febfe0b42038421d686c8ade1946ad3c77c"
+  },
+  "test_metrics_seen_before_freeze": false
+}

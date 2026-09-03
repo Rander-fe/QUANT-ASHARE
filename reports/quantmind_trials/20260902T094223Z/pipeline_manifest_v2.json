@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T09:55:40.863631+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T094223Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_TURNOVER_SLOPE_20",
+    "formula": "TS_SLOPE($turnover_rate,20)",
+    "inputs": [
+      "turnover_rate"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "换手率上行通常对应注意力驱动的买入和投机交易，短期将价格推高至基本面之上，形成拥挤；随后新增买盘不足导致价格回落。该因子捕捉换手率的变化方向而非水平，与核心低换手因子正交，低换手周度调仓成本可控。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_10bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

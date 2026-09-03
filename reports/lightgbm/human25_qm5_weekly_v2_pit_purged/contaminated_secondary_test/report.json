@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "classification": "contaminated_secondary_test",
+  "unbiased_final_test": false,
+  "period": [
+    "2025-01-02",
+    "2026-08-13"
+  ],
+  "metrics": {
+    "annual_return": 0.31801968488258403,
+    "benchmark_annual_return": 0.13759068896910742,
+    "annual_excess_return": 0.1804289959134766,
+    "annual_volatility": 0.23743428849284168,
+    "sharpe": 1.2846416545356207,
+    "information_ratio": 0.9172694131928788,
+    "max_drawdown": -0.19753447623758746,
+    "average_daily_turnover": 0.07686328187781599,
+    "annualized_two_sided_turnover": 19.419212538422986,
+    "initial_build_turnover": 0.9990008854220956,
+    "average_exposure": 1.0,
+    "average_actual_exposure": 0.9948842347371303,
+    "max_rebalance_turnover": 0.44934103742355985,
+    "max_regular_rebalance_turnover": 0.44934103742355985,
+    "total_cost": 4258958.770343336,
+    "total_cost_ratio": 0.031058724601692272,
+    "annualized_cost_ratio": 0.020068714358016545,
+    "trading_days": 391
+  },
+  "test_labels_used_for_training_or_tuning": false,
+  "prior_global_test_lock_preserved": true
+}

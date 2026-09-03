@@ -1,0 +1,10 @@
+{
+  "evaluated_at_utc": "2026-08-24T07:12:38.368491+00:00",
+  "correction_id": "open_limit_v2",
+  "reason": "开盘成交不再使用当日全天 pct_chg 涨跌停状态；改用真实昨收与开盘价。",
+  "original_audit": "C:\\QUANT-ASHARE\\reports\\portfolio\\final_test_audit.json",
+  "original_config_hash": "0c750daac56062f9c938caa450b9466912fd4d6c85fe4dc2ded4da8faf0e221f",
+  "corrected_config_hash": "a8e74df811643d77cc6e228fc5c7e4550880d1a0b2eba2ee3c009c19242fd137",
+  "summary": "C:\\QUANT-ASHARE\\reports\\portfolio\\test_corrections\\open_limit_v2\\lgb\\label_ret_20\\summary.json",
+  "parameters_retuned": false
+}

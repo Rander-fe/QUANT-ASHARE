@@ -1,0 +1,34 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T15:50:24.972605+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_DAY_LOCATION",
+    "formula": "TS_MEAN(SAFE_DIV(($close - $low), ($high - $low)), 20)",
+    "inputs": [
+      "close",
+      "low",
+      "high"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "作为日内价格的相对位置指标，反映买卖双方的即时力量对比；20日平均可平滑日内随机噪声，高值表示近期收盘价偏向日内高位，通常意味着买方占优。"
+  },
+  "provider_request_id": "b3f5bb10-7e08-4b7a-a7bf-ab800cb3515f",
+  "usage": {
+    "prompt_tokens": 523,
+    "completion_tokens": 1464,
+    "total_tokens": 1987,
+    "prompt_tokens_details": {
+      "cached_tokens": 512
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1239
+    },
+    "prompt_cache_hit_tokens": 512,
+    "prompt_cache_miss_tokens": 11
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "decision": "expand_existing_atomic_fields_before_adding_operators",
+  "already_available_and_now_enabled": {
+    "financial_quality": ["roe", "roe_waa", "roa", "roic", "grossprofit_margin", "netprofit_margin"],
+    "solvency_efficiency": ["current_ratio", "quick_ratio", "debt_to_assets", "assets_turn"],
+    "growth_change": ["tr_yoy", "netprofit_yoy", "op_yoy", "ocf_yoy", "roe_yoy", "q_sales_yoy", "q_op_qoq"]
+  },
+  "existing_market_atoms": ["open", "high", "low", "close", "volume", "amount", "vwap", "pct_chg", "total_mv", "circ_mv", "pe_ttm", "pb", "ps_ttm", "turnover_rate"],
+  "operator_decision": {
+    "add_now": [],
+    "reason": "The approved time-series and safe arithmetic operators already cover the currently enabled numeric atoms. More operators would mostly create complex variants of crowded price-volume concepts."
+  },
+  "financial_time_semantics": {
+    "current_daily_panel_rule": "Financial PIT values may be used directly or in same-date safe arithmetic; daily DELAY/DELTA/TS_* must not be described as report-period operations.",
+    "future_specialized_operators_if_needed": [],
+    "implemented_specialized_operators": ["FIN_LAG_REPORT", "FIN_DELTA_REPORT"],
+    "current_status": "implemented_and_enabled"
+  },
+  "pit_industry_atoms_now_enabled": {
+    "membership": "SW2014 L1 before 2021-12-13; SW2021 L1 on/after 2021-12-13; start_date <= date < end_date",
+    "fields": ["IND_REL_RET_20", "IND_RESID_RET_1D", "IND_RESID_MOM_20"]
+  },
+  "defer_until_point_in_time_data_is_ready": {
+    "events": ["announcement_type", "event_time", "days_since_event"],
+    "text": ["news_sentiment", "announcement_sentiment", "policy_exposure"]
+  },
+  "generation_focus_order": ["financial_quality", "industry_relative", "industry_residual", "growth_change", "solvency_efficiency", "value", "market_price_volume"]
+}

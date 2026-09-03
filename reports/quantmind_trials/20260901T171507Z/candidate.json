@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T17:15:07.760149+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_MOM_20",
+    "formula": "$IND_RESID_MOM_20",
+    "inputs": [
+      "IND_RESID_MOM_20"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "行业残差动量反映个股未被行业和市场解释的异质信息持续性，历史上呈动量效应"
+  },
+  "provider_request_id": "844f9ee9-9d4d-45d4-989f-8518ce97cdeb",
+  "usage": {
+    "prompt_tokens": 887,
+    "completion_tokens": 550,
+    "total_tokens": 1437,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 420
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 119
+  }
+}

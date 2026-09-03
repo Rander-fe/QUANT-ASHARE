@@ -1,0 +1,12 @@
+{
+  "evaluated_at_utc": "2026-09-02T12:54:11.304084+00:00",
+  "classification": "contaminated_secondary_test",
+  "model": "human25_qm5_v2_pit_purged",
+  "label": "label_ret_5",
+  "period": [
+    "2025-01-02",
+    "2026-08-13"
+  ],
+  "report": "reports/lightgbm/human25_qm5_weekly_v2_pit_purged/contaminated_secondary_test/report.json",
+  "rerun_allowed": false
+}

@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T09:25:14.878205+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T091832Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_LIQUIDITY_TREND_20_60",
+    "formula": "SAFE_DIV(TS_MEAN($amount,20), TS_MEAN($amount,60)) - 1",
+    "inputs": [
+      "amount"
+    ],
+    "lookback": 60,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "近端成交额较中期基线的扩张捕捉流动性/关注度的边际上升。在中国散户主导的市场中，成交活跃度的异常提升常由投机或派发引起，形成拥挤交易，随后收益倾向于回落；缓慢的20/60日窗口提供了低换手的负向风险溢价信号。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

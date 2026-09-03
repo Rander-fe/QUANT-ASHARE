@@ -1,0 +1,38 @@
+{
+  "policy_version": 2,
+  "active_human_sota": "human_core_25_v1",
+  "active_human_sota_file": "config/human_core_25_v1.json",
+  "candidate_comparison_policy": {
+    "primary_incremental_and_redundancy_set": "human_core_25_v1 + quantmind_admitted_registry",
+    "primary_redundancy_threshold": 0.7,
+    "rule": "候选逐一与25个核心因子以及config/quantmind_admitted_registry.json中已通过训练期周频关卡的QM准入因子比较日秩相关绝对值(方向无关)，任一>=0.7即判冗余；58个历史文件不参与生成、查重或准入"
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "factors_per_round": {"min": 1, "max": 5},
+  "default_status": "experimental",
+  "selection_period": ["2016-01-01", "2023-04-30"],
+  "primary_prediction_label": "label_ret_5",
+  "forbidden_selection_period": ["2025-01-02", "2026-08-13"],
+  "required_keys": ["factor_name", "formula", "inputs", "lookback", "availability", "direction", "economic_rationale"],
+  "allowed_fields": [
+    "open", "high", "low", "close", "volume", "amount", "vwap", "adjclose", "pct_chg",
+    "total_mv", "circ_mv", "pe_ttm", "pb", "ps_ttm", "turnover_rate",
+    "roe", "roe_waa", "roa", "roic", "grossprofit_margin", "netprofit_margin",
+    "current_ratio", "quick_ratio", "debt_to_assets", "assets_turn", "tr_yoy",
+    "netprofit_yoy", "op_yoy", "ocf_yoy", "roe_yoy", "q_sales_yoy", "q_op_qoq",
+    "IND_REL_RET_20", "IND_RESID_RET_1D", "IND_RESID_MOM_20"
+  ],
+  "field_sanitizers": {
+    "total_mv": "zero_to_nan", "circ_mv": "zero_to_nan", "pe_ttm": "zero_to_nan",
+    "pb": "zero_to_nan", "ps_ttm": "zero_to_nan", "turnover_rate": "zero_to_nan"
+  },
+  "forbidden_fields": ["industry", "policy.content", "cashflow.numeric"],
+  "time_contract": {"market_data_available": "after_close", "earliest_execution": "next_trade_day"},
+  "immutable_sources": ["human_core_25_v1", "qlib_alpha158"]
+}

@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T05:49:26.689424+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/local_quality_low_crowding_5d/candidate.json",
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING",
+    "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)",
+    "inputs": [
+      "roe",
+      "turnover_rate"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "偏好高ROE且低换手的非拥挤公司；对称对数处理ROE，换手率采用对数压缩，形成低频质量流动性复合因子。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "completed",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

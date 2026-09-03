@@ -1,0 +1,188 @@
+{
+  "catalog_version": 1,
+  "layer": 0,
+  "name": "QUANT-ASHARE 原始数据目录",
+  "principles": {
+    "immutable_source": true,
+    "point_in_time_required": true,
+    "factor_columns_forbidden": true,
+    "notes": "第0层只登记事实数据及其PIT可用性；alpha158、factors、features、labels不属于本层。"
+  },
+  "datasets": [
+    {
+      "id": "market.daily.qlib_export",
+      "category": "ohlcv",
+      "format": "parquet",
+      "paths": ["data/raw/daily/daily_*.parquet"],
+      "grain": ["symbol", "date"],
+      "source": "Qlib CN provider",
+      "frequency": "trading_day",
+      "availability": "当日收盘后可用；用于交易信号时最早下一交易日执行",
+      "required_fields": ["symbol", "date", "open", "high", "low", "close", "volume", "amount", "vwap", "factor", "adjclose"],
+      "field_contracts": {
+        "symbol": {"role": "entity_key", "description": "证券代码"},
+        "date": {"role": "event_time", "description": "交易日"},
+        "open": {"unit": "相对价格/数据源口径", "description": "开盘价"},
+        "high": {"unit": "相对价格/数据源口径", "description": "最高价"},
+        "low": {"unit": "相对价格/数据源口径", "description": "最低价"},
+        "close": {"unit": "相对价格/数据源口径", "description": "收盘价"},
+        "volume": {"unit": "数据源口径，使用前必须复核", "description": "成交量"},
+        "amount": {"unit": "数据源口径，使用前必须复核", "description": "成交额"},
+        "vwap": {"unit": "相对价格/数据源口径", "description": "成交量加权平均价"},
+        "factor": {"role": "adjustment_input", "description": "复权因子，不是选股因子"},
+        "adjclose": {"description": "复权收盘价"}
+      }
+    },
+    {
+      "id": "security.master",
+      "category": "security_reference",
+      "format": "parquet",
+      "paths": ["data/processed/stock_basic.parquet"],
+      "grain": ["symbol"],
+      "source": "Tushare + project cleaning",
+      "frequency": "snapshot",
+      "availability": "list_date自上市事实发生后可用；name与ST状态存在时变性，不得把当前快照回填历史",
+      "required_fields": ["symbol", "list_date", "name", "is_st_now"]
+    },
+    {
+      "id": "security.name_history",
+      "category": "security_reference",
+      "format": "parquet",
+      "paths": ["data/processed/namechange.parquet"],
+      "grain": ["symbol", "start_date"],
+      "source": "Tushare",
+      "frequency": "event",
+      "availability": "按start_date/end_date做历史区间关联",
+      "required_fields": ["symbol", "name", "start_date", "end_date"]
+    },
+    {
+      "id": "financial.income",
+      "category": "financial_statement",
+      "format": "parquet",
+      "paths": ["data/raw/financial/income.parquet"],
+      "grain": ["ts_code", "end_date", "ann_date", "report_type"],
+      "source": "Tushare income",
+      "frequency": "quarterly_event",
+      "availability": "使用f_ann_date优先，否则ann_date；严禁按end_date直接回填",
+      "required_fields": ["ts_code", "end_date", "ann_date", "f_ann_date", "report_type", "comp_type", "revenue", "n_income", "source_code"]
+    },
+    {
+      "id": "financial.balance_sheet",
+      "category": "financial_statement",
+      "format": "parquet",
+      "paths": ["data/raw/financial/balancesheet.parquet"],
+      "grain": ["ts_code", "end_date", "ann_date", "report_type"],
+      "source": "Tushare balancesheet",
+      "frequency": "quarterly_event",
+      "availability": "使用f_ann_date优先，否则ann_date；严禁按end_date直接回填",
+      "required_fields": ["ts_code", "end_date", "ann_date", "f_ann_date", "report_type", "comp_type", "total_assets", "total_liab", "source_code"]
+    },
+    {
+      "id": "financial.cashflow",
+      "category": "financial_statement",
+      "format": "parquet",
+      "paths": ["data/raw/financial/cashflow.parquet"],
+      "grain": ["ts_code", "end_date", "ann_date", "report_type"],
+      "source": "Tushare cashflow",
+      "frequency": "quarterly_event",
+      "availability": "使用f_ann_date优先，否则ann_date；当前文件只有标识字段，现金流数值字段尚未成功接入",
+      "research_ready": false,
+      "usage_policy": "仅可使用标识与公告日期字段；数值因子禁用，直到重新取得现金流数值字段",
+      "known_risks": ["当前文件数值列数量为0"],
+      "required_fields": ["ts_code", "end_date", "ann_date", "f_ann_date", "report_type", "comp_type", "source_code"]
+    },
+    {
+      "id": "financial.indicator",
+      "category": "financial_indicator",
+      "format": "parquet",
+      "paths": ["data/raw/financial/fina_indicator.parquet"],
+      "grain": ["ts_code", "end_date", "ann_date"],
+      "source": "Tushare fina_indicator",
+      "frequency": "quarterly_event",
+      "availability": "ann_date收盘后可用；如后续取得更准确实际披露时间，应升级available_at",
+      "research_ready": "conditional",
+      "usage_policy": "先排除end_date晚于ann_date的异常记录，再按ann_date做PIT关联",
+      "known_risks": ["603400.SH的20260630报告期记录ann_date为20260422，属于不可能时序，必须排除或向数据源核验"],
+      "required_fields": ["ts_code", "end_date", "ann_date", "eps", "roe", "roa", "roic", "debt_to_assets", "source_code"],
+      "field_groups": {
+        "per_share": ["eps", "dt_eps", "bps", "ocfps", "cfps"],
+        "profitability": ["gross_margin", "netprofit_margin", "grossprofit_margin", "roe", "roe_waa", "roa", "roic"],
+        "solvency": ["current_ratio", "quick_ratio", "cash_ratio", "debt_to_assets", "debt_to_eqt"],
+        "growth": ["netprofit_yoy", "ocf_yoy", "roe_yoy", "assets_yoy", "tr_yoy", "or_yoy", "q_sales_yoy", "q_op_qoq"]
+      },
+      "inventory_all_physical_fields": true
+    },
+    {
+      "id": "industry.sw.pit_membership_history",
+      "category": "industry_classification",
+      "format": "parquet",
+      "paths": ["data/processed/industry/sw_l1_membership_intervals.parquet"],
+      "grain": ["symbol", "industry_code", "start_date"],
+      "source": "Tushare index_classify + index_member(SW2014) + index_member_all(SW2021)",
+      "frequency": "event_interval",
+      "availability": "2016-01-01至2021-12-12使用SW2014；2021-12-13起使用SW2021；start_date <= date < end_date",
+      "research_ready": true,
+      "required_fields": ["symbol", "industry_code", "industry_name", "start_date", "end_date", "classification_version"]
+    },
+    {
+      "id": "market.pit_enriched_daily",
+      "category": "point_in_time_joined_base",
+      "format": "parquet",
+      "paths": ["data/processed/basic_cleaned_with_extra_by_date.parquet"],
+      "grain": ["symbol", "date"],
+      "source": "项目PIT合并底表",
+      "frequency": "trading_day",
+      "availability": "行情为收盘后；财务字段按ann_date向后可见；估值和行业按交易日关联",
+      "research_ready": "conditional",
+      "usage_policy": "OHLCV、交易状态和已审计PIT财务可用；industry暂禁历史研究；估值字段使用前把缺失哨兵0还原为NaN",
+      "known_risks": [
+        "industry来自当前stock_basic快照并被合并到全部历史日期，存在行业前视风险",
+        "total_mv/circ_mv/pe_ttm/pb/ps_ttm/turnover_rate缺失值曾被0填充",
+        "停牌等不可交易记录允许close为空"
+      ],
+      "required_fields": ["symbol", "date", "ann_date", "open", "high", "low", "close", "volume", "amount", "total_mv", "circ_mv", "pe_ttm", "pb", "ps_ttm", "turnover_rate", "industry", "limit_up", "limit_down", "lock_limit_up", "lock_limit_down"],
+      "field_groups": {
+        "market": ["open", "high", "low", "close", "volume", "amount", "vwap", "factor", "adjclose", "pct_chg"],
+        "valuation": ["total_mv", "circ_mv", "pe_ttm", "pb", "ps_ttm", "turnover_rate"],
+        "classification": ["industry", "list_date"],
+        "tradability": ["limit_up", "limit_down", "lock_limit_up", "lock_limit_down"],
+        "pit_keys": ["date", "ann_date"]
+      },
+      "units": {"total_mv": "万元", "circ_mv": "万元"},
+      "missing_value_sentinels": {
+        "total_mv": [0],
+        "circ_mv": [0],
+        "pe_ttm": [0],
+        "pb": [0],
+        "ps_ttm": [0],
+        "turnover_rate": [0]
+      },
+      "inventory_all_physical_fields": true
+    },
+    {
+      "id": "text.policy.raw",
+      "category": "policy_text",
+      "format": "json",
+      "paths": ["data/raw/text/policy/*/*/*/*.json"],
+      "grain": ["document_id"],
+      "source": "配置的数据源；当前启用中国政府网",
+      "frequency": "event",
+      "availability": "历史文章当前统一以first_seen_at作为保守可用时间；未审计前不得按published_at做历史回测",
+      "research_ready": false,
+      "usage_policy": "当前只能生成标题级政策特征；禁止生成正文语义因子，直到正文抓取完成",
+      "known_risks": ["当前1074个JSON的content全部为空，仅有标题、链接和时间元数据"],
+      "required_fields": ["document_id", "document_type", "source", "title", "content", "source_url", "published_at", "first_seen_at", "collected_at", "content_hash"]
+    },
+    {
+      "id": "text.collection_state",
+      "category": "collection_metadata",
+      "format": "sqlite",
+      "paths": ["data/processed/text/collector_state.sqlite3"],
+      "grain": ["document_id"],
+      "source": "项目文本采集器",
+      "frequency": "event",
+      "availability": "first_seen_at为回测可用性的保守下界",
+      "required_tables": ["documents", "source_runs"]
+    }
+  ]
+}

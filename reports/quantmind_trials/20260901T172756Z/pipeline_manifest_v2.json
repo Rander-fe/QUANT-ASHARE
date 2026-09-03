@@ -1,0 +1,28 @@
+{
+  "pipeline_version": 2,
+  "completed_at_utc": "2026-09-01T17:30:46.300343+00:00",
+  "candidate_file": "/workspace/reports/quantmind_trials/20260901T172756Z/candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_WIN_RATE",
+    "formula": "TS_MEAN(WHERE($IND_RESID_RET_1D > 0, 1, 0), 20)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "个股在剔除市场与行业影响后的残差持续为正，反映其自身基本面或资金面的相对强势，该正向持续性可能预示未来收益延续。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

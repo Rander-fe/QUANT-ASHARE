@@ -1,0 +1,34 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:57:11.762671+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20",
+    "formula": "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+    "inputs": [
+      "close",
+      "vwap",
+      "volume"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "若股票在下跌时段（收盘价低于VWAP）释放的成交量占更高比例，说明抛售压力在弱势时段更集中，反映筹码派发和流动性承接不足，此类股票未来收益倾向为负。"
+  },
+  "provider_request_id": "fcd79e74-388a-48bc-a67f-edcaff249801",
+  "usage": {
+    "prompt_tokens": 3944,
+    "completion_tokens": 6112,
+    "total_tokens": 10056,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5887
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3944
+  }
+}

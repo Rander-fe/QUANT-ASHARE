@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:22:57.797175+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_SALES_GROWTH_MARGIN",
+    "formula": "$q_sales_yoy * $netprofit_margin",
+    "inputs": [
+      "q_sales_yoy",
+      "netprofit_margin"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "销售净利率反映企业将收入转化为利润的能力，营收同比增速则是增长的引擎；两者相乘可近似刻画增量收入对应的净利润增量，利润质量视角下，只有高增长伴随高净利率才代表可持续的价值创造，而低净利率下的扩张或亏损性增长往往侵蚀股东价值。"
+  },
+  "provider_request_id": "7c9f1e7f-98d8-4817-b7c0-1c19dbf9ecdf",
+  "usage": {
+    "prompt_tokens": 3672,
+    "completion_tokens": 4414,
+    "total_tokens": 8086,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4194
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 2648
+  }
+}

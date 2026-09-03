@@ -1,0 +1,24 @@
+FROM quantmind-qlib-preflight:0.9.7
+
+ARG PIP_INDEX_URL=https://pypi.org/simple
+ENV PIP_INDEX_URL=${PIP_INDEX_URL} \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    SETUPTOOLS_SCM_PRETEND_VERSION_FOR_RDAGENT=0.8.0+local \
+    PYTHONPATH=/workspace:/opt/rd-agent
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential git curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY vendor/quantmind/rd-agent /opt/rd-agent
+WORKDIR /opt/rd-agent
+
+# Install the vendored, pinned RD-Agent fork and its complete runtime dependency set.
+RUN python -m pip install --upgrade pip setuptools wheel \
+    && python -m pip install . \
+    && python -m pip install "optuna>=4,<5" \
+    && python -m pip check
+
+WORKDIR /workspace
+CMD ["python", "-m", "rdagent.app.qlib_rd_loop.quant", "--help"]

@@ -1,0 +1,10 @@
+{
+  "fit_rows": 8445505,
+  "fit_start": "2016-01-04",
+  "fit_end_purged": "2024-12-24",
+  "test_start": "2025-01-02",
+  "label_horizon": 5,
+  "purge_trading_days": 5,
+  "test_labels_loaded_for_training": false,
+  "test_feature_has_label_columns": false
+}

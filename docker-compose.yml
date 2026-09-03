@@ -1,0 +1,58 @@
+name: quant-ashare
+
+services:
+  research-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}
+    image: quant-ashare:${IMAGE_TAG:-latest}
+    container_name: quant-ashare
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      TZ: ${TZ:-Asia/Shanghai}
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      API_WORKERS: ${API_WORKERS:-1}
+      QUANT_API_TOKEN: ${QUANT_API_TOKEN:-}
+      QLIB_PROVIDER_URI: /root/.qlib/qlib_data/cn_data
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./mlruns:/app/mlruns
+      - ./logs:/app/logs
+      - ${QLIB_DATA_HOST_PATH:-./data/qlib}:/root/.qlib/qlib_data/cn_data:ro
+    healthcheck:
+      test: ["CMD", "/app/deploy/healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  research-cli:
+    image: quant-ashare:${IMAGE_TAG:-latest}
+    profiles: ["cli"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      TZ: ${TZ:-Asia/Shanghai}
+      QLIB_PROVIDER_URI: /root/.qlib/qlib_data/cn_data
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./mlruns:/app/mlruns
+      - ./logs:/app/logs
+      - ${QLIB_DATA_HOST_PATH:-./data/qlib}:/root/.qlib/qlib_data/cn_data:ro
+    entrypoint: ["python", "/app/main.py"]
+    command: ["list"]
+

@@ -1,0 +1,30 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T06:49:17.236431+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T064505Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_ROIC_DELTA_1Q",
+    "formula": "FIN_DELTA_REPORT($roic,1)",
+    "inputs": [
+      "roic"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "ROIC上升意味着公司利用资本产生的回报提高，反映市场竞争力和再投资效率改善，通常预示着更优的未来业绩与估值提升。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

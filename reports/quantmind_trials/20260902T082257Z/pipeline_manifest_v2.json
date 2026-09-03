@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T08:25:23.104284+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T082257Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_SALES_GROWTH_MARGIN",
+    "formula": "$q_sales_yoy * $netprofit_margin",
+    "inputs": [
+      "q_sales_yoy",
+      "netprofit_margin"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "销售净利率反映企业将收入转化为利润的能力，营收同比增速则是增长的引擎；两者相乘可近似刻画增量收入对应的净利润增量，利润质量视角下，只有高增长伴随高净利率才代表可持续的价值创造，而低净利率下的扩张或亏损性增长往往侵蚀股东价值。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

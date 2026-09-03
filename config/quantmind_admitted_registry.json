@@ -1,0 +1,107 @@
+{
+  "registry_id": "quantmind_admitted_v1",
+  "purpose": "登记已通过训练期周频关卡(10bps主)的QM候选，作为后续新候选的相关性冗余参照集(与human_core_25_v1并列)",
+  "redundancy_rule": {
+    "compare_set": [
+      "human_core_25_v1",
+      "quantmind_admitted"
+    ],
+    "absolute_rank_correlation_threshold": 0.7,
+    "note": "新候选与core25任一因子或本注册表任一因子日秩相关绝对值>=0.7即判定冗余(与方向无关，绝对值)",
+    "direction_insensitive": true
+  },
+  "admission_gate_reference": {
+    "primary_cost_bps": 10,
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "note_duplicate_idiovol_window": "IND_RESID_VOL_20(TS_STD 20)与IDIOVOL_60D(TS_STD 60)日秩相关0.779>=0.7，同族仅窗口不同；用户决策2026-09-02保留换手更低的60D进SOTA参照，20D保持experimental不再加入注册表。",
+  "factors": [
+    {
+      "factor_name": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL",
+      "raw_factor": "QM_DS_LIQUIDITY_AMPLIFICATION",
+      "formula": "TS_MEAN(turnover_rate,5) / (TS_STD(close_return,20) * SAFE_DIV(TS_MEAN(turnover_rate,20),TS_MEAN(turnover_rate,5)))",
+      "formula_source": "analysis/audit_quantmind_candidate_sota.py 权威pandas重建，非DSL公式",
+      "inputs": [
+        "turnover_rate",
+        "close",
+        "volume"
+      ],
+      "direction": "negative",
+      "category": "liquidity_amplification",
+      "signal_file": "reports/quantmind_trials/20260901T064435Z/candidate_sota_audit/candidate_audited_values.parquet",
+      "score_column": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL_WINSOR_Z_SIZE_NEUTRAL",
+      "train_period": [
+        "2016-01-01",
+        "2023-04-30"
+      ],
+      "weekly_10bps": {
+        "annual_excess_return": 0.09108983604302878,
+        "sharpe": 0.5883695525423372,
+        "max_drawdown": -0.479900171329417,
+        "average_weekly_one_way_turnover": 0.47335383872218895
+      },
+      "admitted_stage": "weekly_training_gates_passed_10bps",
+      "admitted_utc": "2026-09-02",
+      "validation_one_shot": "pending",
+      "test_access": false
+    },
+    {
+      "factor_name": "QM_DS_IDIOVOL_60D",
+      "raw_factor": "QM_DS_IDIOVOL_60D",
+      "formula": "TS_STD($IND_RESID_RET_1D,60)",
+      "formula_source": "candidate.json DSL formula",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "direction": "negative",
+      "category": "idiosyncratic_risk",
+      "signal_file": "reports/quantmind_trials/20260902T074402Z/train_evaluation_5d/factor_values.parquet",
+      "score_column": "QM_DS_IDIOVOL_60D_WINSOR_Z_SIZE_NEUTRAL",
+      "train_period": [
+        "2016-01-01",
+        "2023-04-30"
+      ],
+      "weekly_10bps": {
+        "annual_excess_return": 0.07600105960625325,
+        "sharpe": 0.6015561967454803,
+        "max_drawdown": -0.42866076302584444,
+        "average_weekly_one_way_turnover": 0.11720274886912753
+      },
+      "admitted_stage": "weekly_training_gates_passed_10bps",
+      "admitted_utc": "2026-09-02",
+      "validation_one_shot": "pending",
+      "test_access": false
+    },
+    {
+      "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30",
+      "raw_factor": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30",
+      "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-30*TS_STD(TS_PCT_CHANGE($close,1),20)",
+      "formula_source": "candidate.json DSL formula",
+      "inputs": [
+        "roe",
+        "turnover_rate",
+        "close"
+      ],
+      "direction": "positive",
+      "category": "qm_deepseek_admitted",
+      "signal_file": "reports/quantmind_trials/local_quality_low_crowding_lowvol30_5d/train_evaluation_5d/factor_values.parquet",
+      "score_column": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30_WINSOR_Z_SIZE_NEUTRAL",
+      "train_period": [
+        "2016-01-01",
+        "2023-04-30"
+      ],
+      "weekly_10bps": {
+        "annual_excess_return": 0.06077677655938807,
+        "sharpe": 0.5068526539808096,
+        "max_drawdown": -0.40148116953448865,
+        "average_weekly_one_way_turnover": 0.24732477998230906
+      },
+      "admitted_stage": "weekly_training_gates_passed_10bps",
+      "admitted_utc": "2026-09-02",
+      "validation_one_shot": "pending",
+      "test_access": false
+    }
+  ]
+}

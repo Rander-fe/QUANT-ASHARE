@@ -1,0 +1,41 @@
+{
+  "decision": "candidate_sota_provisional",
+  "formal_sota_modified": false,
+  "selected_factor": "QM_DS_LIQUIDITY_AMPLIFICATION_TURNOVER_RETVOL",
+  "direction": "negative",
+  "formula": "TS_MEAN($turnover_rate,5) / (TS_STD($close / REF($close,1) - 1,20) * SAFE_DIV(TS_MEAN($turnover_rate,20),TS_MEAN($turnover_rate,5)))",
+  "selection_period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "selection_label": "label_ret_20",
+  "validation_or_test_used": false,
+  "evidence": {
+    "direction_aligned_ic_mean": 0.075434,
+    "direction_aligned_rank_ic_mean": 0.091163,
+    "direction_aligned_ic_ir": 0.791458,
+    "direction_aligned_rank_ic_ir": 0.757589,
+    "direction_aligned_ic_correct_rate": 0.797842,
+    "direction_aligned_rank_ic_correct_rate": 0.780239,
+    "missing_rate": 0.106094,
+    "infinity_count": 0,
+    "daily_size_rank_correlation": -0.352414,
+    "daily_industry_eta_squared": 0.154458,
+    "annual_direction_consistency": "2016-2023 aligned IC and RankIC are positive in every reported year"
+  },
+  "why_selected": [
+    "Highest direction-aligned IC and RankIC among the four tested definitions",
+    "Best ICIR and stable annual direction",
+    "Turnover rate removes the direct raw-amount scale from the formula",
+    "Tail behavior is materially safer than the amount plus return-volatility variant"
+  ],
+  "blocking_gates_before_formal_sota": [
+    "Apply daily cross-sectional winsorization and size neutralization, then retest",
+    "Check correlation and incremental IC against all 58 formal human SOTA factors",
+    "Run a validation-period out-of-sample evaluation without using the test period",
+    "Measure portfolio turnover, tradability, limit-up/down effects, and transaction costs",
+    "Resolve or explicitly accept the 10.61 percent missing rate",
+    "Use a point-in-time industry history before treating industry exposure as admission evidence"
+  ],
+  "industry_data_warning": "The current industry field is a present-day stock_basic snapshot backfilled into history. Industry eta-squared is diagnostic only and was not used as positive admission evidence."
+}

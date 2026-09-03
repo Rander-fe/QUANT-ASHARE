@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T06:44:19.106030+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_GROSS_MARGIN_YOY_CHG",
+    "formula": "FIN_DELTA_REPORT($grossprofit_margin,4)",
+    "inputs": [
+      "grossprofit_margin"
+    ],
+    "lookback": 4,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "毛利率同比提升通常反映公司产品定价权增强、成本结构优化或竞争格局改善，可能预示着未来盈利和市场预期的正向修正，因此该因子方向为正。"
+  },
+  "provider_request_id": "6eb379d5-fdc2-47f7-bf19-0513fbeeaec0",
+  "usage": {
+    "prompt_tokens": 4143,
+    "completion_tokens": 5959,
+    "total_tokens": 10102,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5800
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4143
+  }
+}

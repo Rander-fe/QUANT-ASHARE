@@ -1,0 +1,107 @@
+{
+  "status": "weekly_training_backtest_complete",
+  "candidate": "QM_DS_DAY_LOCATION_WINSOR_Z_SIZE_NEUTRAL",
+  "signal_file": "/workspace/reports/quantmind_trials/20260901T155024Z/train_evaluation/factor_values.parquet",
+  "direction": "negative",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.1,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "cost_scenarios": [
+    {
+      "cost_bps": 0,
+      "annual_return": 0.06753209288068085,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": 0.04611909109919243,
+      "annual_volatility": 0.2352766996577241,
+      "sharpe": 0.39640705867028875,
+      "information_ratio": 0.3089486938333411,
+      "max_drawdown": -0.4607559088117167,
+      "final_nav": 1.5866039972460793,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.41473635137008497,
+      "annualized_one_way_turnover": 21.783444360838192,
+      "total_trading_cost": 0.0,
+      "blocked_buy_count": 126,
+      "blocked_sell_count": 9104,
+      "blocked_buy_rate_per_selection": 0.0009916652893537648
+    },
+    {
+      "cost_bps": 10,
+      "annual_return": 0.022328372020213205,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": 0.0009153702387247886,
+      "annual_volatility": 0.23390237754578125,
+      "sharpe": 0.2123847088550798,
+      "information_ratio": 0.056383955297106034,
+      "max_drawdown": -0.5009442414664786,
+      "final_nav": 1.1688043270786155,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.4112381592869945,
+      "annualized_one_way_turnover": 21.59970673486499,
+      "total_trading_cost": 32293100.132206496,
+      "blocked_buy_count": 126,
+      "blocked_sell_count": 9102,
+      "blocked_buy_rate_per_selection": 0.0009916652893537648
+    },
+    {
+      "cost_bps": 20,
+      "annual_return": -0.0200013263319333,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.04141432811342172,
+      "annual_volatility": 0.2325654413151891,
+      "sharpe": 0.030470440835968195,
+      "information_ratio": -0.1920586594599438,
+      "max_drawdown": -0.5379080254696422,
+      "final_nav": 0.8670044040825584,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.40741622515178527,
+      "annualized_one_way_turnover": 21.398965012298152,
+      "total_trading_cost": 55286376.86199511,
+      "blocked_buy_count": 126,
+      "blocked_sell_count": 9138,
+      "blocked_buy_rate_per_selection": 0.0009916652893537648
+    },
+    {
+      "cost_bps": 30,
+      "annual_return": -0.0605370581377902,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": -0.08195005991927862,
+      "annual_volatility": 0.23121099281777527,
+      "sharpe": -0.15335021756483785,
+      "information_ratio": -0.4413338198074536,
+      "max_drawdown": -0.5935485712169332,
+      "final_nav": 0.643332731686026,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.4032361626798082,
+      "annualized_one_way_turnover": 21.179413101831816,
+      "total_trading_cost": 71655300.62110348,
+      "blocked_buy_count": 126,
+      "blocked_sell_count": 9099,
+      "blocked_buy_rate_per_selection": 0.0009916652893537648
+    }
+  ],
+  "primary_cost_bps": 20,
+  "training_reference_gates": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "training_gates_passed": false,
+  "formal_sota_decision": "remain_experimental",
+  "warning": "Training backtest is not final proof. Validation was not reused and test was not accessed."
+}

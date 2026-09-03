@@ -1,0 +1,40 @@
+{
+  "status": "blocked_existing_test_evaluation",
+  "current_model": "lightgbm_human25_qm5_v2_pit_purged",
+  "requested_label": "label_ret_5",
+  "requested_test_period": ["2025-01-02", "2026-08-13"],
+  "checks_completed": {
+    "human_features_rebuilt_with_historical_pit_industry": true,
+    "latest_industry_snapshot_excluded_from_model_features": true,
+    "train_to_tune_label_purge_trading_days": 5,
+    "tune_to_holdout_label_purge_trading_days": 5,
+    "candidate_formulas_frozen_before_holdout": true,
+    "calendar_week_end_signal": true,
+    "next_trading_day_open_execution": true,
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 10,
+    "buy_cost_bps": 10,
+    "sell_cost_bps": 10,
+    "hard_turnover_cap": "disabled",
+    "validation_test_rows_used": 0
+  },
+  "safe_validation_holdout": {
+    "rank_ic": 0.09662128376164479,
+    "rank_ic_ir": 1.2632455380149439,
+    "full_portfolio_report": "reports/lightgbm/human25_qm5_weekly_v2_pit_purged/topk50_buffer30_drop10_10bps_holdout/report.json",
+    "annual_return": 1.2076175713347257,
+    "annual_excess_return": 0.9226448362868112,
+    "sharpe": 2.11057733244534,
+    "max_drawdown": -0.130637047196564
+  },
+  "blocking_evidence": {
+    "existing_lock": "reports/portfolio/final_test_audit.json",
+    "evaluated_at_utc": "2026-08-24T06:45:15.769392+00:00",
+    "previous_label": "label_ret_20",
+    "previous_model": "lgb",
+    "previous_summary": "reports/portfolio/test/lgb/label_ret_20/summary.json"
+  },
+  "test_execution_performed_for_current_model": false,
+  "reason": "The same chronological test interval was already evaluated before subsequent factor/model/strategy decisions. A second run can be a comparison experiment, but cannot be represented as a pristine one-shot final test."
+}

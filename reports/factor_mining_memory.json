@@ -1,0 +1,748 @@
+{
+  "version": 3,
+  "active_label": "label_ret_5",
+  "trial_count": 38,
+  "outcome_counts": {
+    "weekly_passed": 4,
+    "not_evaluated": 3,
+    "rejected_duplicate_core25": 1,
+    "rejected_weak_train_rank_ic": 10,
+    "weekly_failed": 13,
+    "rejected_weak_incremental_rank_ic": 3,
+    "rejected_excessive_missing_rate": 3,
+    "eligible_for_weekly_backtest": 1
+  },
+  "field_usage": {
+    "close": 9,
+    "IND_RESID_RET_1D": 7,
+    "turnover_rate": 6,
+    "roe": 6,
+    "amount": 3,
+    "volume": 2,
+    "netprofit_yoy": 2,
+    "grossprofit_margin": 2,
+    "pct_chg": 2,
+    "netprofit_margin": 2,
+    "vwap": 2,
+    "low": 1,
+    "high": 1,
+    "quick_ratio": 1,
+    "current_ratio": 1,
+    "IND_RESID_MOM_20": 1,
+    "IND_REL_RET_20": 1,
+    "assets_turn": 1,
+    "ocf_yoy": 1,
+    "roic": 1,
+    "debt_to_assets": 1,
+    "circ_mv": 1,
+    "total_mv": 1,
+    "op_yoy": 1,
+    "tr_yoy": 1,
+    "q_sales_yoy": 1,
+    "pe_ttm": 1
+  },
+  "category_direction": {
+    "liquidity_volume": {
+      "label": "流动性/成交量",
+      "trials": 2,
+      "passed": 1,
+      "best_abs_rank_ic": 0.04717683574976334,
+      "mean_weekly_turnover": 0.363,
+      "status": "open"
+    },
+    "price_structure": {
+      "label": "价量结构",
+      "trials": 6,
+      "passed": 0,
+      "best_abs_rank_ic": 0.040983503779364945,
+      "mean_weekly_turnover": 0.522,
+      "status": "probing"
+    },
+    "liquidity_turnover": {
+      "label": "流动性/换手",
+      "trials": 2,
+      "passed": 0,
+      "best_abs_rank_ic": 0.05452764443613932,
+      "mean_weekly_turnover": 0.464,
+      "status": "probing"
+    },
+    "growth": {
+      "label": "成长",
+      "trials": 4,
+      "passed": 0,
+      "best_abs_rank_ic": 0.00962497398127767,
+      "mean_weekly_turnover": null,
+      "status": "closed_sterile"
+    },
+    "solvency": {
+      "label": "偿债/杠杆",
+      "trials": 2,
+      "passed": 0,
+      "best_abs_rank_ic": 0.00731102506997461,
+      "mean_weekly_turnover": null,
+      "status": "probing"
+    },
+    "profitability": {
+      "label": "盈利质量",
+      "trials": 9,
+      "passed": 1,
+      "best_abs_rank_ic": 0.06884555466168678,
+      "mean_weekly_turnover": 0.208,
+      "status": "open"
+    },
+    "industry": {
+      "label": "行业相对/残差",
+      "trials": 9,
+      "passed": 2,
+      "best_abs_rank_ic": 0.08837499385708428,
+      "mean_weekly_turnover": 0.33,
+      "status": "open"
+    },
+    "operating": {
+      "label": "营运",
+      "trials": 1,
+      "passed": 0,
+      "best_abs_rank_ic": 0.004479135429699695,
+      "mean_weekly_turnover": null,
+      "status": "probing"
+    },
+    "momentum": {
+      "label": "动量",
+      "trials": 2,
+      "passed": 0,
+      "best_abs_rank_ic": 0.04959587046600056,
+      "mean_weekly_turnover": null,
+      "status": "probing"
+    },
+    "size": {
+      "label": "市值",
+      "trials": 1,
+      "passed": 0,
+      "best_abs_rank_ic": 0.01868013412044694,
+      "mean_weekly_turnover": null,
+      "status": "probing"
+    }
+  },
+  "exact_formulas_do_not_repeat": [
+    "$IND_REL_RET_20",
+    "$IND_RESID_MOM_20",
+    "$ocf_yoy - $netprofit_yoy",
+    "$op_yoy - $tr_yoy",
+    "$q_sales_yoy * $netprofit_margin",
+    "$roe",
+    "2*SIGN($roe)*LOG1P(ABS($roe))+SIGN(SAFE_DIV(1,$pe_ttm))*LOG1P(ABS(SAFE_DIV(1,$pe_ttm)))",
+    "FIN_DELTA_REPORT($assets_turn,1)",
+    "FIN_DELTA_REPORT($debt_to_assets,1)",
+    "FIN_DELTA_REPORT($grossprofit_margin,4)",
+    "FIN_DELTA_REPORT($roe,1)",
+    "FIN_DELTA_REPORT($roic,1)",
+    "SAFE_DIV($circ_mv, $total_mv)",
+    "SAFE_DIV($netprofit_margin, $grossprofit_margin)",
+    "SAFE_DIV($quick_ratio, $current_ratio)",
+    "SAFE_DIV(ABS($close - DELAY($close,20)), TS_SUM(ABS(DELTA($close,1)),20))",
+    "SAFE_DIV(TS_MEAN($amount,20), TS_MEAN($amount,60)) - 1",
+    "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+    "SAFE_DIV(TS_STD($turnover_rate,20), TS_MEAN($turnover_rate,20))",
+    "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)",
+    "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-20*TS_STD(TS_PCT_CHANGE($close,1),20)",
+    "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-30*TS_STD(TS_PCT_CHANGE($close,1),20)",
+    "TS_CORR($close,$volume,20)",
+    "TS_CORR($pct_chg, DELAY($pct_chg,1), 20)",
+    "TS_CORR(ABS($IND_RESID_RET_1D), $turnover_rate, 20)",
+    "TS_MEAN($IND_RESID_RET_1D,60)",
+    "TS_MEAN($amount,5) / (TS_STD($close,20) * SAFE_DIV(TS_MEAN($amount,20),TS_MEAN($amount,5)))",
+    "TS_MEAN(SAFE_DIV($close - $vwap, $vwap), 20)",
+    "TS_MEAN(SAFE_DIV(($close - $low), ($high - $low)), 20)",
+    "TS_MEAN(SAFE_DIV(ABS($pct_chg), $amount), 20)",
+    "TS_MEAN(WHERE($IND_RESID_RET_1D > 0, 1, 0), 20)",
+    "TS_PCT_CHANGE($close,5)",
+    "TS_SKEW($IND_RESID_RET_1D,20)",
+    "TS_SLOPE($netprofit_yoy, 4)",
+    "TS_SLOPE($turnover_rate,20)",
+    "TS_STD($IND_RESID_RET_1D,120)",
+    "TS_STD($IND_RESID_RET_1D,20)",
+    "TS_STD($IND_RESID_RET_1D,60)"
+  ],
+  "recent_experience": [
+    {
+      "trial": "20260901T165324Z",
+      "factor_name": "QM_DS_IND_RESID_VOL_20",
+      "formula": "TS_STD($IND_RESID_RET_1D,20)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_passed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.08837499385708428,
+      "incremental_rank_ic": -0.053633933445498744,
+      "max_core_abs_corr": 0.5059949427162924,
+      "weekly_10bps": {
+        "annual_excess_return": 0.06782018127725742,
+        "sharpe": 0.5424080452497768,
+        "max_drawdown": -0.4482189002726853,
+        "average_weekly_one_way_turnover": 0.2703228745384394
+      }
+    },
+    {
+      "trial": "20260901T170815Z",
+      "factor_name": "QM_DS_IND_RESID_MEAN_60",
+      "formula": "TS_MEAN($IND_RESID_RET_1D,60)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.03960536148311066,
+      "incremental_rank_ic": -0.03208104687011812,
+      "max_core_abs_corr": 0.3537188920527986,
+      "weekly_10bps": {
+        "annual_excess_return": -0.025369864952451415,
+        "sharpe": 0.09116920190487801,
+        "max_drawdown": -0.4997915839384952,
+        "average_weekly_one_way_turnover": 0.2591207726032091
+      }
+    },
+    {
+      "trial": "20260901T171507Z",
+      "factor_name": "QM_DS_IND_RESID_MOM_20",
+      "formula": "$IND_RESID_MOM_20",
+      "inputs": [
+        "IND_RESID_MOM_20"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.04313778990901455,
+      "incremental_rank_ic": -0.029303917212949487,
+      "max_core_abs_corr": 0.481731998235113,
+      "weekly_10bps": {
+        "annual_excess_return": -0.024326464604734754,
+        "sharpe": 0.0979753937464824,
+        "max_drawdown": -0.5088643660471945,
+        "average_weekly_one_way_turnover": 0.3660289923182958
+      }
+    },
+    {
+      "trial": "20260901T172043Z",
+      "factor_name": "QM_DS_IND_REL_RET_20",
+      "formula": "$IND_REL_RET_20",
+      "inputs": [
+        "IND_REL_RET_20"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.05590791974018983,
+      "incremental_rank_ic": -0.042002219965433726,
+      "max_core_abs_corr": 0.5583597528938258,
+      "weekly_10bps": {
+        "annual_excess_return": 0.022761904141013867,
+        "sharpe": 0.3037328792706077,
+        "max_drawdown": -0.47754157771308015,
+        "average_weekly_one_way_turnover": 0.40675320093659595
+      }
+    },
+    {
+      "trial": "20260901T172756Z",
+      "factor_name": "QM_DS_IND_RESID_WIN_RATE",
+      "formula": "TS_MEAN(WHERE($IND_RESID_RET_1D > 0, 1, 0), 20)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_20_legacy",
+      "rank_ic": -0.0017827894453117364,
+      "incremental_rank_ic": 0.014332762160918625,
+      "max_core_abs_corr": 0.3013910681613465,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260901T173300Z",
+      "factor_name": "QM_DS_ASSETS_TURN_DELTA",
+      "formula": "FIN_DELTA_REPORT($assets_turn,1)",
+      "inputs": [
+        "assets_turn"
+      ],
+      "category": "operating",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_20_legacy",
+      "rank_ic": 0.004479135429699695,
+      "incremental_rank_ic": 0.005815445411094485,
+      "max_core_abs_corr": 0.20196360830630294,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T052354Z",
+      "factor_name": "QM_DS_CF_NP_GROWTH_GAP",
+      "formula": "$ocf_yoy - $netprofit_yoy",
+      "inputs": [
+        "ocf_yoy",
+        "netprofit_yoy"
+      ],
+      "category": "growth",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.0019147914508149562,
+      "incremental_rank_ic": 0.003444422362966288,
+      "max_core_abs_corr": 0.15716138799151974,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T064419Z",
+      "factor_name": "QM_DS_GROSS_MARGIN_YOY_CHG",
+      "formula": "FIN_DELTA_REPORT($grossprofit_margin,4)",
+      "inputs": [
+        "grossprofit_margin"
+      ],
+      "category": "profitability",
+      "train_decision": "rejected_excessive_missing_rate",
+      "final_outcome": "rejected_excessive_missing_rate",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.012081556316049789,
+      "incremental_rank_ic": 0.009497515160732165,
+      "max_core_abs_corr": 0.08752090364655628,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T064505Z",
+      "factor_name": "QM_DS_ROIC_DELTA_1Q",
+      "formula": "FIN_DELTA_REPORT($roic,1)",
+      "inputs": [
+        "roic"
+      ],
+      "category": "profitability",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.009443290577273883,
+      "incremental_rank_ic": 0.001288297574877977,
+      "max_core_abs_corr": 0.4188070167961995,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T065349Z",
+      "factor_name": "QM_DS_LEVERAGE_CHG_1Q",
+      "formula": "FIN_DELTA_REPORT($debt_to_assets,1)",
+      "inputs": [
+        "debt_to_assets"
+      ],
+      "category": "solvency",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.0017800428063699004,
+      "incremental_rank_ic": 0.004972620640068167,
+      "max_core_abs_corr": 0.10483887400557516,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T073426Z",
+      "factor_name": "QM_DS_IND_RESID_SKEW_20",
+      "formula": "TS_SKEW($IND_RESID_RET_1D,20)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.02927781202366389,
+      "incremental_rank_ic": -0.012489618641642984,
+      "max_core_abs_corr": 0.5794014489935061,
+      "weekly_10bps": {
+        "annual_excess_return": -0.004502114996305373,
+        "sharpe": 0.18509372830170048,
+        "max_drawdown": -0.521123382888838,
+        "average_weekly_one_way_turnover": 0.4234073682595568
+      }
+    },
+    {
+      "trial": "20260902T074402Z",
+      "factor_name": "QM_DS_IDIOVOL_60D",
+      "formula": "TS_STD($IND_RESID_RET_1D,60)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_passed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.07452721059955461,
+      "incremental_rank_ic": -0.05465948315779606,
+      "max_core_abs_corr": 0.48469984892713563,
+      "weekly_10bps": {
+        "annual_excess_return": 0.07600105960625325,
+        "sharpe": 0.6015561967454803,
+        "max_drawdown": -0.42866076302584444,
+        "average_weekly_one_way_turnover": 0.11720274886912753
+      }
+    },
+    {
+      "trial": "20260902T075057Z",
+      "factor_name": "QM_DS_IDIOVOL_120D",
+      "formula": "TS_STD($IND_RESID_RET_1D,120)",
+      "inputs": [
+        "IND_RESID_RET_1D"
+      ],
+      "category": "industry",
+      "train_decision": "rejected_excessive_missing_rate",
+      "final_outcome": "rejected_excessive_missing_rate",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.06260038431962783,
+      "incremental_rank_ic": -0.05907867363654182,
+      "max_core_abs_corr": 0.5015398471263035,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T080301Z",
+      "factor_name": "QM_DS_AMIHUD_20",
+      "formula": "TS_MEAN(SAFE_DIV(ABS($pct_chg), $amount), 20)",
+      "inputs": [
+        "pct_chg",
+        "amount"
+      ],
+      "category": "momentum",
+      "train_decision": "rejected_weak_incremental_rank_ic",
+      "final_outcome": "rejected_weak_incremental_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.04959587046600056,
+      "incremental_rank_ic": 0.002604189458951314,
+      "max_core_abs_corr": 0.5732689173834529,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T080646Z",
+      "factor_name": "QM_DS_FLOAT_SHARE",
+      "formula": "SAFE_DIV($circ_mv, $total_mv)",
+      "inputs": [
+        "circ_mv",
+        "total_mv"
+      ],
+      "category": "size",
+      "train_decision": "rejected_weak_incremental_rank_ic",
+      "final_outcome": "rejected_weak_incremental_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.01868013412044694,
+      "incremental_rank_ic": -0.0008836872327869222,
+      "max_core_abs_corr": 0.2421109452665615,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T081036Z",
+      "factor_name": "QM_DS_PROFIT_CONVERSION",
+      "formula": "SAFE_DIV($netprofit_margin, $grossprofit_margin)",
+      "inputs": [
+        "netprofit_margin",
+        "grossprofit_margin"
+      ],
+      "category": "profitability",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.007357346719272831,
+      "incremental_rank_ic": -0.008458398947202145,
+      "max_core_abs_corr": 0.4338813451357399,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T081930Z",
+      "factor_name": "QM_DS_PROFIT_GROWTH_OVER_SALES",
+      "formula": "$op_yoy - $tr_yoy",
+      "inputs": [
+        "op_yoy",
+        "tr_yoy"
+      ],
+      "category": "growth",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.00962497398127767,
+      "incremental_rank_ic": 0.004346471914480664,
+      "max_core_abs_corr": 0.16614321632344792,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T082257Z",
+      "factor_name": "QM_DS_SALES_GROWTH_MARGIN",
+      "formula": "$q_sales_yoy * $netprofit_margin",
+      "inputs": [
+        "q_sales_yoy",
+        "netprofit_margin"
+      ],
+      "category": "growth",
+      "train_decision": "rejected_weak_train_rank_ic",
+      "final_outcome": "rejected_weak_train_rank_ic",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.006620065139009874,
+      "incremental_rank_ic": 0.0010913129154403894,
+      "max_core_abs_corr": 0.581206282903093,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T083234Z",
+      "factor_name": "QM_DS_VWAP_DRIFT_20",
+      "formula": "TS_MEAN(SAFE_DIV($close - $vwap, $vwap), 20)",
+      "inputs": [
+        "close",
+        "vwap"
+      ],
+      "category": "price_structure",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "eligible_for_weekly_backtest",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.040983503779364945,
+      "incremental_rank_ic": -0.031759883745853194,
+      "max_core_abs_corr": 0.27307106858784747,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T085711Z",
+      "factor_name": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20",
+      "formula": "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+      "inputs": [
+        "close",
+        "vwap",
+        "volume"
+      ],
+      "category": "price_structure",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.017945203610924273,
+      "incremental_rank_ic": 0.009228678440696218,
+      "max_core_abs_corr": 0.2480502262306762,
+      "weekly_10bps": {
+        "annual_excess_return": -0.017515053898689903,
+        "sharpe": 0.1339517415360913,
+        "max_drawdown": -0.5337073610147733,
+        "average_weekly_one_way_turnover": 0.4470968152182178
+      }
+    },
+    {
+      "trial": "20260902T091832Z",
+      "factor_name": "QM_DS_LIQUIDITY_TREND_20_60",
+      "formula": "SAFE_DIV(TS_MEAN($amount,20), TS_MEAN($amount,60)) - 1",
+      "inputs": [
+        "amount"
+      ],
+      "category": "liquidity_volume",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.04717683574976334,
+      "incremental_rank_ic": -0.040217102703738336,
+      "max_core_abs_corr": 0.40527185675072513,
+      "weekly_10bps": {
+        "annual_excess_return": -0.0033554059630303,
+        "sharpe": 0.19225369198891376,
+        "max_drawdown": -0.4544013324086169,
+        "average_weekly_one_way_turnover": 0.2529183507317803
+      }
+    },
+    {
+      "trial": "20260902T092653Z",
+      "factor_name": "QM_DS_NOISE_AMPLIFY_20",
+      "formula": "TS_CORR(ABS($IND_RESID_RET_1D), $turnover_rate, 20)",
+      "inputs": [
+        "IND_RESID_RET_1D",
+        "turnover_rate"
+      ],
+      "category": "industry",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.01327344837104305,
+      "incremental_rank_ic": 0.006345644610523734,
+      "max_core_abs_corr": 0.36419239205439624,
+      "weekly_10bps": {
+        "annual_excess_return": -0.022033072061132364,
+        "sharpe": 0.1016700989862337,
+        "max_drawdown": -0.5044797732638455,
+        "average_weekly_one_way_turnover": 0.467782491592604
+      }
+    },
+    {
+      "trial": "20260902T093945Z",
+      "factor_name": "QM_DS_RET_AUTOCORR_20",
+      "formula": "TS_CORR($pct_chg, DELAY($pct_chg,1), 20)",
+      "inputs": [
+        "pct_chg"
+      ],
+      "category": "momentum",
+      "train_decision": "not_evaluated",
+      "final_outcome": "not_evaluated",
+      "label_column": "label_ret_20_legacy",
+      "rank_ic": null,
+      "incremental_rank_ic": null,
+      "max_core_abs_corr": null,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "20260902T094223Z",
+      "factor_name": "QM_DS_TURNOVER_SLOPE_20",
+      "formula": "TS_SLOPE($turnover_rate,20)",
+      "inputs": [
+        "turnover_rate"
+      ],
+      "category": "liquidity_turnover",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.034371106628207505,
+      "incremental_rank_ic": -0.0293037366261233,
+      "max_core_abs_corr": 0.2591427027035473,
+      "weekly_10bps": {
+        "annual_excess_return": -0.08201543992749372,
+        "sharpe": -0.0990078799799786,
+        "max_drawdown": -0.6128919026297092,
+        "average_weekly_one_way_turnover": 0.46368486928911296
+      }
+    },
+    {
+      "trial": "local_quality_low_crowding_5d",
+      "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING",
+      "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)",
+      "inputs": [
+        "roe",
+        "turnover_rate"
+      ],
+      "category": "profitability",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.05938204704505122,
+      "incremental_rank_ic": 0.04904890492511839,
+      "max_core_abs_corr": 0.5657184683963012,
+      "weekly_10bps": {
+        "annual_excess_return": 0.02343931585711334,
+        "sharpe": 0.31992764003421403,
+        "max_drawdown": -0.4260457445125284,
+        "average_weekly_one_way_turnover": 0.25529368480966097
+      }
+    },
+    {
+      "trial": "local_quality_low_crowding_lowvol30_5d",
+      "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30",
+      "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-30*TS_STD(TS_PCT_CHANGE($close,1),20)",
+      "inputs": [
+        "roe",
+        "turnover_rate",
+        "close"
+      ],
+      "category": "profitability",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_passed",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.06884555466168678,
+      "incremental_rank_ic": 0.06113699263843586,
+      "max_core_abs_corr": 0.5717318915115326,
+      "weekly_10bps": {
+        "annual_excess_return": 0.06077677655938807,
+        "sharpe": 0.5068526539808096,
+        "max_drawdown": -0.40148116953448865,
+        "average_weekly_one_way_turnover": 0.24732477998230906
+      }
+    },
+    {
+      "trial": "local_quality_low_crowding_lowvol_5d",
+      "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL",
+      "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-20*TS_STD(TS_PCT_CHANGE($close,1),20)",
+      "inputs": [
+        "roe",
+        "turnover_rate",
+        "close"
+      ],
+      "category": "profitability",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.06627173481201866,
+      "incremental_rank_ic": 0.057853479544963345,
+      "max_core_abs_corr": 0.572933354706633,
+      "weekly_10bps": {
+        "annual_excess_return": 0.05812735844164085,
+        "sharpe": 0.49075753527460714,
+        "max_drawdown": -0.3940255204881806,
+        "average_weekly_one_way_turnover": 0.24869991798350738
+      }
+    },
+    {
+      "trial": "local_quality_value_roe_ep_5d",
+      "factor_name": "QM_COMPOSITE_QUALITY_VALUE_ROE_EP",
+      "formula": "2*SIGN($roe)*LOG1P(ABS($roe))+SIGN(SAFE_DIV(1,$pe_ttm))*LOG1P(ABS(SAFE_DIV(1,$pe_ttm)))",
+      "inputs": [
+        "roe",
+        "pe_ttm"
+      ],
+      "category": "profitability",
+      "train_decision": "rejected_excessive_missing_rate",
+      "final_outcome": "rejected_excessive_missing_rate",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.0065722035328590125,
+      "incremental_rank_ic": -0.011749858806791583,
+      "max_core_abs_corr": 0.4253133899520846,
+      "weekly_10bps": null
+    },
+    {
+      "trial": "local_rev5_5d",
+      "factor_name": "QM_LOCAL_REV5",
+      "formula": "TS_PCT_CHANGE($close,5)",
+      "inputs": [
+        "close"
+      ],
+      "category": "price_structure",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": -0.04068541467894103,
+      "incremental_rank_ic": -0.023821064976101577,
+      "max_core_abs_corr": 0.4810152281577904,
+      "weekly_10bps": {
+        "annual_excess_return": -0.1355659009099428,
+        "sharpe": -0.39324108870630026,
+        "max_drawdown": -0.6798360553638185,
+        "average_weekly_one_way_turnover": 0.7125274196556765
+      }
+    },
+    {
+      "trial": "local_roe_level_5d",
+      "factor_name": "QM_LOCAL_ROE_LEVEL",
+      "formula": "$roe",
+      "inputs": [
+        "roe"
+      ],
+      "category": "profitability",
+      "train_decision": "eligible_for_weekly_backtest",
+      "final_outcome": "weekly_failed",
+      "label_column": "label_ret_5",
+      "rank_ic": 0.011726643688919828,
+      "incremental_rank_ic": -0.008654411163350076,
+      "max_core_abs_corr": 0.5204315423803337,
+      "weekly_10bps": {
+        "annual_excess_return": -0.022379899251063207,
+        "sharpe": 0.1053543163972326,
+        "max_drawdown": -0.413939681153197,
+        "average_weekly_one_way_turnover": 0.08110519460077067
+      }
+    }
+  ],
+  "generation_rules": [
+    "Do not repeat exact formulas or trivial algebraic equivalents.",
+    "Use weekly 10bps failure as evidence against turnover-heavy concepts.",
+    "Generate a new economic logic before tuning its window.",
+    "Prefer underexplored fields and concepts unless feedback supports refinement.",
+    "Only compare admission metrics from label_ret_5; older horizons are qualitative memory only.",
+    "Respect category_direction.status: closed_sterile categories (>=3 trials, best|rank_ic|<0.02) are forbidden new proposals.",
+    "Winning QM candidates are slow, negative-direction risk concepts with low weekly turnover (<=0.27)."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T09:48:33.505550+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/local_quality_low_crowding_lowvol30_5d/candidate.json",
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL30",
+    "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)-30*TS_STD(TS_PCT_CHANGE($close,1),20)",
+    "inputs": [
+      "roe",
+      "turnover_rate",
+      "close"
+    ],
+    "lookback": 21,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "质量与低拥挤逻辑中提高低波动惩罚强度，以改善周频组合风险收益比。"
+  },
+  "train_decision": "eligible_for_weekly_backtest",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_10bps": "completed",
+  "weekly_training_gates_passed": true,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "frozen validation-period check"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T16:46:36.181637+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_ROE_DELTA",
+    "formula": "FIN_DELTA_REPORT($roe,1)",
+    "inputs": [
+      "roe"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "ROE环比上升意味着公司在利用净资产创造利润的能力有所增强，通常预示盈利能力改善，可能带来超额收益。"
+  },
+  "provider_request_id": "e178130d-ea2d-4206-8bde-a1527df68eb6",
+  "usage": {
+    "prompt_tokens": 825,
+    "completion_tokens": 1367,
+    "total_tokens": 2192,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1247
+    },
+    "prompt_cache_hit_tokens": 256,
+    "prompt_cache_miss_tokens": 569
+  }
+}

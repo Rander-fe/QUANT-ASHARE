@@ -1,0 +1,12 @@
+FROM python:3.10-slim-bookworm
+
+# Match QUANTMIND's pinned Qlib runtime while keeping the preflight image small.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python -m pip install --no-cache-dir --index-url https://pypi.org/simple \
+    "numpy==1.26.4" "pandas>=2.0.0" "pyqlib==0.9.7"
+
+WORKDIR /workspace
+CMD ["python", "/workspace/scripts/preflight_qlib_operator_mapping.py"]

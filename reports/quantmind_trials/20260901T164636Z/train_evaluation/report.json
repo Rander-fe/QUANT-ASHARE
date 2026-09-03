@@ -1,0 +1,51 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_ROE_DELTA",
+    "formula": "FIN_DELTA_REPORT($roe,1)",
+    "inputs": [
+      "roe"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "ROE环比上升意味着公司在利用净资产创造利润的能力有所增强，通常预示盈利能力改善，可能带来超额收益。"
+  },
+  "score_column": "QM_DS_ROE_DELTA_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.08296571697221498,
+    "infinity_count": 0,
+    "p01": -23.9328,
+    "median": 0.9422999999999999,
+    "p99": 16.1944,
+    "max": 1485.0735
+  },
+  "performance": {
+    "ic": 0.011288199605192829,
+    "rank_ic": 0.017150065264955928,
+    "ic_ir": 0.1398667123072652,
+    "rank_ic_ir": 0.17341507669827907
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": {
+    "core_factor": "EP",
+    "daily_rank_corr_mean": 0.17497293497169814,
+    "daily_abs_rank_corr_mean": 0.4445966037891603,
+    "partial_rank_ic": 0.0036056305076787197
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "preliminary_decision": "rejected_weak_incremental_rank_ic"
+}

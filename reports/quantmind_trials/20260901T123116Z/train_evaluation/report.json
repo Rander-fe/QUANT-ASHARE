@@ -1,0 +1,49 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_PRICE_PATH_EFFICIENCY",
+    "formula": "SAFE_DIV(ABS($close - DELAY($close,20)), TS_SUM(ABS(DELTA($close,1)),20))",
+    "inputs": [
+      "close"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "价格路径效率越高，表示过去一段时间内价格变动更为连续和单向，趋势性更强，可能预示后续收益的正向持续性。"
+  },
+  "score_column": "QM_DS_PRICE_PATH_EFFICIENCY_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.03122728747866797,
+    "infinity_count": 0,
+    "p01": 0.0036101329080717743,
+    "median": 0.20314970317738612,
+    "p99": 0.7148188829120471,
+    "max": 1.000000018702634
+  },
+  "performance": {
+    "ic": 0.0029315041542753205,
+    "rank_ic": 0.0051716082089643,
+    "ic_ir": 0.04006331898713003,
+    "rank_ic_ir": 0.05861427424273611
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": {
+    "core_factor": "OBV_CHG_20",
+    "daily_rank_corr_mean": -0.08002916768547673,
+    "daily_abs_rank_corr_mean": 0.28572443525898916,
+    "partial_rank_ic": -0.0012424439520061818
+  },
+  "train_evaluation_gates": {
+    "minimum_absolute_rank_ic": 0.01,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_both_gates_pass": true
+  },
+  "preliminary_decision": "rejected_weak_train_rank_ic"
+}

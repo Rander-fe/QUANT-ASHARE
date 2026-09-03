@@ -1,0 +1,15 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "factorengine_composite_island_quality_liquidity",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_LOW_CROWDING",
+    "formula": "SIGN($roe)*LOG1P(ABS($roe))-LOG1P($turnover_rate)",
+    "inputs": ["roe", "turnover_rate"],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "偏好高ROE且低换手的非拥挤公司；对称对数处理ROE，换手率采用对数压缩，形成低频质量流动性复合因子。"
+  }
+}

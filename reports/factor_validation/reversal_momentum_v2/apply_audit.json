@@ -1,0 +1,12 @@
+{
+  "timestamp": "20260831_200357",
+  "official": "C:\\QUANT-ASHARE\\data\\processed\\factors.parquet",
+  "backup": "C:\\QUANT-ASHARE\\data\\processed\\backups\\factor_library\\factors_before_consec_v2_20260831_200357.parquet",
+  "rows": 10427948,
+  "replaced_columns": {
+    "CONSEC_UP3": "CONSEC_UP3_V2",
+    "CONSEC_UP5": "CONSEC_UP5_V2"
+  },
+  "max_dd_columns_replaced": false,
+  "backup_recoverable": true
+}

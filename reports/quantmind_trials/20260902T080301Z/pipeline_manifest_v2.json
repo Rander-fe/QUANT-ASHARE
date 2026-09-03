@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T08:05:30.195752+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "C:\\QUANT-ASHARE\\reports\\quantmind_trials\\20260902T080301Z\\candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_AMIHUD_20",
+    "formula": "TS_MEAN(SAFE_DIV(ABS($pct_chg), $amount), 20)",
+    "inputs": [
+      "pct_chg",
+      "amount"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "Amihud (2002) 非流动性因子：股票的单位成交额引起的价格冲击越大，交易成本越高，投资者要求更高的预期收益作为补偿。该测度使用历史20日均值以降低日度噪声，属于慢变量，适合周频调仓。"
+  },
+  "train_decision": "rejected_weak_incremental_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

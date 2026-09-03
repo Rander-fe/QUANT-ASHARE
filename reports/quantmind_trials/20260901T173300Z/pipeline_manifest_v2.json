@@ -1,0 +1,28 @@
+{
+  "pipeline_version": 2,
+  "completed_at_utc": "2026-09-01T17:37:52.501304+00:00",
+  "candidate_file": "/workspace/reports/quantmind_trials/20260901T173300Z/candidate.json",
+  "candidate": {
+    "factor_name": "QM_DS_ASSETS_TURN_DELTA",
+    "formula": "FIN_DELTA_REPORT($assets_turn,1)",
+    "inputs": [
+      "assets_turn"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "总资产周转率衡量公司利用全部资产创造收入的效率。其环比提升表明公司在提升运营效率或资产使用效率，往往与盈利改善或竞争优势增强相关，预期未来收益为正。"
+  },
+  "train_decision": "rejected_weak_train_rank_ic",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}

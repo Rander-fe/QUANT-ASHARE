@@ -1,0 +1,87 @@
+{
+  "status": "training_only_comparison",
+  "sets": {
+    "human_core_25": {
+      "diversity": {
+        "factor_count": 25,
+        "category_count": 9,
+        "category_distribution": {
+          "liquidity": 4,
+          "price_volume": 9,
+          "price_structure": 2,
+          "momentum_reversal": 1,
+          "technical_state": 1,
+          "volatility_risk": 3,
+          "value": 2,
+          "trend_quality": 2,
+          "financial_growth_change": 1
+        },
+        "normalized_category_entropy": 0.8683131897179192,
+        "category_hhi": 0.1936,
+        "quantity_price_liquidity_share": 0.64,
+        "mean_abs_daily_ic_correlation": 0.268646424206686,
+        "p90_abs_daily_ic_correlation": 0.5500906023001594,
+        "maximum_abs_daily_ic_correlation": 0.9975109850550138,
+        "pairs_abs_correlation_ge_070": 3,
+        "effective_ic_dimension_participation_ratio": 7.0507714324345026
+      },
+      "training_group_quality": {
+        "matched_factors": 25,
+        "annual_return_mean": 0.1803739620201638,
+        "annual_return_median": 0.16472618884672818,
+        "sharpe_mean": 2.661454553734127,
+        "sharpe_median": 2.706280097066795,
+        "max_drawdown_mean": -0.06822273135185242,
+        "turnover_mean_legacy_jaccard": 0.5067183778602636,
+        "strong_monotonic_count_abs_gt_080": 25,
+        "nonpositive_aligned_return_count": 0
+      }
+    },
+    "human_reference_58": {
+      "diversity": {
+        "factor_count": 58,
+        "category_count": 10,
+        "category_distribution": {
+          "liquidity": 4,
+          "momentum_reversal": 3,
+          "price_structure": 16,
+          "price_volume": 17,
+          "volatility_risk": 6,
+          "value": 2,
+          "financial_growth_change": 1,
+          "financial_quality": 1,
+          "trend_quality": 5,
+          "technical_state": 3
+        },
+        "normalized_category_entropy": 0.8285946074445718,
+        "category_hhi": 0.1920332936979786,
+        "quantity_price_liquidity_share": 0.6896551724137931,
+        "mean_abs_daily_ic_correlation": 0.23405429509335463,
+        "p90_abs_daily_ic_correlation": 0.5096466478650643,
+        "maximum_abs_daily_ic_correlation": 0.9975109850550138,
+        "pairs_abs_correlation_ge_070": 17,
+        "effective_ic_dimension_participation_ratio": 9.640806853989371
+      },
+      "training_group_quality": {
+        "matched_factors": 57,
+        "annual_return_mean": 0.14786182254152638,
+        "annual_return_median": 0.1375775537095203,
+        "sharpe_mean": 2.182771033112401,
+        "sharpe_median": 2.10788424399455,
+        "max_drawdown_mean": -0.07724665105342865,
+        "turnover_mean_legacy_jaccard": 0.616875575204571,
+        "strong_monotonic_count_abs_gt_080": 25,
+        "nonpositive_aligned_return_count": 1
+      }
+    }
+  },
+  "decision": {
+    "recommended_architecture": {
+      "quantmind_human_seed_and_default_model_candidates": "human_core_25",
+      "redundancy_reference_and_research_archive": "human_reference_58"
+    },
+    "reason": "25 has materially stronger training group quality; 58 has broader category coverage and a higher effective IC dimension. Keep both with different roles.",
+    "formal_58_modified": false,
+    "validation_or_test_used_for_this_comparison": false
+  }
+}

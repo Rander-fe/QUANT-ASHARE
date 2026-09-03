@@ -1,0 +1,81 @@
+{
+  "status": "recovered_and_reconciled_pending_activation",
+  "source_file": "data/processed/passed_factor_cols.json",
+  "source_sha256": "2A5F208280935EBBCAA48184A20C494698C5FEDD0F3591A4E57AA5EA53CB93DB",
+  "source_count": 25,
+  "selection_used_test_data": false,
+  "selection_criteria": {
+    "selection_period": "train_only",
+    "label": "label_ret_5",
+    "holding_days": 5,
+    "groups": 5,
+    "aligned_annual_return_strictly_greater_than": 0.0,
+    "absolute_monotonic_correlation_strictly_greater_than": 0.8
+  },
+  "reconciliation": {
+    "all_members_map_to_human_final_sota_v1": true,
+    "formula_name_replacements": {
+      "MAX_DD60": "MAX_DD60_V2"
+    },
+    "formula_revisions_kept_under_same_name": {
+      "CONSEC_UP5": 2
+    },
+    "normalized_count": 25,
+    "normalized_unique_count": 25
+  },
+  "recovered_original_factors": [
+    "LOW_TURNOVER",
+    "LN_TURNOVER",
+    "CORR20",
+    "VOL_CV20",
+    "RET_AMT_CORR20",
+    "KLOW",
+    "CONSEC_UP5",
+    "CORD60",
+    "RET_VOL_CORR5",
+    "OBV_CHG_20",
+    "CORD5",
+    "AMIHUD_20",
+    "VOL_OF_VOL_20",
+    "CORR60",
+    "VOL_PRICE_DIVERGENCE",
+    "BP",
+    "EP",
+    "CNTD10",
+    "IMAX60",
+    "WVMA30",
+    "MAX_DD60",
+    "CNTD60",
+    "Q_SALES_YOY",
+    "VSTD5",
+    "NEG_SKEW_20"
+  ],
+  "normalized_current_factors": [
+    "LOW_TURNOVER",
+    "LN_TURNOVER",
+    "CORR20",
+    "VOL_CV20",
+    "RET_AMT_CORR20",
+    "KLOW",
+    "CONSEC_UP5",
+    "CORD60",
+    "RET_VOL_CORR5",
+    "OBV_CHG_20",
+    "CORD5",
+    "AMIHUD_20",
+    "VOL_OF_VOL_20",
+    "CORR60",
+    "VOL_PRICE_DIVERGENCE",
+    "BP",
+    "EP",
+    "CNTD10",
+    "IMAX60",
+    "WVMA30",
+    "MAX_DD60_V2",
+    "CNTD60",
+    "Q_SALES_YOY",
+    "VSTD5",
+    "NEG_SKEW_20"
+  ],
+  "activation_note": "This recovery file does not modify human_final_sota_v1 or any model feature loader. Activate only after an explicit user decision."
+}

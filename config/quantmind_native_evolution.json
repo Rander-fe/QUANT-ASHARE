@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "engine": "vendor/quantmind/rd-agent:QuantRDLoop",
+  "prediction_target": {
+    "column": "label_ret_5",
+    "qlib_expression": "Ref($close, -5)/$close - 1",
+    "horizon_trading_days": 5
+  },
+  "joint_optimization": {
+    "enabled": true,
+    "native_action_selection": "bandit",
+    "actions": ["factor", "model"]
+  },
+  "chains": {
+    "generation": {
+      "purpose": "new_economic_logic_only",
+      "local_parameter_search": false
+    },
+    "feedback_optimization": {
+      "purpose": "refine_only_after_registered_feedback",
+      "local_parameter_search": true,
+      "window_candidates": [5, 10, 20, 40, 60]
+    }
+  },
+  "experience_memory": {
+    "path": "reports/factor_mining_memory.json",
+    "same_horizon_metrics_only": true,
+    "block_exact_and_algebraic_repeats": true
+  },
+  "search_islands": [
+    {"id": "price_volume", "themes": ["price_volume", "liquidity", "price_structure"]},
+    {"id": "fundamental_pit", "themes": ["valuation", "financial_quality", "financial_change"]},
+    {"id": "industry_residual", "themes": ["industry_relative", "industry_residual", "market_state"]},
+    {"id": "event_text", "themes": ["announcement", "news", "policy"], "enabled_when_data_ready": true}
+  ],
+  "candidate_set_objective": {
+    "primary": "out_of_sample_rank_ic_5d",
+    "redundancy_threshold_daily_abs_rank_corr": 0.7,
+    "diversity_reward": true,
+    "diversity_components": ["low_core25_correlation", "different_input_family", "different_economic_logic"]
+  },
+  "admission_shell": {
+    "active_human_seed": "config/human_core_25_v1.json",
+    "weekly_execution": "friday_close_signal_next_trading_day_open",
+    "primary_cost_bps": 10,
+    "final_test_selection_allowed": false
+  }
+}

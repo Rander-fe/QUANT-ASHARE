@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T06:45:05.544258+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_ROIC_DELTA_1Q",
+    "formula": "FIN_DELTA_REPORT($roic,1)",
+    "inputs": [
+      "roic"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "ROIC上升意味着公司利用资本产生的回报提高，反映市场竞争力和再投资效率改善，通常预示着更优的未来业绩与估值提升。"
+  },
+  "provider_request_id": "17847d1d-3216-46d0-8a3b-fb73fb29071a",
+  "usage": {
+    "prompt_tokens": 4143,
+    "completion_tokens": 2726,
+    "total_tokens": 6869,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 2584
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 3119
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "factorengine_composite_island_quality_value",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_VALUE_ROE_EP",
+    "formula": "2*SIGN($roe)*LOG1P(ABS($roe))+SIGN(SAFE_DIV(1,$pe_ttm))*LOG1P(ABS(SAFE_DIV(1,$pe_ttm)))",
+    "inputs": ["roe", "pe_ttm"],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "以ROE为主、EP为辅构成质量价值复合因子；对称对数压缩异常值并保留亏损与负ROE符号。"
+  }
+}

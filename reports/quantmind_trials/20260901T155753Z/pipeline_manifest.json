@@ -1,0 +1,10 @@
+{
+  "pipeline_version": 1,
+  "completed_at_utc": "2026-09-01T16:01:16.998616+00:00",
+  "candidate_file": "/workspace/reports/quantmind_trials/20260901T155753Z/candidate.json",
+  "train_evaluation": "/workspace/reports/quantmind_trials/20260901T155753Z/train_evaluation/report.json",
+  "preliminary_decision": "rejected_weak_train_rank_ic",
+  "weekly_backtest": "not_eligible",
+  "validation_rows_read": 0,
+  "test_rows_read": 0
+}

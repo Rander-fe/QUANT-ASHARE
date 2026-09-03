@@ -1,0 +1,37 @@
+{
+  "status": "implemented_and_real_data_verified",
+  "index": {
+    "path": "data/processed/financial/report_period_index.parquet",
+    "rows": 165281,
+    "symbols": 5456,
+    "availability_column": "ann_date",
+    "report_period_column": "report_period",
+    "report_sequence_column": "report_seq",
+    "invalid_or_impossible_rows_excluded": 1,
+    "stale_old_period_revisions_excluded": 581,
+    "same_symbol_announcement_unique": true
+  },
+  "operators": {
+    "FIN_LAG_REPORT": "value from N prior distinct disclosed report periods",
+    "FIN_DELTA_REPORT": "current PIT value minus FIN_LAG_REPORT"
+  },
+  "pit_guards": [
+    "never substitute report_period for a missing announcement date",
+    "exclude report_period later than announcement date",
+    "do not advance report_seq for same-period revisions",
+    "do not regress the current snapshot after a newer period is disclosed",
+    "candidate evaluation attaches only requested fields by backward as-of announcement date"
+  ],
+  "real_data_smoke_test": {
+    "symbol": "SH600000",
+    "range": ["2020-01-01", "2021-06-30"],
+    "pre_announcement_visible_rows": 0,
+    "example": {
+      "available_trading_date": "2020-04-27",
+      "report_period": "2020-03-31",
+      "roe": 3.0746,
+      "lag_1_report_roe": 9.5587,
+      "delta_1_report_roe": -6.4841
+    }
+  }
+}

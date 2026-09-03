@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:32:34.618924+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_VWAP_DRIFT_20",
+    "formula": "TS_MEAN(SAFE_DIV($close - $vwap, $vwap), 20)",
+    "inputs": [
+      "close",
+      "vwap"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "成交量加权均价反映当日全部成交的资金平均持仓成本。若收盘价相对该成本长期存在一致的正向或负向偏离，说明尾盘交易行为并非随机，而可能源于机构订单执行、收盘做市或价格操纵。稳定的VWAP漂移能够区分由真正的平衡交易形成的收盘价与由尾盘压力推动的价格，进而捕捉由微观结构摩擦导致的定价偏差。该因子基于价格路径而非单日收益，与收益波动或特质波动逻辑互补。"
+  },
+  "provider_request_id": "378eca25-4c0a-4535-8999-4fde2b851309",
+  "usage": {
+    "prompt_tokens": 4179,
+    "completion_tokens": 7707,
+    "total_tokens": 11886,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 7456
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 2899
+  }
+}

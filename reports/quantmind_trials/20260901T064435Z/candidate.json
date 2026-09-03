@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T06:44:35.919940+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_LIQUIDITY_AMPLIFICATION",
+    "formula": "TS_MEAN($amount,5) / (TS_STD($close,20) * SAFE_DIV(TS_MEAN($amount,20),TS_MEAN($amount,5)))",
+    "inputs": [
+      "amount",
+      "close"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "成交额短期放大而波动率相对平稳时，往往反映非理性炒作或流动性脉冲，后续容易均值回归；反之成交额温和放大伴随波动率上升则可能确认趋势。"
+  },
+  "provider_request_id": "80d783c9-82d5-42d4-a045-29490229fbb0",
+  "usage": {
+    "prompt_tokens": 452,
+    "completion_tokens": 216,
+    "total_tokens": 668,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 452
+  }
+}

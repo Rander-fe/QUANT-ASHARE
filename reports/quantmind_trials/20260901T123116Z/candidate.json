@@ -1,0 +1,32 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-01T12:31:16.022286+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_PRICE_PATH_EFFICIENCY",
+    "formula": "SAFE_DIV(ABS($close - DELAY($close,20)), TS_SUM(ABS(DELTA($close,1)),20))",
+    "inputs": [
+      "close"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "价格路径效率越高，表示过去一段时间内价格变动更为连续和单向，趋势性更强，可能预示后续收益的正向持续性。"
+  },
+  "provider_request_id": "0914b2d9-5f69-4555-b9c5-b927a3ffc4b9",
+  "usage": {
+    "prompt_tokens": 523,
+    "completion_tokens": 1891,
+    "total_tokens": 2414,
+    "prompt_tokens_details": {
+      "cached_tokens": 512
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1720
+    },
+    "prompt_cache_hit_tokens": 512,
+    "prompt_cache_miss_tokens": 11
+  }
+}

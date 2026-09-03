@@ -1,0 +1,53 @@
+{
+  "status": "weekly_training_backtest_complete",
+  "candidate": "QM_COMPOSITE_QUALITY_LOW_CROWDING_LOWVOL_WINSOR_Z_SIZE_NEUTRAL",
+  "signal_file": "/workspace/reports/quantmind_trials/local_quality_low_crowding_lowvol_5d/train_evaluation_5d/factor_values.parquet",
+  "direction": "positive",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "schedule": {
+    "signal": "last_actual_trading_day_of_week_after_close",
+    "execution": "next_trading_day_open"
+  },
+  "portfolio": {
+    "mode": "long_only",
+    "long_quantile": 0.1,
+    "weighting": "equal",
+    "initial_cash": 100000000.0,
+    "lot_size": 100,
+    "minimum_cross_section": 100
+  },
+  "cost_scenarios": [
+    {
+      "cost_bps": 10,
+      "annual_return": 0.07954036022312927,
+      "benchmark_annual_return": 0.021413001781488417,
+      "annual_excess_return": 0.05812735844164085,
+      "annual_volatility": 0.19508953528112777,
+      "sharpe": 0.49075753527460714,
+      "information_ratio": 0.3657644235731335,
+      "max_drawdown": -0.3940255204881806,
+      "final_nav": 1.7170486141509236,
+      "rebalance_count": 372,
+      "average_weekly_one_way_turnover": 0.24869991798350738,
+      "annualized_one_way_turnover": 13.062613894446109,
+      "total_trading_cost": 23205127.914777383,
+      "blocked_buy_count": 123,
+      "blocked_sell_count": 765,
+      "blocked_buy_rate_per_selection": 0.0009665859868607173
+    }
+  ],
+  "primary_cost_bps": 10,
+  "training_reference_gates": {
+    "minimum_net_sharpe": 0.5,
+    "minimum_net_annual_excess_return": 0.0,
+    "maximum_net_drawdown_abs": 0.5
+  },
+  "training_gates_passed": false,
+  "formal_sota_decision": "remain_experimental",
+  "warning": "Training backtest is not final proof. Validation was not reused and test was not accessed."
+}

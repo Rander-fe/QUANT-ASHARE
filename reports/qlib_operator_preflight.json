@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "executed_at": "2026-09-01T06:18:09.543572+00:00",
+  "provider_uri": "/qlib_data",
+  "instrument": "SH600000",
+  "period": [
+    "2020-01-01",
+    "2020-03-31"
+  ],
+  "results": {
+    "TS_MEDIAN": {
+      "status": "passed",
+      "expression": "Med($close, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "TS_SKEW": {
+      "status": "passed",
+      "expression": "Skew($close, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "TS_KURT": {
+      "status": "passed",
+      "expression": "Kurt($close, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "TS_COV": {
+      "status": "passed",
+      "expression": "Cov($close, $volume, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "TS_MAD": {
+      "status": "passed",
+      "expression": "Mad($close, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "TS_DECAY_LINEAR": {
+      "status": "passed",
+      "expression": "WMA($close, 5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "SIGN": {
+      "status": "passed",
+      "expression": "Sign($close-Ref($close,1))",
+      "rows": 58,
+      "non_null": 58
+    },
+    "SQRT": {
+      "status": "passed",
+      "expression": "Power(Abs($close), 0.5)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "WHERE": {
+      "status": "passed",
+      "expression": "If(Greater($close,Ref($close,1)),1,0)",
+      "rows": 58,
+      "non_null": 58
+    },
+    "CLIP": {
+      "status": "passed",
+      "expression": "If(Greater($close,100),100,If(Less($close,1),1,$close))",
+      "rows": 58,
+      "non_null": 58
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T05:23:54.611778+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_CF_NP_GROWTH_GAP",
+    "formula": "$ocf_yoy - $netprofit_yoy",
+    "inputs": [
+      "ocf_yoy",
+      "netprofit_yoy"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "positive",
+    "economic_rationale": "经营现金流增速高于净利润增速往往意味着利润增长的现金含量更高、盈利质量改善，预期未来表现更稳健；反之若利润增长缺乏现金流支撑，则盈利质量可能偏低。"
+  },
+  "provider_request_id": "73f6dcab-9e00-4a8b-b4f6-5cc89b4b4db8",
+  "usage": {
+    "prompt_tokens": 3891,
+    "completion_tokens": 852,
+    "total_tokens": 4743,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 691
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3891
+  }
+}

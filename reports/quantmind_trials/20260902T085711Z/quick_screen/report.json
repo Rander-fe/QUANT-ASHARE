@@ -1,0 +1,45 @@
+{
+  "status": "quick_screen_complete",
+  "candidate": {
+    "factor_name": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20",
+    "formula": "SAFE_DIV(TS_MEAN(WHERE($close < $vwap, $volume, 0), 20), TS_MEAN($volume, 20))",
+    "inputs": [
+      "close",
+      "vwap",
+      "volume"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "若股票在下跌时段（收盘价低于VWAP）释放的成交量占更高比例，说明抛售压力在弱势时段更集中，反映筹码派发和流动性承接不足，此类股票未来收益倾向为负。"
+  },
+  "score_column": "QM_DS_DOWN_SESSION_VOLUME_SHARE_20_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2021-04-30",
+    "2023-04-30"
+  ],
+  "label_column": "label_ret_5",
+  "label_horizon_trading_days": 5,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 2156688,
+    "raw_missing_rate": 0.042756300401356154,
+    "infinity_count": 0,
+    "p01": 0.21424896970577206,
+    "median": 0.5066164243992561,
+    "p99": 0.7774233312010211,
+    "max": 1.0
+  },
+  "performance": {
+    "ic": 0.010108769300687425,
+    "rank_ic": 0.012056653085869248,
+    "ic_ir": 0.17816649413138375,
+    "rank_ic_ir": 0.1773272895965977
+  },
+  "learned_direction_train_only": "positive",
+  "core25_highest_redundancy": null,
+  "admitted_registry_highest_redundancy": null,
+  "train_evaluation_gates": null,
+  "preliminary_decision": "quick_passed"
+}

@@ -1,0 +1,69 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-09-02T11:05:57.173281+00:00",
+  "feature_count": 30,
+  "human_count": 25,
+  "qm_count": 5,
+  "label": "label_ret_5",
+  "tuning": {
+    "best_trial": 23,
+    "best_score": 0.08636410018370672,
+    "tune_rank_ic": 0.08523843858484516,
+    "tune_turnover_proxy": 0.6368627287870022,
+    "best_iteration": 156,
+    "params": {
+      "objective": "regression",
+      "metric": "mse",
+      "learning_rate": 0.02650117424617107,
+      "colsample_bytree": 0.8515698523885809,
+      "subsample": 0.9749509270863245,
+      "subsample_freq": 3,
+      "lambda_l1": 471.09563302155703,
+      "lambda_l2": 4.5111632814001235,
+      "max_depth": 9,
+      "num_leaves": 89,
+      "min_data_in_leaf": 1337,
+      "num_threads": 8,
+      "verbosity": -1,
+      "seed": 42,
+      "min_sum_hessian_in_leaf": 0.0018404494003894396,
+      "min_gain_to_split": 0.0002801365182257235
+    },
+    "train_period": [
+      "2016-01-01",
+      "2023-04-21"
+    ],
+    "tune_period": [
+      "2023-05-01",
+      "2024-06-21"
+    ],
+    "label_boundary_purge_trading_days": 5,
+    "holdout_period": [
+      "2024-07-01",
+      "2025-01-01"
+    ],
+    "holdout_ic": 0.0838091395346025,
+    "holdout_rank_ic": 0.09662128376164479,
+    "holdout_rank_ic_ir": 1.2632455380149439,
+    "test_data_used": false
+  },
+  "weekly_10bps_holdout": {
+    "annual_return": 0.9465713729858232,
+    "benchmark_annual_return": 0.28497273504791454,
+    "annual_excess_return": 0.6615986379379086,
+    "annual_volatility": 0.3731862555484907,
+    "sharpe": 1.9694290553607754,
+    "information_ratio": 2.150411743303696,
+    "max_drawdown": -0.11181586883303996,
+    "final_nav": 1.3878399020156258,
+    "rebalance_count": 26,
+    "average_weekly_one_way_turnover": 0.5955108030878293,
+    "annualized_one_way_turnover": 30.25579080204294,
+    "total_trading_cost": 3627656.660066633,
+    "blocked_buy_count": 164,
+    "blocked_sell_count": 5,
+    "blocked_buy_rate_per_selection": 0.012720080663926162
+  },
+  "test_data_used": false,
+  "warning": "This is a validation experiment, not the final locked test result."
+}

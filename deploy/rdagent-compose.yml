@@ -1,0 +1,43 @@
+name: quantmind-rdagent
+
+services:
+  native-trial:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.rdagent
+    image: quantmind-rdagent:local
+    env_file:
+      - ../.env.deepseek
+      - ../config/quantmind_rdagent.env.example
+    environment:
+      PYTHONPATH: /workspace:/opt/rd-agent
+      WORKSPACE_PATH: /workspace/reports/rdagent_native/workspace
+      MULTI_PROC_N: "1"
+      STEP_SEMAPHORE: "1"
+      ENABLE_MLFLOW: "false"
+      # DeepSeek returns valid JSON, but RD-Agent's generic response schema does
+      # not permit our list-valued inputs and integer lookback extensions.
+      ENABLE_RESPONSE_SCHEMA: "false"
+      ENV_DICT: '{"PATH":"/usr/local/bin"}'
+      QLIB_QUANT_FACTOR_HYPOTHESIS2EXPERIMENT: quantmind_integration.rdagent_hook.ValidatedQlibFactorHypothesis2Experiment
+      QLIB_QUANT_ACTION_SELECTION: bandit
+      QLIB_FACTOR_EVOLVING_N: "1"
+      COSTEER_MAX_LOOP: "1"
+      FACTOR_COSTEER_MAX_LOOP: "1"
+      # The bundled Qlib preflight dataset ends in 2020-09.  These dates are
+      # isolated smoke-trial splits and never participate in formal SOTA admission.
+      QLIB_FACTOR_TRAIN_START: 2016-01-01
+      QLIB_FACTOR_TRAIN_END: 2018-12-31
+      QLIB_FACTOR_VALID_START: 2019-01-01
+      QLIB_FACTOR_VALID_END: 2019-12-31
+      QLIB_FACTOR_TEST_START: 2020-01-01
+      QLIB_FACTOR_TEST_END: 2020-09-01
+    volumes:
+      - ..:/workspace
+      - ../data/qlib_preflight/cn_data:/root/.qlib/qlib_data/cn_data:ro
+      # Reuse QUANTMIND's existing LiteLLM 1.97 / Pydantic 2.13 compatibility shim.
+      - ../vendor/quantmind/docker/litellm_sitecustomize.py:/usr/local/lib/python3.10/site-packages/sitecustomize.py:ro
+    working_dir: /workspace
+    # The first smoke trial is factor-only so one loop deterministically means
+    # one candidate.  QuantRDLoop is used after this gate for joint evolution.
+    command: ["python", "-m", "rdagent.app.qlib_rd_loop.factor", "--loop_n", "1"]

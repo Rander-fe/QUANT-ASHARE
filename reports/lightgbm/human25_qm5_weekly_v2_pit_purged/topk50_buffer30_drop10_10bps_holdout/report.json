@@ -1,0 +1,74 @@
+{
+  "status": "complete",
+  "model": "lightgbm_human25_qm5_v2_pit_purged",
+  "score_source": "reports/lightgbm/human25_qm5_weekly_v2_pit_purged/validation_holdout_scores.parquet",
+  "period": [
+    "2024-07-01",
+    "2025-01-01"
+  ],
+  "config": {
+    "execution_rule_version": "open_limit_v2",
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 10,
+    "rebalance_rule": "calendar_week_end",
+    "rebalance_days": 5,
+    "rebalance_offset": 0,
+    "initial_cash": 100000000.0,
+    "buy_cost": 0.001,
+    "sell_cost": 0.001,
+    "min_commission": 5.0,
+    "lot_size": 100,
+    "winsor_quantile": 0.01,
+    "max_industry_weight": 0.2,
+    "use_mean_variance_optimizer": false,
+    "max_stock_weight": 0.04,
+    "covariance_lookback": 120,
+    "covariance_min_observations": 40,
+    "alpha_scale": 0.025,
+    "risk_aversion": 0.5,
+    "turnover_penalty": 0.003,
+    "target_annual_volatility": 0.35,
+    "volatility_lookback": 60,
+    "use_dynamic_exposure": false,
+    "minimum_exposure": 0.6,
+    "max_rebalance_turnover": "disabled",
+    "drawdown_tiers": [
+      [
+        -0.2,
+        0.9
+      ],
+      [
+        -0.3,
+        0.75
+      ],
+      [
+        -0.4,
+        0.6
+      ]
+    ],
+    "benchmark": "SH000300"
+  },
+  "metrics": {
+    "annual_return": 1.2076175713347257,
+    "benchmark_annual_return": 0.28497273504791454,
+    "annual_excess_return": 0.9226448362868112,
+    "annual_volatility": 0.4155264506659279,
+    "sharpe": 2.11057733244534,
+    "information_ratio": 2.4234381152923734,
+    "max_drawdown": -0.130637047196564,
+    "average_daily_turnover": 0.08597601399776633,
+    "annualized_two_sided_turnover": 21.840680975239028,
+    "initial_build_turnover": 0.9990003158002198,
+    "average_exposure": 1.0,
+    "average_actual_exposure": 0.9552242139318672,
+    "max_rebalance_turnover": 0.543593439517636,
+    "max_regular_rebalance_turnover": 0.543593439517636,
+    "total_cost": 1429406.1192101242,
+    "total_cost_ratio": 0.011836844635931144,
+    "annualized_cost_ratio": 0.024055522969795552,
+    "trading_days": 125
+  },
+  "test_data_used": false,
+  "warning": "Validation holdout result; final test remains locked."
+}

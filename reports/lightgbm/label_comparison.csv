@@ -1,0 +1,2 @@
+﻿label,segment,n_days,ic_mean,icir,rank_ic_mean,rank_icir,rank_icir_daily_overlapping,rank_ic_nw_t,rank_ic_nw_lags,rank_ic_nonoverlap_median,rank_ic_nonoverlap_worst,rank_ic_nonoverlap_best,rank_ic_nonoverlap_positive_ratio,rank_icir_nonoverlap_median,nonoverlap_min_observations,nonoverlap_max_observations,ic_positive_ratio,top_group_mean,bottom_group_mean,long_short_spread
+label_ret_20,valid,406,0.092976,15.257646,0.096664,16.948402,16.948402,6.148324,19,0.096686,0.083951,0.109916,1.0,3.664343,20,21,0.835,0.010992,-0.016006,0.026998

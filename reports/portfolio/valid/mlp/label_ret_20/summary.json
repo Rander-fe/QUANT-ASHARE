@@ -1,0 +1,32 @@
+{
+  "segment": "valid",
+  "model": "mlp",
+  "label": "label_ret_20",
+  "config": {
+    "topk": 50,
+    "buffer": 30,
+    "max_drop": 5,
+    "rebalance_days": 20,
+    "initial_cash": 100000000.0,
+    "buy_cost": 0.0005,
+    "sell_cost": 0.0015,
+    "min_commission": 5.0,
+    "lot_size": 100,
+    "winsor_quantile": 0.01,
+    "max_industry_weight": 0.2,
+    "benchmark": "SH000300"
+  },
+  "config_hash": "ba6f58bba0a6b4b52468c68ee4f1fd510a9fa1b8eebc0d79722cd0e25ff8b739",
+  "metrics": {
+    "annual_return": 0.0175516900512227,
+    "benchmark_annual_return": -0.014785866190094699,
+    "annual_excess_return": 0.0323375562413174,
+    "annual_volatility": 0.3233877061650342,
+    "sharpe": 0.21546819538341228,
+    "information_ratio": 0.26559246889466265,
+    "max_drawdown": -0.3923426009130646,
+    "average_daily_turnover": 0.01325304449224456,
+    "total_cost": 454384.6331964802,
+    "trading_days": 406
+  }
+}

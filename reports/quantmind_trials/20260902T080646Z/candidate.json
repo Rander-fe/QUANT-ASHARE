@@ -1,0 +1,33 @@
+{
+  "status": "experimental",
+  "sota_write": false,
+  "model": "deepseek-v4-flash",
+  "generated_at": "2026-09-02T08:06:46.352041+00:00",
+  "candidate_count": 1,
+  "candidate": {
+    "factor_name": "QM_DS_FLOAT_SHARE",
+    "formula": "SAFE_DIV($circ_mv, $total_mv)",
+    "inputs": [
+      "circ_mv",
+      "total_mv"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "negative",
+    "economic_rationale": "低流通比例对应稀缺的二级市场供给与较差的流动性和套利能力，投资者会要求更高风险溢价；而高流通比例则因供给充足、流动性好而要求较低预期回报。该变量反映公司股本结构和自由流通盘差异，属于换手极低的慢变量，适合周频调仓。"
+  },
+  "provider_request_id": "4b4ab0c5-663c-470f-9dff-ab0046ae6498",
+  "usage": {
+    "prompt_tokens": 3139,
+    "completion_tokens": 5993,
+    "total_tokens": 9132,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5784
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3139
+  }
+}

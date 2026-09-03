@@ -1,0 +1,67 @@
+{
+  "version": "v2_multifold_purged",
+  "label": "label_ret_20",
+  "factor_list": "passed_factor_cols_v2.json",
+  "n_features": 40,
+  "n_trials": 30,
+  "objective": "mean_fold_rank_ic - 0.5 * std_fold_rank_ic",
+  "best_trial": 26,
+  "best_robust_score": 0.015966141107054087,
+  "fold_rank_ic": [
+    0.12790028628526476,
+    0.0036940905392700853,
+    0.004017108664878571
+  ],
+  "mean_rank_ic": 0.045203828496471136,
+  "std_rank_ic": 0.0584753747788341,
+  "worst_rank_ic": 0.0036940905392700853,
+  "best_iterations": [
+    687,
+    156,
+    1
+  ],
+  "folds": [
+    {
+      "train": [
+        "2020-07-08",
+        "2023-08-07"
+      ],
+      "valid": [
+        "2023-09-05",
+        "2023-12-05"
+      ]
+    },
+    {
+      "train": [
+        "2020-12-31",
+        "2024-01-31"
+      ],
+      "valid": [
+        "2024-03-08",
+        "2024-06-06"
+      ]
+    },
+    {
+      "train": [
+        "2021-07-02",
+        "2024-08-02"
+      ],
+      "valid": [
+        "2024-09-02",
+        "2024-12-03"
+      ]
+    }
+  ],
+  "params": {
+    "max_depth": 8,
+    "learning_rate": 0.006525326885952654,
+    "num_leaves": 84,
+    "min_data_in_leaf": 103,
+    "lambda_l1": 1.8095803060027107,
+    "lambda_l2": 8.21429768441782,
+    "feature_fraction": 0.6941792949623297,
+    "bagging_fraction": 0.8781470374878265
+  },
+  "test_data_used": false,
+  "warning": "V2开发发生在V1测试已查看之后，必须等待新未来数据独立验证。"
+}

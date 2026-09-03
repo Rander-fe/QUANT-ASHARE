@@ -1,0 +1,51 @@
+{
+  "status": "train_evaluation_complete",
+  "candidate": {
+    "factor_name": "QM_DS_IND_RESID_WIN_RATE",
+    "formula": "TS_MEAN(WHERE($IND_RESID_RET_1D > 0, 1, 0), 20)",
+    "inputs": [
+      "IND_RESID_RET_1D"
+    ],
+    "lookback": 20,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "个股在剔除市场与行业影响后的残差持续为正，反映其自身基本面或资金面的相对强势，该正向持续性可能预示未来收益延续。"
+  },
+  "score_column": "QM_DS_IND_RESID_WIN_RATE_WINSOR_Z_SIZE_NEUTRAL",
+  "period": [
+    "2016-01-01",
+    "2023-04-30"
+  ],
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "quality": {
+    "rows": 6483208,
+    "raw_missing_rate": 0.014701209648063119,
+    "infinity_count": 0,
+    "p01": 0.0,
+    "median": 0.45,
+    "p99": 0.7,
+    "max": 1.0
+  },
+  "performance": {
+    "ic": 0.00047049233009485546,
+    "rank_ic": -0.0017827894453117364,
+    "ic_ir": 0.007928260651858924,
+    "rank_ic_ir": -0.028132566820899017
+  },
+  "learned_direction_train_only": "negative",
+  "core25_highest_redundancy": {
+    "core_factor": "OBV_CHG_20",
+    "daily_rank_corr_mean": 0.3012626185066665,
+    "daily_abs_rank_corr_mean": 0.3013910681613465,
+    "partial_rank_ic": 0.014332762160918625
+  },
+  "train_evaluation_gates": {
+    "maximum_missing_rate": 0.15,
+    "minimum_absolute_rank_ic": 0.01,
+    "minimum_absolute_incremental_rank_ic": 0.005,
+    "maximum_core25_absolute_rank_correlation": 0.7,
+    "weekly_backtest_only_after_all_gates_pass": true
+  },
+  "preliminary_decision": "rejected_weak_train_rank_ic"
+}

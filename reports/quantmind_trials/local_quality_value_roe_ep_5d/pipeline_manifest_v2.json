@@ -1,0 +1,31 @@
+{
+  "pipeline_version": 3,
+  "completed_at_utc": "2026-09-02T05:43:22.068349+00:00",
+  "prediction_label": "label_ret_5",
+  "prediction_horizon_trading_days": 5,
+  "candidate_file": "/workspace/reports/quantmind_trials/local_quality_value_roe_ep_5d/candidate.json",
+  "candidate": {
+    "factor_name": "QM_COMPOSITE_QUALITY_VALUE_ROE_EP",
+    "formula": "2*SIGN($roe)*LOG1P(ABS($roe))+SIGN(SAFE_DIV(1,$pe_ttm))*LOG1P(ABS(SAFE_DIV(1,$pe_ttm)))",
+    "inputs": [
+      "roe",
+      "pe_ttm"
+    ],
+    "lookback": 1,
+    "availability": "after_close",
+    "direction": "learned",
+    "economic_rationale": "以ROE为主、EP为辅构成质量价值复合因子；对称对数压缩异常值并保留亏损与负ROE符号。"
+  },
+  "train_decision": "rejected_excessive_missing_rate",
+  "replacement_rule": {
+    "threshold": 0.7,
+    "triggered": false,
+    "executed": false
+  },
+  "weekly_20bps": "not_eligible",
+  "weekly_training_gates_passed": false,
+  "formal_sota_write": false,
+  "validation_rows_read": 0,
+  "test_rows_read": 0,
+  "next_step": "reject or retain experimental"
+}
