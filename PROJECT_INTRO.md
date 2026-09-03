@@ -70,6 +70,28 @@ Qlib 行情 + Tushare 财务/估值
 
 每一阶段的“上一阶段产物”都是下一阶段的输入，不能跳过：数据准备产生可用的行情、财务和状态数据；270因子库产生候选特征；人工筛选产生 `human_core_25_v1.json`；DeepSeek阶段只在这25个因子之外寻找增量信息；最终模型再冻结25个人工因子和5个准入增量因子。主流程中的详细说明、文件、阈值、经济逻辑和面试问答，分别按上述阶段编排在本文后续对应章节中。
 
+### 1.4 主流程步骤与文件对照表
+
+| 顺序 | 实验步骤 | 关键入口文件 | 主要输入 | 主要输出 |
+|---:|---|---|---|---|
+| 1 | 数据准备 | `scripts/fetch_daily.py`、`fetch_financial.py`、`merge_data.py`、`fetch_stock_basic.py`、`clean_data.py`、`fetch_daily_basic_by_date.py` | Qlib行情、Tushare财务/估值、股票状态数据 | `merged_data.parquet`、`basic_cleaned.parquet`、`basic_cleaned_with_extra_by_date.parquet`、`financial_events.parquet` |
+| 2 | 270因子库构建 | `scripts/build_factors.py`、`scripts/build_alpha158.py`、`factors/registry.py`、`factors/base/`、`factors/operators_v2.py` | 清洗后的行情、财务、估值和交易数据 | `data/processed/factors.parquet`、`alpha158.parquet`、`label_ret_5/10/20` |
+| 3 | 270→58筛选 | `analysis/evaluate_factors.py`、`analysis/remove_redundant_factors.py` | 270因子和未来收益标签 | `factor_evaluation.parquet`、`daily_rankic.parquet`、`selected_factor_cols.json` |
+| 4 | 58→25人工核心因子 | `analysis/factor_quantile.py`、`analysis/factor_extra_checks.py`、`config/human_core_25_v1.json` | 58个保留因子、5日标签和分组结果 | `passed_factor_cols.json`、人工25因子清单 |
+| 5 | DeepSeek挖掘准备 | `scripts/build_factor_mining_memory.py`、`reports/factor_mining_memory.json`、`config/quantmind_candidate_policy.json` | 人工25因子、历史候选、失败记忆和允许字段/算子 | 挖掘记忆、候选生成规则和准入策略 |
+| 6 | DeepSeek生成候选 | `scripts/run_deepseek_factor_trial.py`、`.env.deepseek` | DeepSeek API、提示词、25因子和挖掘记忆 | `reports/quantmind_trials/<trial>/candidate.json` |
+| 7 | 候选因子准入 | `scripts/mine_one_factor.py`、`quantmind_integration/`、`quantmind_pipeline/` | 候选公式、训练数据、已有因子和交易底表 | quick/formal评估、去重报告、周频回测、`quantmind_admitted_registry.json` |
+| 8 | 冻结最终30因子 | `scripts/run_lgbm_human25_qm5_weekly.py`、`config/human_core_25_v1.json` | 人工25因子和5个准入增量因子 | `human25_qm5_ret5_v2_pit.json`、30因子特征表 |
+| 9 | LightGBM超参优化 | `models/lightgbm/optuna_search.py`、`models/lightgbm/optuna_search_v2.py` | 30因子特征、5日标签、训练/验证窗口 | `best_params.json`、`best_params_v2.json`、Optuna trial报告 |
+| 10 | LightGBM滚动训练 | `models/lightgbm/train.py`、`models/lightgbm/data.py`、`models/rolling.py`、`models/lightgbm/evaluate.py` | 冻结因子、标签和LightGBM参数 | 滚动模型、`lgb_pred_label_ret_5.parquet`、IC报告 |
+| 11 | 组合信号处理 | `backtest/alpha_signal.py`、`backtest/config.py` | LightGBM `pred`、行业、市值和持仓状态 | 中性化分数、TopK/Buffer/Dropout目标组合 |
+| 12 | 低频组合回测 | `backtest/run_backtest.py`、`backtest/engine.py`、`backtest/weekly_factor_engine.py` | 预测分数、交易底表、沪深300基准 | `nav.parquet`、`trades.parquet`、`holdings.parquet`、`summary.json` |
+| 13 | 三模型比较 | `models/ridge/train.py`、`models/mlp/train.py`、`analysis/compare_models.py` | 相同30因子、标签、窗口和验证集 | 模型比较报告、`selected_model.json` |
+| 14 | 预测期限比较 | `analysis/compare_labels.py`、`models/lightgbm/train.py` | `label_ret_5/10/20`及各自预测文件 | 标签周期比较报告 |
+| 15 | 稳定性与风险分析 | `analysis/compare_rebalance_frequency.py`、`analysis/diagnose_signal_to_portfolio.py`、`analysis/tune_portfolio.py` | 预测、组合净值、交易和暴露数据 | 稳定性、成本、换手、容量和风险归因报告 |
+
+阅读代码时建议沿着这张表从上到下走：先看入口文件，再看输入输出，最后查看对应报告。`main.py all` 只覆盖默认数据—因子—模型主链，不会自动完成 DeepSeek挖掘、三模型比较和全部组合分析。
+
 ---
 
 ## 2. 最重要的研究纪律
@@ -92,7 +114,7 @@ Qlib 行情 + Tushare 财务/估值
 ### 2.2 防未来函数的四层措施
 
 1. 行情因子只使用当日及以前的数据。所有滚动计算必须按 `symbol` 分组并按日期排序。
-2. 标签使用未来价格，例如 `close.shift(-20) / close - 1`，且任何 `label_ret_*` 列都禁止进入特征集合。
+2. 标签使用未来价格，例如 `close.shift(-5) / close - 1`，且任何 `label_ret_*` 列都禁止进入特征集合。
 3. 财务数据按公告日 `ann_date` 向后匹配，而不是按报告期 `end_date` 直接匹配。
 4. 滚动训练按标签周期设置 purge gap。例如 20 日标签要求训练末端与后续窗口至少隔离 20 个交易日，避免训练样本的未来收益区间穿入验证或预测区间。
 5. DeepSeek 因子不能直接写进最终模型；必须先经过候选公式校验、训练期 `label_ret_5` 统计、与人工25因子去重，以及统一10bps成本下的周频/低频组合准入。
