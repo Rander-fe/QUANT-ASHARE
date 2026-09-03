@@ -167,6 +167,19 @@ LightGBM 的任务不是预测价格，而是为每个交易日的股票输出�
 
 主要文件：`models/lightgbm/train.py`、`models/lightgbm/data.py`、`models/lightgbm/evaluate.py`、`models/lightgbm/optuna_search.py`、`models/rolling.py`。
 
+### LightGBM评分的四个层次
+
+项目不是把所有指标机械相加，而是让不同指标服务于不同阶段：
+
+| 层次 | 指标 | 作用 |
+|---|---|---|
+| 训练损失 | MSE | 让树逐步减少预测误差 |
+| 早停指标 | 验证集 MSE | 判断是否继续增加树 |
+| 调参目标 | 验证集平均 RankIC | 选择最适合股票排序的参数 |
+| 投资验收 | 净Sharpe、年化超额、最大回撤、换手、成本 | 判断能否转化为可交易组合 |
+
+LightGBM由许多棵树接力学习：后面的树不断修正前面树没有解释好的残差，并自动学习因子阈值和交互关系。一次 Optuna trial 就是“提出参数 → 训练 → 验证集早停 → 输出预测 → 计算平均 RankIC → 返回目标值”。因此，MSE是训练函数，RankIC是调参目标，净Sharpe等是最终投资验收标准。完整公式和小白版解释见 [PROJECT_INTRO.md](PROJECT_INTRO.md) 第8章。
+
 ## 七、预测评分标准
 
 设股票预测分数为 (s_{i,t})，未来5日收益为 (r_{i,t})：
